@@ -1,0 +1,350 @@
+---
+// No dynamic props needed — nav is static
+---
+
+<header id="site-header" class="sticky top-0 z-50 w-full">
+
+  <!-- Top utility bar -->
+  <div class="bg-green-dark text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+      <div class="flex items-center justify-between text-sm">
+        <a
+          href="https://www.google.com/search?q=LA+Dental+Town+East+Los+Angeles+reviews"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-2 text-white/90 hover:text-white transition-colors"
+          aria-label="View our Google reviews - 4.9 stars">
+          <span class="text-gold leading-none" aria-hidden="true">★★★★★</span>
+          <span class="font-medium">4.9 Google Rating</span>
+          <span class="hidden sm:inline text-white/40 mx-0.5">·</span>
+          <span class="hidden sm:inline text-white/70">305 Reviews</span>
+        </a>
+        <div class="flex items-center gap-4 sm:gap-6">
+          <span class="hidden md:block text-white/60 text-xs italic">Se Habla Español</span>
+          <a href="tel:+13238870088" class="flex items-center gap-1.5 font-semibold text-white hover:text-gold transition-colors">
+            <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+            </svg>
+            (323) 887-0088
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main navigation bar -->
+  <nav class="bg-white shadow-sm border-b border-neutral-100" aria-label="Main navigation">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 lg:h-[72px]">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 shrink-0 group" aria-label="LA Dental Town — Home">
+          <div class="w-9 h-9 bg-green-dark rounded-full flex items-center justify-center shrink-0 group-hover:bg-green-mid transition-colors duration-200">
+            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2C9.79 2 8 3.12 7 4.5 6 3.12 4 3 4 5.5 4 8.5 5.5 10 5.5 13c0 2.5.5 7 2.5 7 1.5 0 2-2.5 2.5-4.5h3C14 17.5 14.5 20 16 20c2 0 2.5-4.5 2.5-7 0-3 1.5-4.5 1.5-7.5 0-2.5-2-2.38-3-1C16 3.12 14.21 2 12 2z"/>
+            </svg>
+          </div>
+          <div class="leading-tight">
+            <p class="font-display font-bold text-green-dark text-[17px] tracking-tight leading-none">LA Dental Town</p>
+            <p class="font-body text-xs text-ink/60 uppercase tracking-wider mt-0.5">Family &amp; Cosmetic Dentistry</p>
+          </div>
+        </a>
+
+        <!-- Desktop nav links -->
+        <ul class="hidden lg:flex items-center list-none m-0 p-0" role="menubar">
+
+          <li role="none">
+            <a href="/" class="nav-link" role="menuitem">Home</a>
+          </li>
+
+          <li role="none">
+            <a href="/contents/appointments/" class="nav-link" role="menuitem">Appointments</a>
+          </li>
+
+          <!-- About Us -->
+          <li class="relative nav-group" role="none">
+            <button class="nav-link flex items-center gap-1" aria-haspopup="true" aria-expanded="false" role="menuitem" data-dropdown>
+              About Us
+              <svg class="nav-chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+              </svg>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-label="About Us">
+              <li role="none"><a href="/provider/" class="dropdown-item" role="menuitem">Meet the Doctors</a></li>
+              <li role="none"><a href="/contents/about/our-office/" class="dropdown-item" role="menuitem">Our Office</a></li>
+              <li role="none"><a href="/testimonials/" class="dropdown-item" role="menuitem">Testimonials</a></li>
+            </ul>
+          </li>
+
+          <!-- Services -->
+          <li class="relative nav-group" role="none">
+            <button class="nav-link flex items-center gap-1" aria-haspopup="true" aria-expanded="false" role="menuitem" data-dropdown>
+              Services
+              <svg class="nav-chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+              </svg>
+            </button>
+            <ul class="dropdown-menu w-52" role="menu" aria-label="Services">
+              <li role="none">
+                <a href="/services/" class="dropdown-item font-semibold border-b border-neutral-100 mb-1" role="menuitem">All Services</a>
+              </li>
+              <li role="none"><a href="/services/general-family-dentistry/" class="dropdown-item" role="menuitem">General &amp; Family</a></li>
+              <li role="none"><a href="/services/cosmetic-dentistry/" class="dropdown-item" role="menuitem">Cosmetic Dentistry</a></li>
+              <li role="none"><a href="/services/dental-implants/" class="dropdown-item" role="menuitem">Dental Implants</a></li>
+              <li role="none"><a href="/services/oral-surgery/" class="dropdown-item" role="menuitem">Oral Surgery</a></li>
+              <li role="none"><a href="/services/endodontics/" class="dropdown-item" role="menuitem">Endodontics</a></li>
+              <li role="none"><a href="/services/pediatric-dentistry/" class="dropdown-item" role="menuitem">Pediatric Dentistry</a></li>
+            </ul>
+          </li>
+
+          <!-- Patient Resources -->
+          <li class="relative nav-group" role="none">
+            <button class="nav-link flex items-center gap-1" aria-haspopup="true" aria-expanded="false" role="menuitem" data-dropdown>
+              Patient Resources
+              <svg class="nav-chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+              </svg>
+            </button>
+            <ul class="dropdown-menu w-52" role="menu" aria-label="Patient Resources">
+              <li role="none"><a href="/contents/patient-resources/first-visit/" class="dropdown-item" role="menuitem">First Visit</a></li>
+              <li role="none"><a href="/contents/patient-resources/financial/" class="dropdown-item" role="menuitem">Financial &amp; Insurance</a></li>
+              <li role="none"><a href="/contents/patient-resources/patient-forms/" class="dropdown-item" role="menuitem">Patient Forms</a></li>
+              <li role="none"><a href="/contents/before-after/" class="dropdown-item" role="menuitem">Before &amp; After</a></li>
+              <li role="none"><a href="/blog/" class="dropdown-item" role="menuitem">Blog</a></li>
+            </ul>
+          </li>
+
+          <li role="none"><a href="/contactus/" class="nav-link" role="menuitem">Contact</a></li>
+        </ul>
+
+        <!-- Right side: Book Now + hamburger -->
+        <div class="flex items-center gap-3">
+          <a href="/contents/appointments/" class="hidden lg:inline-flex items-center gap-1.5 bg-green-mid hover:bg-green-dark text-white font-body font-semibold text-sm px-6 py-2.5 rounded-full transition-colors duration-200 whitespace-nowrap">
+            Book Now
+          </a>
+          <button
+            id="mobile-menu-toggle"
+            class="lg:hidden flex flex-col justify-center items-center w-9 h-9 rounded-lg hover:bg-neutral-100 transition-colors gap-[5px]"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu">
+            <span class="block w-5 h-0.5 bg-ink rounded-full transition-all duration-200" id="ham-1"></span>
+            <span class="block w-5 h-0.5 bg-ink rounded-full transition-all duration-200" id="ham-2"></span>
+            <span class="block w-5 h-0.5 bg-ink rounded-full transition-all duration-200" id="ham-3"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu (hidden by default) -->
+    <div
+      id="mobile-menu"
+      class="hidden lg:hidden border-t border-neutral-200 bg-white"
+      aria-label="Mobile navigation">
+      <div class="max-w-7xl mx-auto px-4 py-4 space-y-0.5">
+        <a href="/" class="mobile-link">Home</a>
+        <a href="/contents/appointments/" class="mobile-link font-semibold text-green-mid">Appointments</a>
+
+        <div class="pt-2">
+          <p class="px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-ink/60">About Us</p>
+          <a href="/provider/" class="mobile-sublink">Meet the Doctors</a>
+          <a href="/contents/about/our-office/" class="mobile-sublink">Our Office</a>
+          <a href="/testimonials/" class="mobile-sublink">Testimonials</a>
+        </div>
+
+        <div class="pt-2">
+          <p class="px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-ink/60">Services</p>
+          <a href="/services/" class="mobile-sublink font-medium">All Services</a>
+          <a href="/services/general-family-dentistry/" class="mobile-sublink">General &amp; Family</a>
+          <a href="/services/cosmetic-dentistry/" class="mobile-sublink">Cosmetic Dentistry</a>
+          <a href="/services/dental-implants/" class="mobile-sublink">Dental Implants</a>
+          <a href="/services/oral-surgery/" class="mobile-sublink">Oral Surgery</a>
+          <a href="/services/endodontics/" class="mobile-sublink">Endodontics</a>
+          <a href="/services/pediatric-dentistry/" class="mobile-sublink">Pediatric Dentistry</a>
+        </div>
+
+        <div class="pt-2">
+          <p class="px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-ink/60">Patient Resources</p>
+          <a href="/contents/patient-resources/first-visit/" class="mobile-sublink">First Visit</a>
+          <a href="/contents/patient-resources/financial/" class="mobile-sublink">Financial &amp; Insurance</a>
+          <a href="/contents/patient-resources/patient-forms/" class="mobile-sublink">Patient Forms</a>
+          <a href="/contents/before-after/" class="mobile-sublink">Before &amp; After</a>
+          <a href="/blog/" class="mobile-sublink">Blog</a>
+        </div>
+
+        <a href="/contactus/" class="mobile-link">Contact</a>
+
+        <div class="pt-4 pb-2 border-t border-neutral-200 mt-2 space-y-3">
+          <a href="/contents/appointments/" class="block w-full text-center bg-green-mid hover:bg-green-dark text-white font-body font-semibold py-3.5 rounded-full transition-colors duration-200">
+            Book Appointment
+          </a>
+          <a href="tel:+13238870088" class="block w-full text-center font-body font-medium text-green-mid hover:text-green-dark transition-colors py-1">
+            Call (323) 887-0088
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<style>
+  /* Nav links */
+  .nav-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    white-space: nowrap;
+    transition: color 150ms;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    line-height: 1.5;
+  }
+  .nav-link:hover {
+    color: var(--color-green-mid);
+    text-decoration: none;
+  }
+
+  /* Dropdown chevron */
+  .nav-chevron {
+    width: 12px;
+    height: 12px;
+    transition: transform 200ms;
+    flex-shrink: 0;
+  }
+  .nav-group:hover .nav-chevron,
+  .nav-group:focus-within .nav-chevron {
+    transform: rotate(180deg);
+  }
+
+  /* Dropdown menu */
+  .dropdown-menu {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    min-width: 180px;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    padding: 0.375rem;
+    list-style: none;
+    margin: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transition: opacity 150ms, visibility 150ms, transform 150ms;
+    z-index: 100;
+  }
+  .nav-group:hover .dropdown-menu,
+  .nav-group:focus-within .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  /* Dropdown items */
+  .dropdown-item {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    color: var(--color-ink);
+    border-radius: 8px;
+    transition: background-color 120ms, color 120ms;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .dropdown-item:hover {
+    background-color: var(--color-cream);
+    color: var(--color-green-mid);
+    text-decoration: none;
+  }
+
+  /* Mobile links */
+  .mobile-link {
+    display: block;
+    padding: 0.625rem 0.75rem;
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    border-radius: 8px;
+    transition: background-color 120ms, color 120ms;
+    text-decoration: none;
+  }
+  .mobile-link:hover {
+    background-color: var(--color-cream);
+    color: var(--color-green-mid);
+    text-decoration: none;
+  }
+  .mobile-sublink {
+    display: block;
+    padding: 0.5rem 1.25rem;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    color: var(--color-ink);
+    border-radius: 8px;
+    transition: background-color 120ms, color 120ms;
+    text-decoration: none;
+  }
+  .mobile-sublink:hover {
+    background-color: var(--color-cream);
+    color: var(--color-green-mid);
+    text-decoration: none;
+  }
+
+  /* Focus indicators */
+  .nav-link:focus-visible,
+  .dropdown-item:focus-visible,
+  .mobile-link:focus-visible,
+  .mobile-sublink:focus-visible {
+    outline: 2px solid var(--color-green-mid);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+</style>
+
+<script>
+  // Mobile hamburger toggle
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const ham1 = document.getElementById('ham-1');
+  const ham2 = document.getElementById('ham-2');
+  const ham3 = document.getElementById('ham-3');
+
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!isOpen));
+      menu.classList.toggle('hidden');
+      // Animate hamburger to X
+      if (!isOpen) {
+        ham1?.style.setProperty('transform', 'translateY(7px) rotate(45deg)');
+        ham2?.style.setProperty('opacity', '0');
+        ham3?.style.setProperty('transform', 'translateY(-7px) rotate(-45deg)');
+      } else {
+        ham1?.style.setProperty('transform', '');
+        ham2?.style.setProperty('opacity', '');
+        ham3?.style.setProperty('transform', '');
+      }
+    });
+  }
+
+  // Close mobile menu on outside click
+  document.addEventListener('click', (e) => {
+    const header = document.getElementById('site-header');
+    if (header && !header.contains(e.target as Node)) {
+      menu?.classList.add('hidden');
+      toggle?.setAttribute('aria-expanded', 'false');
+      ham1?.style.setProperty('transform', '');
+      ham2?.style.setProperty('opacity', '');
+      ham3?.style.setProperty('transform', '');
+    }
+  });
+</script>

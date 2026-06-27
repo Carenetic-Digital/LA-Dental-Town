@@ -1,21 +1,470 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const seoTitle = 'LA Dental Town | Family Dentistry in East Los Angeles, CA';
+const seoDescription = 'Top-rated family, cosmetic & specialty dental practice in East Los Angeles. General dentistry, Invisalign, dental implants, pediatric care & more. Walk-ins welcome. Se Habla Español.';
+
+const services = [
+  {
+    title: 'General & Family Dentistry',
+    description: 'Comprehensive care for patients of all ages — cleanings, exams, crowns & more.',
+    href: '/services/general-family-dentistry/',
+    iconColor: '#1D4D2F',
+    bgColor: '#E8F2EB',
+    icon: `<path d="M12 2C9.79 2 8 3.12 7 4.5 6 3.12 4 3 4 5.5 4 8.5 5.5 10 5.5 13c0 2.5.5 7 2.5 7 1.5 0 2-2.5 2.5-4.5h3C14 17.5 14.5 20 16 20c2 0 2.5-4.5 2.5-7 0-3 1.5-4.5 1.5-7.5 0-2.5-2-2.38-3-1C16 3.12 14.21 2 12 2z"/>`,
+  },
+  {
+    title: 'Cosmetic Dentistry',
+    description: 'Veneers, Invisalign, teeth whitening & smile makeovers — beautiful, natural results.',
+    href: '/services/cosmetic-dentistry/',
+    iconColor: '#3A7D44',
+    bgColor: '#EBF4EC',
+    icon: `<path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 14.24L12 13.41l-4.23 2.83L9.1 11.35 5.42 8.34l5.03-.36L12 3.4l1.55 4.58 5.03.36-3.68 3.01 1.33 4.89z"/>`,
+  },
+  {
+    title: 'Dental Implants',
+    description: 'The only restoration that preserves jawbone — permanent, natural-looking teeth.',
+    href: '/services/dental-implants/',
+    iconColor: '#163232',
+    bgColor: '#E6EFEF',
+    icon: `<path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>`,
+  },
+  {
+    title: 'Oral Surgery',
+    description: 'Expert wisdom teeth removal & extractions by our on-staff oral surgeon.',
+    href: '/services/oral-surgery/',
+    iconColor: '#1D4D2F',
+    bgColor: '#E8F2EB',
+    icon: `<path d="M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 7h-6v13h-2v-6h-2v6H9V9H3V7h18v2z"/>`,
+  },
+  {
+    title: 'Endodontics',
+    description: 'Root canals performed by our board-certified, Columbia-trained endodontist.',
+    href: '/services/endodontics/',
+    iconColor: '#3A7D44',
+    bgColor: '#EBF4EC',
+    icon: `<path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/>`,
+  },
+  {
+    title: 'Pediatric Dentistry',
+    description: 'Gentle, fun care for kids from their first visit — play area & PlayStation on-site.',
+    href: '/services/pediatric-dentistry/',
+    iconColor: '#1D4D2F',
+    bgColor: '#FAF4E4',
+    icon: `<path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>`,
+  },
+];
+
+const differentiators = [
+  { label: 'Walk-Ins Welcome', icon: `<path d="M13.49 5.48c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-3.6 13.9l1-4.4 2.1 2v6h2v-7.5l-2.1-2 .6-3c1.3 1.5 3.3 2.5 5.5 2.5v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1l-5.2 2.2v4.7h2v-3.4l1.8-.7-1.6 8.1-4.9-1-.4 2 7 1.4z"/>` },
+  { label: 'Se Habla Español', icon: `<path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.9 4.33 3.56zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56zm2.95-8H5.08c.96-1.66 2.49-2.93 4.33-3.56C8.81 5.55 8.35 6.75 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2s.07-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/>` },
+  { label: 'PPO & Medical Accepted', icon: `<path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>` },
+  { label: 'Convenient Appointments', icon: `<path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z"/>` },
+  { label: 'Advanced Technology', icon: `<path d="M19.5 12c0-3.59-2.91-6.5-6.5-6.5S6.5 8.41 6.5 12H4c0-4.97 4.03-9 9-9s9 4.03 9 9h-2.5zm-6.5 6c0 .55-.45 1-1 1h-1c-.55 0-1-.45-1-1v-4.5c0-.55.45-1 1-1h1c.55 0 1 .45 1 1V18z"/>` },
+  { label: 'Beautiful, Natural Results', icon: `<path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>` },
+];
+
+const testimonials = [
+  {
+    text: "Dr. Wu and her staff are very courteous and professional — they make you feel so comfortable you actually forget you are at the dentist.",
+    author: "Frank G.",
+    source: "Yelp",
+    stars: 5,
+  },
+  {
+    text: "This is truly a one stop shop; they have it all. The office is clean, the staff are friendly and knowledgeable.",
+    author: "Paul C.",
+    source: "Google",
+    stars: 5,
+  },
+  {
+    text: "Dr. Jen and Dr. Wu are both super friendly and professional and genuinely care about their patients and their comfort. I recommend them for all of your dental needs.",
+    author: "Yesenia T.",
+    source: "Yelp",
+    stars: 5,
+  },
+  {
+    text: "They took great care of us! Dr Wu, Dr Jen, Dr Tiff and their entire team are awesome!",
+    author: "Yogi P.",
+    source: "Google",
+    stars: 5,
+  },
+];
+
+const blogPosts = [
+  {
+    title: "The Benefits of Digital Impression Scans Over Traditional Dental Putty",
+    href: "/blog/the-benefits-of-digital-impression-scans-over-traditional-dental-putty/",
+    tag: "Technology",
+  },
+  {
+    title: "Why Same-Day Crowns Are the Best Option for Busy Professionals",
+    href: "/blog/why-same-day-crowns-are-the-best-option-for-busy-professionals/",
+    tag: "Restorative",
+  },
+  {
+    title: "Are You a Candidate for Dental Implants?",
+    href: "/blog/are-you-a-candidate-for-dental-implants/",
+    tag: "Implants",
+  },
+];
 ---
 
-<BaseLayout title="Site Factory">
-  <main class="min-h-screen flex items-center justify-center">
-    <div class="text-center p-8">
-      <h1 class="text-4xl font-display font-bold text-primary mb-4">
-        Site Factory Ready
-      </h1>
-      <p class="text-lg text-neutral-600 mb-8">
-        Run <code class="bg-neutral-200 px-2 py-1 rounded">/project:intake</code> to begin.
-      </p>
-      <div class="text-sm text-neutral-500">
-        <p>1. Edit <code>intake/INTAKE.md</code> with your project details</p>
-        <p>2. Edit <code>intake/sitemap.md</code> with your page structure</p>
-        <p>3. Run the intake command to start generation</p>
+<BaseLayout title={seoTitle} description={seoDescription}>
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       SECTION 1: Hero
+       TODO: Replace CSS gradient background with <video> when clip arrives.
+       See BaseLayout comment for integration instructions.
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="relative min-h-[80vh] lg:min-h-screen flex items-center overflow-hidden" aria-label="Welcome to LA Dental Town">
+    <!-- Gradient background (video placeholder) -->
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, #1D4D2F 0%, #1a4a2c 40%, #163232 100%)" aria-hidden="true"></div>
+
+    <!-- Dot pattern overlay -->
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px); background-size: 30px 30px" aria-hidden="true"></div>
+
+    <!-- Content -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-36">
+      <div class="max-w-2xl">
+        <p class="font-body text-xs sm:text-sm uppercase tracking-widest text-white/80 mb-5">East Los Angeles, California</p>
+        <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-white leading-[1.08] mb-6">
+          Healthy Smiles.<br>Happy Lives.
+        </h1>
+        <p class="font-body text-lg sm:text-xl text-white/75 leading-relaxed mb-10 max-w-lg">
+          Quality care for the whole family — general, cosmetic &amp; specialty dentistry serving East Los Angeles and surrounding communities.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a
+            href="/contents/appointments/"
+            class="inline-flex items-center gap-2 bg-green-mid hover:bg-white hover:text-green-dark text-white font-body font-semibold px-8 py-4 rounded-full text-base transition-all duration-200 shadow-lg">
+            Book Appointment
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <a
+            href="tel:+13238870088"
+            class="inline-flex items-center gap-2 border-2 border-white/50 hover:border-white text-white font-body font-medium px-8 py-4 rounded-full text-base transition-all duration-200">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+            </svg>
+            (323) 887-0088
+          </a>
+        </div>
       </div>
     </div>
-  </main>
+
+    <!-- Wave transition to next section -->
+    <div class="absolute bottom-0 left-0 right-0" aria-hidden="true">
+      <svg viewBox="0 0 1440 56" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" class="w-full h-10 sm:h-14">
+        <path d="M0 56L60 48C120 40 240 24 360 22.7C480 21.3 600 34.7 720 40C840 45.3 960 42.7 1080 37.3C1200 32 1320 24 1380 20L1440 16V56H1380C1320 56 1200 56 1080 56C960 56 840 56 720 56C600 56 480 56 360 56C240 56 120 56 60 56H0Z" fill="#F8F4EC"/>
+      </svg>
+    </div>
+  </section>
+
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       SECTION 2: Practice Differentiators
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-cream py-10 sm:py-14" aria-label="Why choose LA Dental Town">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ul class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 list-none m-0 p-0">
+        {differentiators.map((d) => (
+          <li class="flex flex-col items-center text-center gap-3 p-4 rounded-2xl bg-white border border-neutral-200/60 hover:border-green-mid/30 hover:shadow-md transition-all duration-200">
+            <div class="w-11 h-11 bg-green-dark/10 rounded-full flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5 text-green-dark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" set:html={d.icon}></svg>
+            </div>
+            <span class="font-body font-semibold text-ink text-xs leading-tight">{d.label}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       SECTION 3: Services
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-white py-20 sm:py-28" aria-labelledby="services-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <p class="font-body text-xs uppercase tracking-widest text-green-mid mb-3">What We Offer</p>
+        <h2 id="services-heading" class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-green-dark mb-5">
+          Comprehensive Dental Services
+        </h2>
+        <p class="font-body text-base sm:text-lg text-ink/60 max-w-2xl mx-auto leading-relaxed">
+          Full-spectrum care under one roof — from routine cleanings to dental implants, with specialists on staff for every need.
+        </p>
+      </div>
+
+      <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 list-none m-0 p-0">
+        {services.map((s) => (
+          <li>
+            <a
+              href={s.href}
+              class="group flex flex-col gap-4 p-6 rounded-2xl border border-neutral-200 hover:border-green-mid/40 hover:shadow-xl transition-all duration-200 h-full bg-white">
+              <div class="flex items-center gap-4">
+                <div
+                  class="w-12 h-12 rounded-xl flex items-center justify-center shrink-0"
+                  style={`background-color: ${s.bgColor}`}>
+                  <svg class="w-6 h-6" viewBox="0 0 24 24" fill={s.iconColor} aria-hidden="true" set:html={s.icon}></svg>
+                </div>
+                <h3 class="font-display font-semibold text-lg text-green-dark leading-tight group-hover:text-green-mid transition-colors">
+                  {s.title}
+                </h3>
+              </div>
+              <p class="font-body text-sm text-ink/60 leading-relaxed flex-grow">{s.description}</p>
+              <span class="font-body text-sm font-semibold text-green-mid group-hover:gap-2 flex items-center gap-1.5 transition-all">
+                Learn more
+                <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                </svg>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <div class="text-center mt-12">
+        <a href="/services/" class="inline-flex items-center gap-2 border-2 border-green-dark text-green-dark hover:bg-green-dark hover:text-white font-body font-semibold px-8 py-3.5 rounded-full transition-all duration-200">
+          View All Services
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       SECTION 4: About / Practice Description
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-cream py-20 sm:py-28" aria-labelledby="about-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+        <!-- Text content -->
+        <div>
+          <p class="font-body text-xs uppercase tracking-widest text-green-mid mb-3">Our Practice</p>
+          <h2 id="about-heading" class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-green-dark mb-7 leading-tight">
+            Trusted Care for<br>Every Smile
+          </h2>
+          <div class="space-y-5 font-body text-base text-ink/70 leading-relaxed">
+            <p>
+              The dentists at LA Dental Town in East Los Angeles emphasize patient comfort and staying up-to-date with the latest advances in dental technology and treatments. This allows our skilled team of general, family, and cosmetic dentists to offer patients of all ages the most comprehensive array of dental services.
+            </p>
+            <p>
+              Our caring, compassionate team takes a patient-centered approach to dental care — listening to your concerns and ensuring comfort throughout every diagnosis and treatment. We offer extensive amenities including optional oral sedation, nitrous oxide, blankets, pillows, and flatscreen TVs. Children enjoy our dedicated play area and PlayStation.
+            </p>
+            <p>
+              With outstanding dental education, cutting-edge technology, and an emphasis on a positive patient experience, the dentists at LA Dental Town are changing the way people think about visiting the dentist.
+            </p>
+          </div>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a href="/contents/appointments/" class="inline-flex items-center gap-2 bg-green-mid hover:bg-green-dark text-white font-body font-semibold px-7 py-3.5 rounded-full transition-colors duration-200">
+              Book an Appointment
+            </a>
+            <a href="/provider/" class="inline-flex items-center gap-2 text-green-mid hover:text-green-dark font-body font-semibold px-7 py-3.5 rounded-full border-2 border-green-mid hover:border-green-dark transition-colors duration-200">
+              Meet the Doctors
+            </a>
+          </div>
+        </div>
+
+        <!-- Stats / credential highlights -->
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-white rounded-2xl p-6 border border-neutral-200 flex flex-col gap-2">
+            <p class="font-display font-bold text-4xl text-green-dark leading-none">6</p>
+            <p class="font-body text-sm text-ink/60 leading-snug">Specialist doctors on staff</p>
+          </div>
+          <div class="bg-green-dark text-white rounded-2xl p-6 flex flex-col gap-2">
+            <p class="font-display font-bold text-4xl leading-none">4.9<span class="text-gold text-2xl">★</span></p>
+            <p class="font-body text-sm text-white/70 leading-snug">Google Rating</p>
+          </div>
+          <div class="bg-white rounded-2xl p-6 border border-neutral-200 flex flex-col gap-2">
+            <p class="font-display font-bold text-4xl text-green-dark leading-none">20+</p>
+            <p class="font-body text-sm text-ink/60 leading-snug">Years serving East LA</p>
+          </div>
+          <div class="bg-cream rounded-2xl p-6 border border-neutral-200 flex flex-col gap-2">
+            <p class="font-display font-bold text-2xl text-green-dark leading-tight">Top Rated</p>
+            <p class="font-body text-sm text-ink/70 leading-snug">America's Top Dentists — multiple years</p>
+          </div>
+          <div class="col-span-2 bg-white rounded-2xl p-6 border border-neutral-200">
+            <p class="font-body text-xs uppercase tracking-widest text-green-mid mb-2">Doctor Credentials</p>
+            <p class="font-body text-sm text-ink/70 leading-relaxed">UCSF · UC Berkeley · Univ. of the Pacific · Boston University — elite training for exceptional outcomes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       SECTION 5: Top Doctors Award
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-green-dark text-white py-16 sm:py-20" aria-labelledby="award-heading">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-2 mb-6">
+        <span class="text-gold text-base" aria-hidden="true">★</span>
+        <span class="font-body text-xs uppercase tracking-widest text-white/80">Award Recognition</span>
+      </div>
+      <h2 id="award-heading" class="font-display font-bold text-2xl sm:text-3xl lg:text-4xl text-white mb-6 leading-tight">
+        Top Rated Dentists in Los Angeles
+      </h2>
+      <p class="font-body text-base sm:text-lg text-white/75 leading-relaxed max-w-2xl mx-auto mb-8">
+        Drs. Jennifer Wu and Margaret Wu were selected as Top Rated Dentists in Los Angeles and featured in a <em>Time Magazine</em> advertorial — chosen by an independent research team through patient reviews on Google, Yelp, Healthgrades, and more.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-6 text-sm text-white/60">
+        <span class="flex items-center gap-2"><span class="text-gold" aria-hidden="true">★</span> America's Top Dentist — multiple years</span>
+        <span class="hidden sm:block text-white/20" aria-hidden="true">|</span>
+        <span class="flex items-center gap-2"><span class="text-gold" aria-hidden="true">★</span> Pasadena Top Dentist</span>
+        <span class="hidden sm:block text-white/20" aria-hidden="true">|</span>
+        <span class="flex items-center gap-2"><span class="text-gold" aria-hidden="true">★</span> 4.9 Google Rating</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       SECTION 6: Testimonials
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-white py-20 sm:py-28" aria-labelledby="testimonials-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <p class="font-body text-xs uppercase tracking-widest text-green-mid mb-3">Patient Reviews</p>
+        <h2 id="testimonials-heading" class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-green-dark mb-5">
+          What Our Patients Say
+        </h2>
+        <div class="flex items-center justify-center gap-2 text-base text-ink/60">
+          <span class="text-gold text-xl" aria-label="5 stars">★★★★★</span>
+          <span class="font-semibold text-ink">4.9</span>
+          <span>· 305 verified reviews</span>
+        </div>
+      </div>
+
+      <ul class="grid grid-cols-1 sm:grid-cols-2 gap-5 list-none m-0 p-0">
+        {testimonials.map((t) => (
+          <li class="bg-cream rounded-2xl p-7 border border-neutral-200/60 flex flex-col gap-4">
+            <div class="flex items-center gap-1 text-gold" aria-label={`${t.stars} stars`}>
+              {'★'.repeat(t.stars)}
+            </div>
+            <blockquote class="font-body text-base text-ink/80 leading-relaxed flex-grow">
+              "{t.text}"
+            </blockquote>
+            <footer class="flex items-center justify-between">
+              <cite class="font-body font-semibold text-sm text-ink not-italic">{t.author}</cite>
+              <span class="font-body text-xs text-ink/60 bg-white border border-neutral-200 rounded-full px-3 py-1">{t.source}</span>
+            </footer>
+          </li>
+        ))}
+      </ul>
+
+      <div class="text-center mt-10">
+        <a href="/testimonials/" class="inline-flex items-center gap-2 text-green-mid hover:text-green-dark font-body font-semibold text-sm transition-colors">
+          Read all reviews
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       SECTION 7: Blog Preview
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-cream py-20 sm:py-28" aria-labelledby="blog-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-5 mb-12">
+        <div>
+          <p class="font-body text-xs uppercase tracking-widest text-green-mid mb-3">Dental Health</p>
+          <h2 id="blog-heading" class="font-display font-bold text-3xl sm:text-4xl text-green-dark leading-tight">
+            From Our Blog
+          </h2>
+        </div>
+        <a href="/blog/" class="self-start sm:self-auto font-body text-sm font-semibold text-green-mid hover:text-green-dark flex items-center gap-1.5 transition-colors shrink-0">
+          View all posts
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+
+      <ul class="grid grid-cols-1 sm:grid-cols-3 gap-6 list-none m-0 p-0">
+        {blogPosts.map((post, i) => (
+          <li>
+            <a href={post.href} class="group block rounded-2xl bg-white border border-neutral-200 hover:border-green-mid/40 hover:shadow-xl overflow-hidden transition-all duration-200 h-full">
+              <!-- Image placeholder - replace with actual blog post image -->
+              <div
+                class="h-44 flex items-end p-4"
+                style={`background: linear-gradient(135deg, ${i === 0 ? '#1D4D2F, #3A7D44' : i === 1 ? '#163232, #1D4D2F' : '#3A7D44, #C9A84C'})`}
+                aria-hidden="true">
+                <span class="inline-block font-body text-xs font-semibold text-white/90 bg-white/20 rounded-full px-3 py-1">
+                  {post.tag}
+                </span>
+              </div>
+              <div class="p-6">
+                <h3 class="font-display font-semibold text-base text-green-dark leading-snug group-hover:text-green-mid transition-colors line-clamp-3">
+                  {post.title}
+                </h3>
+                <span class="mt-4 inline-flex items-center gap-1 font-body text-sm font-semibold text-green-mid">
+                  Read more
+                  <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                  </svg>
+                </span>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       SECTION 8: Insurance & CTA
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-teal-dark text-white py-16 sm:py-20" aria-labelledby="insurance-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
+
+        <!-- Insurance info -->
+        <div>
+          <p class="font-body text-xs uppercase tracking-widest text-gold mb-3">Insurance & Financing</p>
+          <h2 id="insurance-heading" class="font-display font-bold text-2xl sm:text-3xl lg:text-4xl text-white mb-5 leading-tight">
+            We Work With Your Insurance
+          </h2>
+          <p class="font-body text-base text-white/75 leading-relaxed mb-6">
+            Most PPO insurances and Denti-Cal accepted. We also offer flexible financing through <strong class="text-white">Alphaeon Credit</strong>, <strong class="text-white">CareCredit</strong>, and <strong class="text-white">Cherry</strong> — so quality dental care is always within reach.
+          </p>
+          <p class="font-body text-sm text-white/60">
+            Questions about coverage? Call us at <a href="tel:+13238870088" class="text-white font-semibold hover:text-gold transition-colors">(323) 887-0088</a>
+          </p>
+        </div>
+
+        <!-- CTA card -->
+        <div class="bg-white/10 rounded-3xl p-8 sm:p-10 border border-white/20">
+          <h3 class="font-display font-semibold text-2xl text-white mb-3">Ready to get started?</h3>
+          <p class="font-body text-white/70 text-sm leading-relaxed mb-7">
+            Walk-ins welcome. Se Habla Español. Book online or call our office — we'll find a time that works for you.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="/contents/appointments/" class="flex-1 text-center bg-green-mid hover:bg-green-dark text-white font-body font-semibold py-3.5 rounded-full transition-colors duration-200">
+              Book Appointment
+            </a>
+            <a href="tel:+13238870088" class="flex-1 text-center border-2 border-white/40 hover:border-white text-white font-body font-medium py-3.5 rounded-full transition-colors duration-200">
+              Call Us
+            </a>
+          </div>
+          <div class="mt-6 flex items-center gap-3 text-white/50 text-xs">
+            <svg class="w-4 h-4 shrink-0 text-green-mid" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
+            </svg>
+            <span>5262 E Beverly Blvd, East Los Angeles, CA 90022</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </BaseLayout>
