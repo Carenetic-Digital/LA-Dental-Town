@@ -1,0 +1,10 @@
+# Cloudflare redirects — Cloudflare Workers / Pages format
+# Format: /old-path /new-path STATUS_CODE
+
+# Name correction — Tiffany Wu → Tiffany Tran
+/provider/tiffany-wu-dds/            /provider/tiffany-tran-dds/    301
+/provider/tiffany-wu-dds/index.html  /provider/tiffany-tran-dds/    301
+
+# Removed page — Comfort & Safety (content folded into Services/About)
+/contents/patient-resources/comfort-safety/            /    301
+/contents/patient-resources/comfort-safety/index.html  /    301

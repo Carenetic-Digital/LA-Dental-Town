@@ -1,28 +1,80 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand colors - populated from intake/branding/colors.md */
-  --color-primary: oklch(0.5 0.2 250);
-  --color-secondary: oklch(0.7 0.15 200);
-  --color-accent: oklch(0.6 0.25 30);
+  /* ─── Brand Colors — LA Dental Town ──────────────────────────────────────
+     Source: intake/branding/colors.md (extracted from client marketing flyer)
+  ───────────────────────────────────────────────────────────────────────── */
+
+  /* Primary greens */
+  --color-green-dark:   #1D4D2F; /* Logo, footer, nav elements, badge backgrounds */
+  --color-green-mid:    #3A7D44; /* CTA buttons, links, hover states, highlights  */
+  --color-teal-dark:    #163232; /* Dark panel backgrounds (footer, CTA sections)  */
+
+  /* Accent */
+  --color-gold:         #C9A84C; /* Star ratings, dividers, sparkle icons — use sparingly */
+
+  /* Backgrounds */
+  --color-cream:        #F8F4EC; /* Primary page/section background — warm off-white */
+  --color-white:        #FFFFFF; /* Card backgrounds, text on dark, form fields     */
+
+  /* Text */
+  --color-ink:          #1A1A1A; /* Body text, headings on light backgrounds        */
+
+  /* Semantic aliases (used by Tailwind utilities below) */
+  --color-primary:      var(--color-green-dark);
+  --color-secondary:    var(--color-green-mid);
+  --color-accent:       var(--color-gold);
 
   /* Neutral scale */
-  --color-neutral-50: oklch(0.98 0 0);
+  --color-neutral-50:  oklch(0.98 0 0);
   --color-neutral-100: oklch(0.96 0 0);
   --color-neutral-200: oklch(0.92 0 0);
   --color-neutral-300: oklch(0.87 0 0);
-  --color-neutral-400: oklch(0.7 0 0);
+  --color-neutral-400: oklch(0.70 0 0);
   --color-neutral-500: oklch(0.55 0 0);
   --color-neutral-600: oklch(0.45 0 0);
   --color-neutral-700: oklch(0.35 0 0);
   --color-neutral-800: oklch(0.25 0 0);
   --color-neutral-900: oklch(0.15 0 0);
 
-  /* Typography - populated from intake/branding/fonts.md */
-  --font-display: "Inter", system-ui, sans-serif;
-  --font-body: "Inter", system-ui, sans-serif;
+  /* ─── Typography — LA Dental Town ────────────────────────────────────────
+     Source: intake/branding/fonts.md
+     Display: Playfair Display (serif) — headings, hero, section titles
+     Body:    Lato (sans-serif) — body copy, nav, buttons, labels
+  ───────────────────────────────────────────────────────────────────────── */
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body:    "Lato", "Helvetica Neue", Arial, sans-serif;
 
-  /* Spacing scale */
-  --spacing-section: 5rem;
-  --spacing-content: 2rem;
+  /* ─── Spacing Scale ───────────────────────────────────────────────────── */
+  --spacing-section: 5rem;   /* Vertical padding between homepage sections */
+  --spacing-content: 2rem;   /* Internal content padding                   */
+}
+
+/* ─── Base Styles ─────────────────────────────────────────────────────────── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    color: var(--color-green-dark);
+    line-height: 1.2;
+  }
+
+  a {
+    color: var(--color-green-mid);
+  }
+
+  a:hover {
+    color: var(--color-green-dark);
+  }
 }
