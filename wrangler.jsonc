@@ -4,5 +4,9 @@
   "compatibility_date": "2026-02-01",
   "assets": {
     "directory": "./dist"
-  }
+  },
+  "workers_dev": false,
+  "routes": [
+    { "pattern": "la-dental-town.spark0.io/*", "zone_name": "spark0.io" }
+  ]
 }
