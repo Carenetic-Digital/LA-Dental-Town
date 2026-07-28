@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceHero from '../../components/ServiceHero.astro';
+import RelatedServiceGrid from '../../components/RelatedServiceGrid.astro';
+import ServiceProviders from '../../components/ServiceProviders.astro';
+import ServiceCTA from '../../components/ServiceCTA.astro';
+import { ICONS, CATEGORY_COLORS } from '../../lib/serviceIcons';
+
+const seoTitle = 'Crowns and Bridges | LA Dental Town';
+const seoDescription = 'Durable, natural-looking crowns and bridges in East Los Angeles — restore damaged or missing teeth with porcelain, ceramic, zirconia, or same-day crown options.';
+
+const related = [
+  {
+    title: 'General & Family Dentistry',
+    description: 'The exams and checkups that catch issues early — before a crown or bridge is needed.',
+    href: '/services/general-family-dentistry/',
+    icon: ICONS.tooth,
+    ...CATEGORY_COLORS.generalFamily,
+  },
+  {
+    title: 'Cosmetic Dentistry',
+    description: 'When a restoration is also about appearance, our cosmetic treatments pick up where crowns leave off.',
+    href: '/services/cosmetic-dentistry/',
+    icon: ICONS.star,
+    ...CATEGORY_COLORS.cosmetic,
+  },
+];
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+
+  <ServiceHero
+    breadcrumbs={[
+      { label: 'Home', href: '/' },
+      { label: 'Services', href: '/services/' },
+      { label: 'General & Family Dentistry', href: '/services/general-family-dentistry/' },
+      { label: 'Crowns and Bridges' },
+    ]}
+    eyebrow="General & Family Dentistry"
+    title="Crowns and Bridges"
+    description="When a tooth is too damaged for a filling, or one is missing altogether, a crown or bridge restores its strength, shape, and appearance — so you can bite, chew, and smile with confidence again."
+    icon={ICONS.crown}
+    iconColor={CATEGORY_COLORS.generalFamily.iconColor}
+    bgColor={CATEGORY_COLORS.generalFamily.bgColor}
+  />
+
+  <section class="bg-white py-16 sm:py-20" aria-labelledby="overview-heading">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="overview-heading" class="font-display font-bold text-2xl sm:text-3xl text-green-dark mb-6">
+        Restoring Strength and Confidence
+      </h2>
+      <div class="space-y-5 font-body text-base text-ink/70 leading-relaxed">
+        <p>
+          A <strong class="text-ink">crown</strong> is a custom cap placed over a weakened, cracked, or heavily decayed tooth, protecting it from further damage while restoring its natural shape and bite. A <strong class="text-ink">bridge</strong> uses crowns on the teeth surrounding a gap to anchor a replacement tooth in place, closing the space left by a missing tooth without surgery.
+        </p>
+        <p>
+          Beyond the immediate repair, both options help prevent the bigger problems that come from an unaddressed cracked tooth or a lingering gap — including shifting teeth, an uneven bite, and added strain on the teeth around it. We offer a range of materials, including porcelain, ceramic, zirconia, BruxZir, and E-max, so the restoration matches the strength and appearance your tooth needs.
+        </p>
+        <p>
+          LA Dental Town also offers same-day crown technology using digital scanning and in-office milling for eligible cases, which can mean fewer appointments and no temporary crown in between.
+        </p>
+      </div>
+
+      <h3 class="font-display font-semibold text-xl text-green-dark mt-10 mb-4">What to Expect</h3>
+      <p class="font-body text-base text-ink/60 leading-relaxed">
+        Getting a crown typically involves reshaping the tooth, taking an impression or digital scan, and placing a temporary crown while the permanent one is fabricated — though some cases may qualify for same-day placement. A bridge follows a similar process, with the surrounding teeth prepared to support the crowns that hold the bridge in place. Your dentist will walk you through which approach fits your specific tooth and timeline.
+      </p>
+    </div>
+  </section>
+
+  <RelatedServiceGrid
+    heading="Related Services"
+    items={related}
+    background="cream"
+  />
+
+  <ServiceProviders
+    heading="Who Provides This Care"
+    providers={[
+      { name: 'Dr. Margaret Wu, DDS', title: 'Co-Founder, General & Cosmetic Dentist', href: '/provider/margaret-wu-dds/' },
+      { name: 'Dr. Jennifer Wu, DDS', title: 'Co-Founder, General & Cosmetic Dentist', href: '/provider/jennifer-wu-dds/' },
+    ]}
+  />
+
+  <ServiceCTA />
+
+</BaseLayout>

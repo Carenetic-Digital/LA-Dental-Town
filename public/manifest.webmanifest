@@ -1,11 +1,11 @@
 {
-  "name": "[Business Name]",
-  "short_name": "[Short Name]",
-  "description": "[Business description]",
+  "name": "LA Dental Town",
+  "short_name": "LA Dental Town",
+  "description": "Family, cosmetic & specialty dental practice in East Los Angeles, CA.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#000000",
+  "background_color": "#F8F4EC",
+  "theme_color": "#1D4D2F",
   "icons": [
     {
       "src": "/icon-192.png",

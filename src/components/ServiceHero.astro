@@ -1,0 +1,74 @@
+---
+// component-builder: ServiceHero
+// Purpose: Page-top hero for /services/* pages — breadcrumb, icon, H1, intro copy, CTAs.
+
+interface Breadcrumb {
+  label: string;
+  href?: string;
+}
+
+interface Props {
+  breadcrumbs: Breadcrumb[];
+  eyebrow: string;
+  title: string;
+  description: string;
+  icon: string;
+  iconColor: string;
+  bgColor: string;
+}
+
+const { breadcrumbs, eyebrow, title, description, icon, iconColor, bgColor } = Astro.props;
+---
+
+<section class="bg-cream" aria-label={title}>
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-16 sm:pt-14 sm:pb-20">
+
+    <nav aria-label="Breadcrumb" class="mb-8">
+      <ol class="flex items-center gap-2 text-xs font-body text-ink/50 flex-wrap list-none m-0 p-0">
+        {breadcrumbs.map((b, i) => (
+          <li class="flex items-center gap-2">
+            {b.href ? (
+              <a href={b.href} class="hover:text-green-mid transition-colors">{b.label}</a>
+            ) : (
+              <span class="text-ink/70 font-medium" aria-current="page">{b.label}</span>
+            )}
+            {i < breadcrumbs.length - 1 && <span aria-hidden="true">/</span>}
+          </li>
+        ))}
+      </ol>
+    </nav>
+
+    <div class="flex items-center gap-4 mb-6">
+      <div class="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0" style={`background-color:${bgColor}`}>
+        <svg class="w-7 h-7" viewBox="0 0 24 24" fill={iconColor} aria-hidden="true" set:html={icon}></svg>
+      </div>
+      <p class="font-body text-xs uppercase tracking-widest text-green-mid">{eyebrow}</p>
+    </div>
+
+    <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl text-green-dark leading-tight mb-6 max-w-3xl">
+      {title}
+    </h1>
+    <p class="font-body text-lg text-ink/65 leading-relaxed max-w-2xl mb-10">
+      {description}
+    </p>
+
+    <div class="flex flex-wrap gap-4">
+      <a
+        href="/contents/appointments/"
+        class="inline-flex items-center gap-2 bg-green-dark hover:bg-green-mid text-white font-body font-semibold px-7 py-3.5 rounded-full transition-all duration-200 shadow-lg shadow-green-dark/20">
+        Book Appointment
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+        </svg>
+      </a>
+      <a
+        href="tel:+13238870088"
+        class="inline-flex items-center gap-2 border-2 border-green-dark/30 hover:border-green-dark text-ink hover:text-green-dark font-body font-medium px-7 py-3.5 rounded-full transition-all duration-200">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+        </svg>
+        (323) 887-0088
+      </a>
+    </div>
+  </div>
+</section>

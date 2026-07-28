@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProviderHero from '../../components/ProviderHero.astro';
+import ProviderBio from '../../components/ProviderBio.astro';
+import ProviderCredentials from '../../components/ProviderCredentials.astro';
+import ProviderDifferentiators from '../../components/ProviderDifferentiators.astro';
+import ProviderCTA from '../../components/ProviderCTA.astro';
+import RelatedServiceGrid from '../../components/RelatedServiceGrid.astro';
+import { getProvider } from '../../lib/providers';
+import { resolveServices } from '../../lib/providerServices';
+
+const provider = getProvider('angelica')!;
+const services = resolveServices(provider.services);
+
+const seoTitle = 'Angelica, RDH | Registered Dental Hygienist | LA Dental Town';
+const seoDescription = 'Angelica is a Registered Dental Hygienist at LA Dental Town in East Los Angeles, providing cleanings and preventive care for the whole family.';
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+
+  <ProviderHero
+    name={provider.name}
+    specialtyLine={provider.specialtyLine}
+    tagline={provider.tagline}
+    photoSlug={provider.photoSlug}
+    initials={provider.initials}
+  />
+
+  <ProviderBio
+    shortName={provider.shortName}
+    hasBio={provider.hasBio}
+    paragraphs={provider.bioParagraphs}
+  />
+
+  {provider.credentialsList.length > 0 && (
+    <ProviderCredentials
+      shortName={provider.shortName}
+      intro={provider.credentialsIntro}
+      items={provider.credentialsList}
+    />
+  )}
+
+  <ProviderDifferentiators />
+
+  <ProviderCTA />
+
+  <RelatedServiceGrid
+    heading="Services Angelica Supports"
+    subheading="Angelica supports preventive and family dental care at LA Dental Town."
+    items={services}
+    background="white"
+    headingId="provider-services-heading"
+  />
+
+</BaseLayout>

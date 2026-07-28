@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const seoTitle = 'Forget the Temps. We Offer Same-Day Crowns | LA Dental Town Blog';
+const seoDescription = "LA Dental Town's in-office milling machine and digital scanning let patients skip the temporary crown and walk out with a permanent restoration in a single visit.";
+
+const postTitle = 'Forget the Temps. We Offer Same-Day Crowns With Our In-Office Milling Machine';
+const publishDate = '2025-08-15';
+const displayDate = 'August 15, 2025';
+const tag = 'Restorative Dentistry';
+
+const relatedPosts = [
+  { title: 'No Messy, Goopy Dental Impressions Here. We Use Fast and Easy Digital Scans', href: '/blog/no-messy-goopy-dental-impressions-here-we-use-fast-and-easy-digital-scans/', gradient: '#163232, #1D4D2F' },
+  { title: 'The Importance of Replacing Missing Teeth', href: '/blog/the-importance-of-replacing-missing-teeth/', gradient: '#3A7D44, #C9A84C' },
+  { title: '5 Signs That You May Need a Root Canal', href: '/blog/5-signs-that-you-may-need-a-root-canal/', gradient: '#1D4D2F, #3A7D44' },
+];
+
+const articleData = {
+  headline: postTitle,
+  datePublished: publishDate,
+  author: { '@type': 'Organization', name: 'LA Dental Town' },
+  publisher: { '@type': 'Organization', name: 'LA Dental Town' },
+  mainEntityOfPage: new URL('/blog/forget-the-temps-we-offer-same-day-crowns-with-our-in-office-milling-machine/', Astro.site).href,
+};
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+  <StructuredData type="BlogPosting" data={articleData} />
+
+  <section class="bg-cream py-16 sm:py-20" aria-label="Article header">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <a href="/blog/" class="inline-flex items-center gap-1.5 font-body text-sm font-semibold text-green-mid hover:text-green-dark transition-colors mb-6">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+        </svg>
+        Back to Blog
+      </a>
+      <span class="inline-block font-body text-xs font-semibold text-white bg-green-mid rounded-full px-3 py-1 mb-5">{tag}</span>
+      <h1 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-green-dark leading-tight mb-4">
+        {postTitle}
+      </h1>
+      <p class="font-body text-sm text-ink/50">
+        <time datetime={publishDate}>{displayDate}</time> · LA Dental Town
+      </p>
+    </div>
+  </section>
+
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 -mt-2 mb-2">
+    <div class="h-56 sm:h-72 rounded-2xl" style="background: linear-gradient(135deg, #1D4D2F, #3A7D44)" aria-hidden="true"></div>
+  </div>
+
+  <section class="bg-white py-14 sm:py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="font-body text-base sm:text-lg text-ink/80 leading-relaxed">
+        <p class="mb-5">
+          Cracked, worn, or badly decayed teeth often need more than a filling to fully recover their strength and appearance. At LA Dental Town, our same-day crown technology means you don't have to live with a temporary crown while you wait weeks for a lab to finish the permanent one.
+        </p>
+
+        <h2 class="font-display font-semibold text-2xl text-green-dark mt-10 mb-4">What is a dental crown and when do you need one?</h2>
+        <p class="mb-5">
+          A crown, sometimes called a cap, is a custom restoration that fully encases a damaged tooth. A crown extends all the way to the gum line and restores tooth strength, shape, and size while improving appearance. Crowns are typically needed for teeth that are worn, cracked, broken, or severely decayed.
+        </p>
+
+        <h2 class="font-display font-semibold text-2xl text-green-dark mt-10 mb-4">Same-day crowns: understanding the process</h2>
+        <p class="mb-5">
+          Traditional crowns require multiple visits — a preparation appointment, a temporary crown while a dental lab fabricates the permanent restoration, and a separate visit to place the final crown. Our same-day process is different.
+        </p>
+        <p class="mb-5">
+          It begins with digital impressions using an intraoral scanner to capture precise 3D images of your tooth — no messy putty trays required. From there, our team uses CAD (computer-aided design) technology to customize the crown's shape and size for optimal alignment with your bite. Our in-office milling machine then carves the crown while you wait. Once it's ready, we make any final adjustments and bond the crown to your tooth — all in a single visit.
+        </p>
+
+        <h2 class="font-display font-semibold text-2xl text-green-dark mt-10 mb-4">The advantages of same-day crowns</h2>
+        <p class="mb-5">
+          Same-day crowns offer several advantages over the traditional process. You avoid the discomfort and inconvenience of a temporary crown, which can sometimes come loose or cause sensitivity while you wait for your permanent restoration. Digital scanning also delivers greater precision than traditional molded impressions, without the mess. And because the crown is designed and milled on-site, our team can make on-the-spot adjustments to ensure a comfortable, accurate fit before you leave the office.
+        </p>
+      </div>
+
+      <div class="mt-14 bg-cream border border-neutral-200 rounded-2xl p-8 text-center">
+        <h3 class="font-display font-semibold text-xl text-green-dark mb-2">Skip the temporary crown</h3>
+        <p class="font-body text-sm text-ink/60 mb-6 max-w-md mx-auto">
+          Walk-ins welcome. Se Habla Español. Book online or call our office to schedule your visit.
+        </p>
+        <a href="/contents/appointments/" class="inline-flex items-center gap-2 bg-green-mid hover:bg-green-dark text-white font-body font-semibold px-7 py-3.5 rounded-full transition-colors duration-200">
+          Book an Appointment
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-cream py-14 sm:py-20" aria-labelledby="related-heading">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="related-heading" class="font-display font-bold text-2xl sm:text-3xl text-green-dark mb-8">Related Articles</h2>
+      <ul class="grid grid-cols-1 sm:grid-cols-3 gap-6 list-none m-0 p-0">
+        {relatedPosts.map((post) => (
+          <li>
+            <a href={post.href} class="group block rounded-2xl bg-white border border-neutral-200 hover:border-green-mid/40 hover:shadow-xl overflow-hidden transition-all duration-200 h-full">
+              <div class="h-32 rounded-t-2xl" style={`background: linear-gradient(135deg, ${post.gradient})`} aria-hidden="true"></div>
+              <div class="p-5">
+                <h3 class="font-display font-semibold text-sm text-green-dark leading-snug group-hover:text-green-mid transition-colors line-clamp-3">
+                  {post.title}
+                </h3>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+</BaseLayout>

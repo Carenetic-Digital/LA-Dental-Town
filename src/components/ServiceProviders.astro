@@ -1,0 +1,53 @@
+---
+// component-builder: ServiceProviders
+// Purpose: "Who provides this" callout linking to /provider/[slug]/ pages for
+// the doctor(s) associated with a given service/category.
+
+interface Provider {
+  name: string;
+  title: string;
+  href: string;
+}
+
+interface Props {
+  providers: Provider[];
+  heading?: string;
+  note?: string;
+}
+
+const { providers, heading = 'Who Provides This Care', note } = Astro.props;
+---
+
+<section class="bg-cream py-16 sm:py-20" aria-labelledby="providers-heading">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 id="providers-heading" class="font-display font-bold text-2xl sm:text-3xl text-green-dark mb-3">{heading}</h2>
+    {note && <p class="font-body text-base text-ink/60 max-w-2xl leading-relaxed mb-8">{note}</p>}
+
+    <ul class:list={[
+      'grid gap-4 list-none m-0 p-0',
+      note ? '' : 'mt-8',
+      providers.length > 1 ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1 max-w-md',
+    ]}>
+      {providers.map((p) => (
+        <li>
+          <a
+            href={p.href}
+            class="group flex items-center gap-4 p-5 rounded-2xl bg-white border border-neutral-200 hover:border-green-mid/40 hover:shadow-lg transition-all duration-200">
+            <div class="w-11 h-11 rounded-full bg-green-dark/10 flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5 text-green-dark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 12c2.7 0 8 1.34 8 4v2H4v-2c0-2.66 5.3-4 8-4zm0-2a4 4 0 110-8 4 4 0 010 8z"/>
+              </svg>
+            </div>
+            <div class="flex-grow min-w-0">
+              <p class="font-display font-semibold text-base text-green-dark group-hover:text-green-mid transition-colors">{p.name}</p>
+              <p class="font-body text-sm text-ink/60">{p.title}</p>
+            </div>
+            <svg class="w-4 h-4 text-green-mid shrink-0 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceHero from '../../components/ServiceHero.astro';
+import RelatedServiceGrid from '../../components/RelatedServiceGrid.astro';
+import ServiceProviders from '../../components/ServiceProviders.astro';
+import ServiceCTA from '../../components/ServiceCTA.astro';
+import { ICONS, CATEGORY_COLORS } from '../../lib/serviceIcons';
+
+const seoTitle = 'Invisalign | LA Dental Town';
+const seoDescription = 'Invisalign clear aligners from a Certified Premier Provider in East Los Angeles — straighten teeth comfortably, without metal braces, at LA Dental Town.';
+
+const related = [
+  {
+    title: 'Cosmetic Dentistry',
+    description: 'Invisalign is one of several ways we help patients love their smile.',
+    href: '/services/cosmetic-dentistry/',
+    icon: ICONS.star,
+    ...CATEGORY_COLORS.cosmetic,
+  },
+  {
+    title: 'Veneers',
+    description: 'Once teeth are aligned, veneers can address shape or color if needed.',
+    href: '/services/veneers/',
+    icon: ICONS.smile,
+    ...CATEGORY_COLORS.cosmetic,
+  },
+  {
+    title: 'Teeth Whitening',
+    description: 'A popular pairing once your Invisalign treatment is complete.',
+    href: '/services/teeth-whitening/',
+    icon: ICONS.sparkle,
+    ...CATEGORY_COLORS.cosmetic,
+  },
+];
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+
+  <ServiceHero
+    breadcrumbs={[
+      { label: 'Home', href: '/' },
+      { label: 'Services', href: '/services/' },
+      { label: 'Cosmetic Dentistry', href: '/services/cosmetic-dentistry/' },
+      { label: 'Invisalign' },
+    ]}
+    eyebrow="Cosmetic Dentistry"
+    title="Invisalign"
+    description="Invisalign uses a series of clear, custom-fitted aligners to gradually straighten teeth — without the brackets, wires, or dietary restrictions of traditional braces. Dr. Jennifer Wu is a Certified Invisalign Premier Provider, using 3D imaging to plan your treatment from the very first visit."
+    icon={ICONS.aligner}
+    iconColor={CATEGORY_COLORS.cosmetic.iconColor}
+    bgColor={CATEGORY_COLORS.cosmetic.bgColor}
+  />
+
+  <section class="bg-white py-16 sm:py-20" aria-labelledby="overview-heading">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="overview-heading" class="font-display font-bold text-2xl sm:text-3xl text-green-dark mb-6">
+        A More Comfortable Path to a Straighter Smile
+      </h2>
+      <div class="space-y-5 font-body text-base text-ink/70 leading-relaxed">
+        <p>
+          Traditional braces work well, but they aren't the right fit for every schedule or lifestyle — they're visible, can make cleaning harder, and often come with food restrictions. Invisalign's clear aligners are removable for eating and brushing, virtually invisible when worn, and, for many cases, can straighten teeth up to 50% faster than conventional braces.
+        </p>
+        <p>
+          Because the aligners are custom-designed from a 3D scan of your teeth, you can see a general preview of how your smile is expected to progress before treatment even begins.
+        </p>
+      </div>
+
+      <h3 class="font-display font-semibold text-xl text-green-dark mt-10 mb-4">What to Expect</h3>
+      <p class="font-body text-base text-ink/60 leading-relaxed">
+        Treatment starts with a 3D scan used to map out a custom series of aligners. Each aligner is typically worn about 22 hours a day and swapped for the next in the series every one to two weeks, gradually shifting teeth into place. Periodic check-ins let your dentist track progress and adjust the plan if needed. Total treatment time varies by case, but many patients complete Invisalign faster than they would with traditional braces.
+      </p>
+    </div>
+  </section>
+
+  <RelatedServiceGrid
+    heading="Related Services"
+    items={related}
+    background="cream"
+  />
+
+  <ServiceProviders
+    heading="Who Provides This Care"
+    note="Dr. Jennifer Wu is a Certified Invisalign Premier Provider."
+    providers={[
+      { name: 'Dr. Jennifer Wu, DDS', title: 'Co-Founder & Certified Invisalign Premier Provider', href: '/provider/jennifer-wu-dds/' },
+      { name: 'Dr. Margaret Wu, DDS', title: 'Co-Founder, General & Cosmetic Dentist', href: '/provider/margaret-wu-dds/' },
+    ]}
+  />
+
+  <ServiceCTA />
+
+</BaseLayout>

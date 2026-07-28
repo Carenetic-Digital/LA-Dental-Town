@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const seoTitle = 'Accessibility Statement | LA Dental Town — East Los Angeles, CA';
+const seoDescription = 'LA Dental Town’s commitment to a website that is accessible to all patients.';
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       Page Header
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-cream py-16 sm:py-20" aria-label="Accessibility Statement">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="font-body text-xs uppercase tracking-widest text-green-mid mb-3">Legal</p>
+      <h1 class="font-display font-bold text-4xl sm:text-5xl text-green-dark mb-4 leading-tight">
+        Accessibility Statement
+      </h1>
+      <p class="font-body text-base text-ink/60 leading-relaxed max-w-xl mx-auto">
+        LA Dental Town is committed to making our website usable by everyone, including patients who rely on assistive technology.
+      </p>
+    </div>
+  </section>
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       Placeholder Notice — full statement pending migration
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-white py-16 sm:py-24" aria-label="Accessibility statement details">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-cream rounded-2xl p-7 sm:p-10 border border-dashed border-green-mid/40">
+        <h2 class="font-display font-semibold text-lg text-green-dark mb-3">Content Pending</h2>
+        <p class="font-body text-base text-ink/70 leading-relaxed">
+          Full Accessibility Statement text pending migration from current site — contact Norma for source document.
+        </p>
+        <p class="font-body text-sm text-ink/50 leading-relaxed mt-4">
+          The corresponding page on the current live site (ladentaltown.com/accessibility-statement/) loads successfully but does not contain any accessibility statement body text — only the page title and a location map. No source text was available to migrate.
+        </p>
+      </div>
+
+      <!-- Contact card -->
+      <div class="mt-8 bg-white rounded-2xl p-7 sm:p-8 border border-neutral-200">
+        <h2 class="font-display font-semibold text-lg text-green-dark mb-3">Contact Us</h2>
+        <p class="font-body text-sm sm:text-base text-ink/70 leading-relaxed">
+          If you use assistive technology and are having difficulty accessing any part of this website, please contact us by phone at <a href="tel:+13238870088" class="font-semibold text-green-mid hover:text-green-dark">(323) 887-0088</a>, by email at <a href="mailto:ladentaltown13@gmail.com" class="font-semibold text-green-mid hover:text-green-dark">ladentaltown13@gmail.com</a>, or by mail at 5262 E Beverly Blvd, East Los Angeles, CA 90022, and we will work with you to provide the information you need.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

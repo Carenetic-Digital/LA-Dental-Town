@@ -1,0 +1,158 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const title = 'Why Same-Day Crowns Are the Best Option for Busy Professionals';
+const seoTitle = `${title} | LA Dental Town Blog`;
+const seoDescription = 'Skip the temporary crown and the second appointment. Learn how same-day crowns at LA Dental Town fit a permanent restoration into a single visit.';
+
+const tag = 'Restorative';
+const gradient = 'linear-gradient(135deg, #163232, #1D4D2F)';
+
+const relatedPosts = [
+  {
+    title: 'Get Your Smile Holiday-Ready With Same-Day Crowns',
+    href: '/blog/get-your-smile-holiday-ready-with-same-day-crowns/',
+    tag: 'Restorative',
+    gradient: 'linear-gradient(135deg, #3A7D44, #C9A84C)',
+  },
+  {
+    title: 'The Benefits of Digital Impression Scans Over Traditional Dental Putty',
+    href: '/blog/the-benefits-of-digital-impression-scans-over-traditional-dental-putty/',
+    tag: 'Technology',
+    gradient: 'linear-gradient(135deg, #1D4D2F, #3A7D44)',
+  },
+  {
+    title: 'How Veneers Can Fix Chips, Gaps, and Discoloration for a Perfect Smile',
+    href: '/blog/how-veneers-can-fix-chips-gaps-and-discoloration-for-a-perfect-smile/',
+    tag: 'Cosmetic',
+    gradient: 'linear-gradient(135deg, #163232, #3A7D44)',
+  },
+];
+
+const publishDate = '2026-04-09';
+const displayDate = 'Apr 9, 2026';
+
+const articleData = {
+  headline: title,
+  datePublished: publishDate,
+  author: { '@type': 'Organization', name: 'LA Dental Town' },
+  publisher: { '@type': 'Organization', name: 'LA Dental Town' },
+  mainEntityOfPage: new URL('/blog/why-same-day-crowns-are-the-best-option-for-busy-professionals/', Astro.site).href,
+};
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+  <StructuredData type="BlogPosting" data={articleData} />
+
+  <section class="bg-cream py-14 sm:py-20" aria-label="Blog post header">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav aria-label="Breadcrumb" class="mb-6">
+        <ol class="flex items-center gap-2 font-body text-sm text-ink/50 list-none m-0 p-0">
+          <li><a href="/blog/" class="hover:text-green-mid transition-colors">Blog</a></li>
+          <li aria-hidden="true">/</li>
+          <li class="text-ink/70">{tag}</li>
+        </ol>
+      </nav>
+      <span class="inline-block font-body text-xs font-semibold text-white bg-green-mid rounded-full px-3 py-1 mb-5">{tag}</span>
+      <h1 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-green-dark leading-tight">
+        {title}
+      </h1>
+      <p class="font-body text-sm text-ink/50 mt-4">
+        <time datetime={publishDate}>{displayDate}</time> · LA Dental Town
+      </p>
+    </div>
+  </section>
+
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 -mt-2 sm:-mt-4">
+    <div class="h-48 sm:h-64 rounded-3xl" style={`background: ${gradient}`} aria-hidden="true"></div>
+  </div>
+
+  <article class="bg-white py-14 sm:py-20">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="font-body text-base sm:text-lg text-ink/80 leading-relaxed space-y-6">
+        <p>
+          In today's fast-paced world, your busy schedule doesn't always leave room for multiple dental appointments and weeks of waiting for a permanent crown. You want a high-quality solution that fits into your lunch break instead of cutting into your vacation time.
+        </p>
+        <p>
+          At LA Dental Town, we use advanced digital imaging and in-office milling technology to provide custom same-day crowns. Our team crafts and places your crown in a single appointment, so you can leave the office and get back to your life with a fully functional smile.
+        </p>
+        <p>
+          In this blog, we explain how same-day crowns work and why they're a go-to choice for busy professionals in and around East Los Angeles, California.
+        </p>
+
+        <h2 class="font-display font-semibold text-xl sm:text-2xl text-green-dark !mt-12 !mb-2">Precision and comfort through digital imaging</h2>
+        <p>
+          Traditional dental impressions for tooth restorations are prone to tiny errors that can affect your final fit. For same-day crowns, we use high-resolution digital scanners to capture a precise 3D image of the tooth, ensuring your new restoration aligns perfectly with your natural bite.
+        </p>
+        <p>
+          Patients also prefer digital impressions for their comfort. Rather than biting down on a tray full of sticky dental putty while the impression sets, we skim a small handheld scanner across the surface of your teeth to capture the image.
+        </p>
+        <p>
+          Once the scan is complete, we transfer the file to our milling machine that creates your crown right in the office.
+        </p>
+
+        <h2 class="font-display font-semibold text-xl sm:text-2xl text-green-dark !mt-12 !mb-2">Eliminating the "temporary" phase</h2>
+        <p>
+          Getting a dental crown used to mean wearing a temporary cap on the tooth for several weeks while a lab manufactured the final version. While these caps are necessary to protect the prepared tooth, they aren't very durable and may require you to avoid certain foods to prevent them from breaking, shifting, or coming loose.
+        </p>
+        <p>
+          Same-day crowns eliminate this step. We install your permanent ceramic crown immediately, which means there's no need to baby a fragile temporary restoration or wait weeks to return to your normal diet and routine.
+        </p>
+
+        <h2 class="font-display font-semibold text-xl sm:text-2xl text-green-dark !mt-12 !mb-2">High-quality, natural-looking materials</h2>
+        <p>
+          Some patients worry that same-day crowns might be less durable than traditional ones because they're made quickly. But our restorations are milled from a solid block of the same high-quality material that dental labs use.
+        </p>
+        <p>
+          The material is strong enough to withstand normal biting and chewing forces, allowing the crown to function exactly like a natural tooth. We also color match the crown to the surrounding teeth so it blends in seamlessly with the rest of your smile.
+        </p>
+        <p>
+          With proper care and maintenance, your restoration can last over 15 years before a replacement is necessary.
+        </p>
+
+        <h2 class="font-display font-semibold text-xl sm:text-2xl text-green-dark !mt-12 !mb-2">Who is a candidate for a same-day crown?</h2>
+        <p>
+          Same-day crowns can restore chipped, worn, or decayed teeth in many of the same situations as a traditional crown. However, they may not be suitable for every patient.
+        </p>
+        <p>
+          If a tooth has extensive damage below the gum line or requires a more complex restoration, such as a multi-unit bridge, we may recommend a specialized lab-made option. During your initial exam, we evaluate the structural integrity of the tooth to determine whether a same-day crown is the best choice for your needs.
+        </p>
+        <p>
+          Don't let a busy schedule get in the way of good oral health. Call or click today to set up a consultation at LA Dental Town. Let us help you get your smile back on track.
+        </p>
+      </div>
+
+      <div class="mt-14 bg-cream border border-neutral-200 rounded-2xl p-8 sm:p-10 text-center">
+        <h2 class="font-display font-semibold text-2xl text-green-dark mb-3">Ready for a Same-Day Crown?</h2>
+        <p class="font-body text-ink/70 mb-6">Get back to your busy life with a permanent restoration in a single visit.</p>
+        <a href="/contents/appointments/" class="inline-flex items-center gap-2 bg-green-mid hover:bg-green-dark text-white font-body font-semibold px-8 py-3.5 rounded-full transition-colors duration-200">
+          Book an Appointment
+        </a>
+      </div>
+    </div>
+  </article>
+
+  <section class="bg-cream py-16 sm:py-20" aria-labelledby="related-heading">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="related-heading" class="font-display font-bold text-2xl sm:text-3xl text-green-dark mb-10 text-center">
+        Related Reading
+      </h2>
+      <ul class="grid grid-cols-1 sm:grid-cols-3 gap-6 list-none m-0 p-0">
+        {relatedPosts.map((post) => (
+          <li>
+            <a href={post.href} class="group block rounded-2xl bg-white border border-neutral-200 hover:border-green-mid/40 hover:shadow-xl overflow-hidden transition-all duration-200 h-full">
+              <div class="h-32 flex items-end p-4" style={`background: ${post.gradient}`} aria-hidden="true">
+                <span class="inline-block font-body text-xs font-semibold text-white/90 bg-white/20 rounded-full px-3 py-1">{post.tag}</span>
+              </div>
+              <div class="p-5">
+                <h3 class="font-display font-semibold text-sm text-green-dark leading-snug group-hover:text-green-mid transition-colors line-clamp-3">{post.title}</h3>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+</BaseLayout>

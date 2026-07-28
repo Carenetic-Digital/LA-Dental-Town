@@ -18,11 +18,16 @@
 
 ## Reference Sites
 
-**Primary reference:** Bel Air Dental Arts — overall look, feel, layout, sticky Book Now CTA, floating Google Reviews badge, testimonials style
+> **Correction (2026-07-27):** Norma referred to this same practice as "Bel Air Dental Arts" early on and later as "Bedford Dental Group / BDFG." Domain lookup confirms these are one site: Bedford Dental Group at bhdentists.com. Earlier intake docs treated them as two separate references — they are not. "CDF Zone" was also a mishear/mislabel — the actual site is Children's Dental FunZone (childrensdentalfunzone.com).
+
+**Primary reference:** Bedford Dental Group (Beverly Hills) — https://www.bhdentists.com/
+- Overall look, feel, layout; sticky Book Now CTA; floating Google Reviews badge; testimonials style
+- Services / Cosmetic Dentistry section — services dropdown layout
+- Meet the Doctors — https://www.bhdentists.com/meet-our-doctors/ — page style and credentials presentation (specific reference for provider bio pages)
+
 **Additional inspiration:**
-- Trusted Dental Group (Hawthorne) — hero video treatment above the fold
-- Bedford Dental Group / bhdentist.com — services dropdown layout, Meet the Doctors page style, credentials presentation
-- CDF Zone / cdfzone.com — Google rating badge placement (upper-left), rounded service card/bubble layout
+- Trusted Dental & Orthodontics (Hawthorne, CA) — https://dentisthawthorneca.com/ — above-the-fold hero welcome video treatment
+- Children's Dental FunZone — https://www.childrensdentalfunzone.com/ — review-count badge (17,000 reviews, 4.7 rating) placement in the upper-left header; rounded service card/bubble layout
 
 ## Brand Voice
 

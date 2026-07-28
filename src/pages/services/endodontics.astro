@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceHero from '../../components/ServiceHero.astro';
+import RelatedServiceGrid from '../../components/RelatedServiceGrid.astro';
+import ServiceProviders from '../../components/ServiceProviders.astro';
+import ServiceCTA from '../../components/ServiceCTA.astro';
+import { ICONS, CATEGORY_COLORS } from '../../lib/serviceIcons';
+
+const seoTitle = 'Endodontics | LA Dental Town';
+const seoDescription = 'Root canal therapy and endodontic care in East Los Angeles from the board-certified, Columbia-trained endodontist at LA Dental Town.';
+
+const related = [
+  {
+    title: 'Root Canal',
+    description: 'The most common endodontic treatment — removing infected tissue to save the natural tooth.',
+    href: '/services/root-canal/',
+    icon: ICONS.check,
+    ...CATEGORY_COLORS.endodontics,
+  },
+];
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+
+  <ServiceHero
+    breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services/' }, { label: 'Endodontics' }]}
+    eyebrow="Category"
+    title="Endodontics"
+    description="Endodontics is the branch of dentistry focused on the inside of the tooth — the nerves and pulp beneath the enamel. When that inner tissue becomes infected or inflamed, endodontic treatment can relieve the pain and save the tooth, rather than removing it."
+    icon={ICONS.check}
+    iconColor={CATEGORY_COLORS.endodontics.iconColor}
+    bgColor={CATEGORY_COLORS.endodontics.bgColor}
+  />
+
+  <section class="bg-white py-16 sm:py-20" aria-labelledby="overview-heading">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="overview-heading" class="font-display font-bold text-2xl sm:text-3xl text-green-dark mb-6">
+        Board-Certified Care for the Inside of the Tooth
+      </h2>
+      <div class="space-y-5 font-body text-base text-ink/70 leading-relaxed">
+        <p>
+          A cracked tooth, deep cavity, or repeated dental work can eventually expose or irritate the nerve inside a tooth, causing pain that ranges from mild sensitivity to a persistent, throbbing ache. Endodontic treatment addresses that inner infection directly, so the tooth can be saved instead of extracted.
+        </p>
+        <p>
+          LA Dental Town has a board-certified, Columbia-trained endodontist on staff, so this specialized care happens in the same office as the rest of your treatment — no outside referral required.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <RelatedServiceGrid
+    heading="Treatments Under This Category"
+    items={related}
+    background="cream"
+  />
+
+  <ServiceProviders
+    heading="Who Provides This Care"
+    providers={[
+      { name: 'Dr. Seong Lee, DDS', title: 'Endodontist, Board Certified (Columbia University)', href: '/provider/seong-lee-dds/' },
+    ]}
+  />
+
+  <ServiceCTA />
+
+</BaseLayout>

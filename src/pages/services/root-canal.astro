@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceHero from '../../components/ServiceHero.astro';
+import RelatedServiceGrid from '../../components/RelatedServiceGrid.astro';
+import ServiceProviders from '../../components/ServiceProviders.astro';
+import ServiceCTA from '../../components/ServiceCTA.astro';
+import { ICONS, CATEGORY_COLORS } from '../../lib/serviceIcons';
+
+const seoTitle = 'Root Canal Therapy | LA Dental Town';
+const seoDescription = 'Comfortable root canal treatment in East Los Angeles — save your natural tooth with care from the on-staff endodontist at LA Dental Town.';
+
+const related = [
+  {
+    title: 'Endodontics',
+    description: 'Root canal therapy is part of our broader endodontic care.',
+    href: '/services/endodontics/',
+    icon: ICONS.check,
+    ...CATEGORY_COLORS.endodontics,
+  },
+  {
+    title: 'Crowns and Bridges',
+    description: 'A crown is often placed after a root canal to protect and restore the treated tooth.',
+    href: '/services/crowns-and-bridges/',
+    icon: ICONS.crown,
+    ...CATEGORY_COLORS.generalFamily,
+  },
+];
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+
+  <ServiceHero
+    breadcrumbs={[
+      { label: 'Home', href: '/' },
+      { label: 'Services', href: '/services/' },
+      { label: 'Endodontics', href: '/services/endodontics/' },
+      { label: 'Root Canal' },
+    ]}
+    eyebrow="Endodontics"
+    title="Root Canal"
+    description="When decay or injury reaches the nerve inside a tooth, a root canal removes the infected tissue, cleans and seals the space, and relieves the pain — letting you keep the natural tooth instead of having it extracted."
+    icon={ICONS.check}
+    iconColor={CATEGORY_COLORS.endodontics.iconColor}
+    bgColor={CATEGORY_COLORS.endodontics.bgColor}
+  />
+
+  <section class="bg-white py-16 sm:py-20" aria-labelledby="overview-heading">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="overview-heading" class="font-display font-bold text-2xl sm:text-3xl text-green-dark mb-6">
+        Relieving Pain, Saving the Tooth
+      </h2>
+      <div class="space-y-5 font-body text-base text-ink/70 leading-relaxed">
+        <p>
+          Common signs that a tooth may need a root canal include lingering sensitivity to hot or cold, pain when chewing, a persistent ache, or swelling near a tooth. Once the nerve inside a tooth is infected, the discomfort typically doesn't resolve on its own — and the infection can spread if left untreated.
+        </p>
+        <p>
+          A root canal treats the problem at its source, removing the infected pulp so the tooth can stay in your mouth rather than being pulled. It's a routine procedure performed millions of times a year, and modern techniques and sedation options make it far more comfortable than its reputation suggests.
+        </p>
+      </div>
+
+      <h3 class="font-display font-semibold text-xl text-green-dark mt-10 mb-4">What to Expect</h3>
+      <p class="font-body text-base text-ink/60 leading-relaxed">
+        During a root canal, the infected or inflamed pulp is removed from inside the tooth, and the empty space is cleaned, shaped, and sealed to prevent reinfection. A crown is often placed afterward to protect the tooth and restore its strength. Depending on the complexity of the case, treatment may be completed in a single visit or spread across more than one appointment, and sedation is available for patients who'd like it.
+      </p>
+    </div>
+  </section>
+
+  <RelatedServiceGrid
+    heading="Related Services"
+    items={related}
+    background="cream"
+  />
+
+  <ServiceProviders
+    heading="Who Provides This Care"
+    providers={[
+      { name: 'Dr. Seong Lee, DDS', title: 'Endodontist, Board Certified (Columbia University)', href: '/provider/seong-lee-dds/' },
+    ]}
+  />
+
+  <ServiceCTA />
+
+</BaseLayout>

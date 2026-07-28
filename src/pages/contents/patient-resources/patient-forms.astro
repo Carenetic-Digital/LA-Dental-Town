@@ -1,0 +1,130 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const seoTitle = 'Patient Forms | LA Dental Town — East Los Angeles, CA';
+const seoDescription = 'Downloadable patient forms for LA Dental Town in East Los Angeles, CA. New patient paperwork is coming soon — forms can also be completed in office.';
+
+// No downloadable PDFs exist in this project yet. Each entry is a clearly
+// labeled placeholder — not a link to a file that doesn't exist.
+// TODO: replace with real PDF links once Norma provides updated forms.
+const forms = [
+  {
+    title: 'New Patient Registration Form',
+    description: 'Basic contact, demographic, and emergency contact information for new patients.',
+  },
+  {
+    title: 'Medical & Dental History Form',
+    description: 'Your health background, current medications, allergies, and dental history.',
+  },
+  {
+    title: 'HIPAA Consent & Privacy Acknowledgment',
+    description: 'Acknowledgment of our privacy practices and how your health information is used.',
+  },
+  {
+    title: 'Financial Policy Agreement',
+    description: 'Our office policies on payment, insurance billing, and financial responsibility.',
+  },
+];
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       Intro / Page Header
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-cream py-16 sm:py-20 lg:py-24" aria-label="Patient Forms">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="font-body text-xs uppercase tracking-widest text-green-mid mb-3">Patient Resources</p>
+      <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl text-green-dark mb-6 leading-tight">
+        Patient Forms
+      </h1>
+      <p class="font-body text-base sm:text-lg text-ink/65 leading-relaxed max-w-2xl mx-auto">
+        Save time at your appointment by reviewing our new patient paperwork ahead of your visit. Downloadable forms are coming soon — see below for what's on the way.
+      </p>
+    </div>
+  </section>
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       Forms List (placeholders — no PDFs available yet)
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-white py-20 sm:py-28" aria-labelledby="forms-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <p class="font-body text-xs uppercase tracking-widest text-green-mid mb-3">New Patient Paperwork</p>
+        <h2 id="forms-heading" class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-green-dark mb-5">
+          Forms Coming Soon
+        </h2>
+        <p class="font-body text-base sm:text-lg text-ink/60 max-w-2xl mx-auto leading-relaxed">
+          We're updating our downloadable forms library. In the meantime, you're welcome to complete these in office before your appointment.
+        </p>
+      </div>
+
+      <ul class="grid grid-cols-1 sm:grid-cols-2 gap-5 list-none m-0 p-0">
+        {forms.map((form) => (
+          <li class="flex items-start gap-4 p-6 rounded-2xl border border-neutral-200 bg-white h-full">
+            <div class="w-12 h-12 rounded-xl bg-neutral-100 flex items-center justify-center shrink-0">
+              <svg class="w-6 h-6 text-neutral-400" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M14 2H6c-1.1 0-1.99.9-1.99 2v16c0 1.1.89 2 1.99 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+              </svg>
+            </div>
+            <div class="flex-grow">
+              <h3 class="font-display font-semibold text-lg text-green-dark leading-tight mb-1">{form.title}</h3>
+              <p class="font-body text-sm text-ink/60 leading-relaxed mb-3">{form.description}</p>
+              <span
+                class="inline-flex items-center gap-2 font-body text-xs font-semibold uppercase tracking-wide text-neutral-500 bg-neutral-100 rounded-full px-3 py-1.5"
+                role="status"
+                aria-label={`${form.title} — PDF coming soon`}>
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9" />
+                  <path stroke-linecap="round" d="M12 7v5l3 2" />
+                </svg>
+                PDF coming soon
+              </span>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       Prefer to Complete In Person?
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-cream py-20 sm:py-28" aria-labelledby="inperson-heading">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="font-body text-xs uppercase tracking-widest text-green-mid mb-3">No Problem</p>
+      <h2 id="inperson-heading" class="font-display font-bold text-3xl sm:text-4xl text-green-dark mb-5 leading-tight">
+        Prefer to Fill Out Forms In Office?
+      </h2>
+      <p class="font-body text-base text-ink/70 leading-relaxed mb-6 max-w-2xl mx-auto">
+        That's completely fine — just plan to arrive a few minutes early to your appointment, and our front desk team will get you set up with everything you need to complete on-site.
+      </p>
+      <p class="font-body text-sm text-ink/60">
+        Not sure what to expect at your appointment? Visit our <a href="/contents/patient-resources/first-visit/" class="font-semibold text-green-mid hover:text-green-dark">First Visit</a> page.
+      </p>
+    </div>
+  </section>
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       CTA
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-teal-dark text-white py-16 sm:py-20" aria-labelledby="cta-heading">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 id="cta-heading" class="font-display font-bold text-2xl sm:text-3xl lg:text-4xl text-white mb-5 leading-tight">
+        Ready to Book Your Appointment?
+      </h2>
+      <p class="font-body text-base text-white/75 leading-relaxed mb-8 max-w-2xl mx-auto">
+        Walk-ins welcome. Se Habla Español. Book online or give us a call — we'll take care of the paperwork together.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/contents/appointments/" class="inline-flex items-center gap-2 bg-green-mid hover:bg-green-dark text-white font-body font-semibold px-8 py-3.5 rounded-full transition-colors duration-200">
+          Book Appointment
+        </a>
+        <a href="tel:+13238870088" class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-body font-medium px-8 py-3.5 rounded-full transition-colors duration-200">
+          Call (323) 887-0088
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

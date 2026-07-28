@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceHero from '../../components/ServiceHero.astro';
+import RelatedServiceGrid from '../../components/RelatedServiceGrid.astro';
+import ServiceProviders from '../../components/ServiceProviders.astro';
+import ServiceCTA from '../../components/ServiceCTA.astro';
+import { ICONS, CATEGORY_COLORS } from '../../lib/serviceIcons';
+
+const seoTitle = 'Teeth Whitening | LA Dental Town';
+const seoDescription = 'Professional in-office teeth whitening in East Los Angeles — brighten your smile up to 12 shades lighter in about an hour at LA Dental Town.';
+
+const related = [
+  {
+    title: 'Cosmetic Dentistry',
+    description: 'See how whitening fits alongside our other smile-enhancing treatments.',
+    href: '/services/cosmetic-dentistry/',
+    icon: ICONS.star,
+    ...CATEGORY_COLORS.cosmetic,
+  },
+  {
+    title: 'Veneers',
+    description: "For stains that whitening can't fully address, veneers offer a longer-term cover.",
+    href: '/services/veneers/',
+    icon: ICONS.smile,
+    ...CATEGORY_COLORS.cosmetic,
+  },
+  {
+    title: 'Invisalign',
+    description: 'Combine a straighter smile with a brighter one.',
+    href: '/services/invisalign/',
+    icon: ICONS.aligner,
+    ...CATEGORY_COLORS.cosmetic,
+  },
+];
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+
+  <ServiceHero
+    breadcrumbs={[
+      { label: 'Home', href: '/' },
+      { label: 'Services', href: '/services/' },
+      { label: 'Cosmetic Dentistry', href: '/services/cosmetic-dentistry/' },
+      { label: 'Teeth Whitening' },
+    ]}
+    eyebrow="Cosmetic Dentistry"
+    title="Teeth Whitening"
+    description="Coffee, tea, red wine, and simply getting older all dull the natural shade of your teeth over time. Our in-office laser whitening delivers a noticeably brighter smile — up to 12 shades lighter — in about an hour, under professional supervision."
+    icon={ICONS.sparkle}
+    iconColor={CATEGORY_COLORS.cosmetic.iconColor}
+    bgColor={CATEGORY_COLORS.cosmetic.bgColor}
+  />
+
+  <section class="bg-white py-16 sm:py-20" aria-labelledby="overview-heading">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="overview-heading" class="font-display font-bold text-2xl sm:text-3xl text-green-dark mb-6">
+        Faster, Stronger Results Than Store-Bought Kits
+      </h2>
+      <div class="space-y-5 font-body text-base text-ink/70 leading-relaxed">
+        <p>
+          Over-the-counter whitening strips and toothpastes can help at the margins, but they work slowly and unevenly, since they aren't calibrated to your teeth or supervised by a dentist. In-office laser whitening uses a stronger, professionally applied treatment that produces a more dramatic, more even result — and lets your dentist keep an eye on sensitivity and gum protection throughout.
+        </p>
+        <p>
+          It's a popular option before an event, a wedding, or simply when you want a quick confidence boost without committing to a longer cosmetic procedure.
+        </p>
+      </div>
+
+      <h3 class="font-display font-semibold text-xl text-green-dark mt-10 mb-4">What to Expect</h3>
+      <p class="font-body text-base text-ink/60 leading-relaxed">
+        A typical in-office whitening visit starts with a shade check and a protective barrier placed over your gums. A whitening gel is then applied to the teeth, often activated with a specialized light, in one or more cycles during the appointment. Most patients see a visibly brighter smile by the time they leave, with some temporary sensitivity that fades within a day or two.
+      </p>
+    </div>
+  </section>
+
+  <RelatedServiceGrid
+    heading="Related Services"
+    items={related}
+    background="cream"
+  />
+
+  <ServiceProviders
+    heading="Who Provides This Care"
+    providers={[
+      { name: 'Dr. Margaret Wu, DDS', title: 'Co-Founder, General & Cosmetic Dentist', href: '/provider/margaret-wu-dds/' },
+      { name: 'Dr. Jennifer Wu, DDS', title: 'Co-Founder, Cosmetic Dentist', href: '/provider/jennifer-wu-dds/' },
+    ]}
+  />
+
+  <ServiceCTA />
+
+</BaseLayout>

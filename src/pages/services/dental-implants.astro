@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceHero from '../../components/ServiceHero.astro';
+import RelatedServiceGrid from '../../components/RelatedServiceGrid.astro';
+import ServiceProviders from '../../components/ServiceProviders.astro';
+import ServiceCTA from '../../components/ServiceCTA.astro';
+import { ICONS, CATEGORY_COLORS } from '../../lib/serviceIcons';
+
+const seoTitle = 'Dental Implants | LA Dental Town';
+const seoDescription = 'Permanent, natural-looking dental implants in East Los Angeles — the only tooth replacement that preserves jawbone health. Ask about implants at LA Dental Town.';
+
+// Note: no confirmed dental-implant sub-services yet (e.g. All-on-4) — cross-links
+// below point to adjacent categories rather than invented sub-services.
+const related = [
+  {
+    title: 'Crowns and Bridges',
+    description: 'The visible crown that tops an implant, matched to your natural tooth shade.',
+    href: '/services/crowns-and-bridges/',
+    icon: ICONS.crown,
+    ...CATEGORY_COLORS.generalFamily,
+  },
+  {
+    title: 'Oral Surgery',
+    description: 'If a damaged tooth needs to come out before an implant goes in, our oral surgeon handles the extraction.',
+    href: '/services/oral-surgery/',
+    icon: ICONS.surgery,
+    ...CATEGORY_COLORS.oralSurgery,
+  },
+];
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+
+  <ServiceHero
+    breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services/' }, { label: 'Dental Implants' }]}
+    eyebrow="Category"
+    title="Dental Implants"
+    description="A dental implant replaces a missing tooth from the root up — a titanium post fuses with the jawbone, topped with a ceramic crown that looks and functions like a natural tooth. It's the only tooth-replacement option that helps preserve the jawbone itself."
+    icon={ICONS.implant}
+    iconColor={CATEGORY_COLORS.implants.iconColor}
+    bgColor={CATEGORY_COLORS.implants.bgColor}
+  />
+
+  <section class="bg-white py-16 sm:py-20" aria-labelledby="overview-heading">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="overview-heading" class="font-display font-bold text-2xl sm:text-3xl text-green-dark mb-6">
+        Why Implants Are Different From Other Replacement Options
+      </h2>
+      <div class="space-y-5 font-body text-base text-ink/70 leading-relaxed">
+        <p>
+          When a tooth is lost, the jawbone beneath it can begin to shrink over time without the stimulation a tooth root normally provides. Bridges and dentures replace the visible tooth, but only an implant replaces the root as well — the titanium post integrates directly with the bone, helping preserve its shape and density.
+        </p>
+        <p>
+          Because an implant stands on its own, it doesn't rely on the surrounding teeth for support the way a bridge does, so neighboring teeth aren't altered or put under extra strain. The result, once complete, is a replacement tooth that looks natural and functions like the rest of your smile — for eating, speaking, and everyday confidence.
+        </p>
+      </div>
+
+      <h3 class="font-display font-semibold text-xl text-green-dark mt-10 mb-4">What to Expect</h3>
+      <p class="font-body text-base text-ink/60 leading-relaxed">
+        Implant treatment generally starts with a consultation and panoramic diagnostic imaging to evaluate the jawbone and plan placement. The titanium implant post is then placed and given time to fuse with the bone — a healing period that commonly spans a few months — before a custom ceramic crown is attached on top. Because it involves a healing phase, implant treatment takes longer than a same-day procedure, but the timeline and number of visits will depend on your specific case.
+      </p>
+    </div>
+  </section>
+
+  <RelatedServiceGrid
+    heading="Related Services"
+    items={related}
+    background="cream"
+  />
+
+  <ServiceProviders
+    heading="Who Provides This Care"
+    providers={[
+      { name: 'Dr. Eugene Kim, DDS', title: 'Dental Implant Specialist', href: '/provider/eugene-kim-dds/' },
+    ]}
+  />
+
+  <ServiceCTA />
+
+</BaseLayout>

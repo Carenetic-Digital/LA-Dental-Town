@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceHero from '../../components/ServiceHero.astro';
+import RelatedServiceGrid from '../../components/RelatedServiceGrid.astro';
+import ServiceCTA from '../../components/ServiceCTA.astro';
+import { ICONS, CATEGORY_COLORS } from '../../lib/serviceIcons';
+
+const seoTitle = 'Dental Services | LA Dental Town';
+const seoDescription = 'Explore general, cosmetic & specialty dental services at LA Dental Town in East Los Angeles — cleanings, crowns, implants, Invisalign, oral surgery & pediatric care.';
+
+const categories = [
+  {
+    title: 'General & Family Dentistry',
+    description: 'Comprehensive care for patients of all ages — cleanings, exams, crowns & more.',
+    href: '/services/general-family-dentistry/',
+    icon: ICONS.tooth,
+    ...CATEGORY_COLORS.generalFamily,
+  },
+  {
+    title: 'Cosmetic Dentistry',
+    description: 'Veneers, Invisalign, teeth whitening & smile makeovers — beautiful, natural results.',
+    href: '/services/cosmetic-dentistry/',
+    icon: ICONS.star,
+    ...CATEGORY_COLORS.cosmetic,
+  },
+  {
+    title: 'Dental Implants',
+    description: 'The only restoration that preserves jawbone — permanent, natural-looking teeth.',
+    href: '/services/dental-implants/',
+    icon: ICONS.implant,
+    ...CATEGORY_COLORS.implants,
+  },
+  {
+    title: 'Oral Surgery',
+    description: 'Expert wisdom teeth removal & extractions by our on-staff oral surgeon.',
+    href: '/services/oral-surgery/',
+    icon: ICONS.surgery,
+    ...CATEGORY_COLORS.oralSurgery,
+  },
+  {
+    title: 'Endodontics',
+    description: 'Root canals performed by our board-certified, Columbia-trained endodontist.',
+    href: '/services/endodontics/',
+    icon: ICONS.check,
+    ...CATEGORY_COLORS.endodontics,
+  },
+  {
+    title: 'Pediatric Dentistry',
+    description: 'Gentle, fun care for kids from their first visit — play area & PlayStation on-site.',
+    href: '/services/pediatric-dentistry/',
+    icon: ICONS.kids,
+    ...CATEGORY_COLORS.pediatric,
+  },
+];
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+
+  <ServiceHero
+    breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Services' }]}
+    eyebrow="What We Offer"
+    title="Comprehensive Dental Services"
+    description="Full-spectrum dental care for the whole family, under one roof, in East Los Angeles — from routine cleanings and cosmetic smile makeovers to dental implants, oral surgery, root canals, and pediatric care, with specialists on staff for every need."
+    icon={ICONS.tooth}
+    iconColor={CATEGORY_COLORS.generalFamily.iconColor}
+    bgColor={CATEGORY_COLORS.generalFamily.bgColor}
+  />
+
+  <RelatedServiceGrid
+    heading="Browse by Category"
+    subheading="Each category page links to the specific treatments within it — so you can find exactly the care you're looking for."
+    items={categories}
+    background="white"
+    headingId="categories-heading"
+  />
+
+  <section class="bg-cream py-16 sm:py-20" aria-labelledby="how-it-works-heading">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 id="how-it-works-heading" class="font-display font-bold text-2xl sm:text-3xl text-green-dark mb-5">
+        One Practice, Many Specialists
+      </h2>
+      <p class="font-body text-base sm:text-lg text-ink/65 leading-relaxed max-w-2xl mx-auto">
+        Rather than referring patients out, LA Dental Town keeps general, cosmetic, and specialty dentistry together in one East Los Angeles office. That means less back-and-forth between providers, records that stay in one place, and a team that already knows your history when it's time for your next step in treatment. Every service below is provided by a specific doctor on our staff — <a href="/provider/" class="text-green-mid hover:text-green-dark font-semibold underline underline-offset-2">meet the doctors</a> to learn more about their training and credentials.
+      </p>
+    </div>
+  </section>
+
+  <ServiceCTA />
+
+</BaseLayout>

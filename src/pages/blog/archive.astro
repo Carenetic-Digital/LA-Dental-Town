@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const seoTitle = 'Blog Archive | LA Dental Town';
+const seoDescription = 'Browse every dental health article from LA Dental Town in East Los Angeles, CA, listed chronologically by publish date.';
+
+// Chronological (newest first) list of all 14 migrated blog posts.
+// Dates sourced from the live reference site's blog listing page.
+const posts = [
+  { title: 'The Benefits of Digital Impression Scans Over Traditional Dental Putty', date: '2026-05-05', displayDate: 'May 5, 2026', href: '/blog/the-benefits-of-digital-impression-scans-over-traditional-dental-putty/' },
+  { title: 'Why Same-Day Crowns Are the Best Option for Busy Professionals', date: '2026-04-09', displayDate: 'Apr 9, 2026', href: '/blog/why-same-day-crowns-are-the-best-option-for-busy-professionals/' },
+  { title: 'Are You a Candidate for Dental Implants?', date: '2026-03-12', displayDate: 'Mar 12, 2026', href: '/blog/are-you-a-candidate-for-dental-implants/' },
+  { title: 'What Is a Root Canal and Why Do I Need One?', date: '2026-02-11', displayDate: 'Feb 11, 2026', href: '/blog/what-is-a-root-canal-and-why-do-i-need-one/' },
+  { title: 'Say Goodbye to Messy Impressions: The Advantages of Digital Scans', date: '2026-01-21', displayDate: 'Jan 21, 2026', href: '/blog/say-goodbye-to-messy-impressions-the-advantages-of-digital-scans/' },
+  { title: 'How Veneers Can Fix Chips, Gaps, and Discoloration for a Perfect Smile', date: '2025-12-11', displayDate: 'Dec 11, 2025', href: '/blog/how-veneers-can-fix-chips-gaps-and-discoloration-for-a-perfect-smile/' },
+  { title: 'Get Your Smile Holiday-Ready With Same-Day Crowns', date: '2025-11-06', displayDate: 'Nov 6, 2025', href: '/blog/get-your-smile-holiday-ready-with-same-day-crowns/' },
+  { title: "I Brush My Teeth a Lot: Why Aren't They Staying White?", date: '2025-10-22', displayDate: 'Oct 22, 2025', href: '/blog/i-brush-my-teeth-a-lot-why-arent-they-staying-white/' },
+  { title: 'No Messy, Goopy Dental Impressions Here. We Use Fast and Easy Digital Scans', date: '2025-09-18', displayDate: 'Sep 18, 2025', href: '/blog/no-messy-goopy-dental-impressions-here-we-use-fast-and-easy-digital-scans/' },
+  { title: 'Forget the Temps. We Offer Same-Day Crowns With Our In-Office Milling Machine', date: '2025-08-15', displayDate: 'Aug 15, 2025', href: '/blog/forget-the-temps-we-offer-same-day-crowns-with-our-in-office-milling-machine/' },
+  { title: 'When Is Wisdom Teeth Removal a Must?', date: '2025-07-01', displayDate: 'Jul 1, 2025', href: '/blog/when-is-wisdom-teeth-removal-a-must/' },
+  { title: "Why You Shouldn't Skip Your Biannual Dental Cleaning and Checkup", date: '2025-06-01', displayDate: 'Jun 1, 2025', href: '/blog/why-you-shouldnt-skip-your-biannual-dental-cleaning-and-checkup/' },
+  { title: '5 Signs That You May Need a Root Canal', date: '2025-05-02', displayDate: 'May 2, 2025', href: '/blog/5-signs-that-you-may-need-a-root-canal/' },
+  { title: 'The Importance of Replacing Missing Teeth', date: '2025-04-01', displayDate: 'Apr 1, 2025', href: '/blog/the-importance-of-replacing-missing-teeth/' },
+];
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       Archive Header
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-cream py-16 sm:py-20 border-b border-neutral-200" aria-label="Blog archive">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="font-body text-xs uppercase tracking-widest text-green-mid mb-3">Dental Health</p>
+      <h1 class="font-display font-bold text-4xl sm:text-5xl text-green-dark mb-5 leading-tight">
+        Blog Archive
+      </h1>
+      <p class="font-body text-base sm:text-lg text-ink/60 max-w-2xl leading-relaxed">
+        Every article from LA Dental Town, listed chronologically by publish date. Prefer a visual overview? <a href="/blog/" class="text-green-mid hover:text-green-dark font-semibold underline underline-offset-2">Browse the blog</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       Chronological List
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-white py-4 sm:py-6" aria-labelledby="archive-heading">
+    <h2 id="archive-heading" class="sr-only">All blog posts, newest first</h2>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ol class="list-none m-0 p-0 divide-y divide-neutral-200">
+        {posts.map((post) => (
+          <li>
+            <a
+              href={post.href}
+              class="group flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6 py-5 sm:py-6 -mx-4 px-4 rounded-lg hover:bg-cream/70 transition-colors duration-150">
+              <time datetime={post.date} class="font-body text-sm text-ink/50 shrink-0 sm:w-28">
+                {post.displayDate}
+              </time>
+              <span class="font-display font-medium text-lg sm:text-xl text-ink group-hover:text-green-mid transition-colors leading-snug">
+                {post.title}
+              </span>
+              <svg class="w-4 h-4 shrink-0 ml-auto text-ink/30 group-hover:text-green-mid transition-all group-hover:translate-x-1 hidden sm:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       CTA
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-teal-dark text-white py-14 sm:py-16 mt-10" aria-labelledby="archive-cta-heading">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 id="archive-cta-heading" class="font-display font-semibold text-2xl sm:text-3xl text-white mb-4">
+        Have a question about your dental health?
+      </h2>
+      <p class="font-body text-white/70 text-base leading-relaxed mb-7">
+        Our East Los Angeles team is here to help. Walk-ins welcome — Se Habla Español.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="/contents/appointments/" class="inline-flex items-center justify-center gap-2 bg-green-mid hover:bg-green-dark text-white font-body font-semibold px-8 py-3.5 rounded-full transition-colors duration-200">
+          Book an Appointment
+        </a>
+        <a href="tel:+13238870088" class="inline-flex items-center justify-center gap-2 border-2 border-white/40 hover:border-white text-white font-body font-medium px-8 py-3.5 rounded-full transition-colors duration-200">
+          Call (323) 887-0088
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,183 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const seoTitle = 'About Us | LA Dental Town — Family Dentistry in East Los Angeles, CA';
+const seoDescription = "Learn about LA Dental Town's philosophy, comfort amenities, and multi-specialty team of doctors providing family, cosmetic & specialty dental care in East Los Angeles.";
+
+const amenities = [
+  {
+    title: 'Optional Oral Sedation',
+    description: 'For patients who feel anxious about dental visits, oral sedation is available to help you stay relaxed and comfortable.',
+    icon: `<path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>`,
+  },
+  {
+    title: 'Nitrous Oxide (Laughing Gas)',
+    description: 'A gentle, fast-acting option to ease nerves during treatment — especially helpful for kids and first-time patients.',
+    icon: `<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>`,
+  },
+  {
+    title: 'Blankets & Pillows',
+    description: 'Cozy comforts to help you settle in and relax in the treatment chair, just like at home.',
+    icon: `<path d="M7 13c1.66 0 3-1.34 3-3S8.66 7 7 7s-3 1.34-3 3 1.34 3 3 3zm12-6h-8v7H3V5H1v15h2v-3h18v3h2v-9c0-3.31-2.69-6-6-6z"/>`,
+  },
+  {
+    title: 'Flatscreen TVs',
+    description: 'Watch a show or movie to help pass the time and take your mind off treatment.',
+    icon: `<path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/>`,
+  },
+  {
+    title: "Kids' Play Area & PlayStation",
+    description: 'A dedicated play area and PlayStation keep younger patients entertained and at ease before their visit.',
+    icon: `<path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h3.05l1.05-1.05L8.17 16H16l1.05 1.05L18.17 16H21c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM11 12H9v2H7v-2H5v-2h2V8h2v2h2v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm3-3c-.83 0-1.5-.67-1.5-1.5S17.67 8 18.5 8s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>`,
+  },
+];
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       SECTION 1: Page Intro
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-cream py-20 sm:py-28" aria-labelledby="about-hero-heading">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="font-body text-xs uppercase tracking-widest text-green-mid mb-3">Our Practice</p>
+      <h1 id="about-hero-heading" class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl text-green-dark mb-6 leading-tight">
+        About LA Dental Town
+      </h1>
+      <p class="font-body text-lg sm:text-xl text-ink/65 leading-relaxed">
+        A family, cosmetic &amp; specialty dental practice rooted in East Los Angeles — built on patient comfort, advanced technology, and an exceptional team of doctors.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       SECTION 2: Philosophy / Story
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-white py-20 sm:py-28" aria-labelledby="philosophy-heading">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="font-body text-xs uppercase tracking-widest text-green-mid mb-3 text-center">Our Philosophy</p>
+      <h2 id="philosophy-heading" class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-green-dark mb-8 leading-tight text-center">
+        Trusted Care for Every Smile
+      </h2>
+      <div class="space-y-5 font-body text-base sm:text-lg text-ink/70 leading-relaxed">
+        <p>
+          The dentists at LA Dental Town in East Los Angeles emphasize patient comfort and staying up-to-date with the latest advances in dental technology and treatments. This allows our skilled team of general, family, and cosmetic dentists to offer patients of all ages the most comprehensive array of dental services — all under one roof.
+        </p>
+        <p>
+          Our caring, compassionate team takes a patient-centered approach to dental care, listening to your concerns and ensuring comfort throughout every diagnosis and treatment. Whether you're bringing your kids for their first cleaning or exploring options for a smile makeover, our doctors and staff are here to make every visit a positive one.
+        </p>
+        <p>
+          With outstanding dental education, cutting-edge technology, and an emphasis on a positive patient experience, the dentists at LA Dental Town are changing the way people think about visiting the dentist. We're proud to serve the East Los Angeles community and surrounding neighborhoods — walk-ins are always welcome, and our team is happy to help Se Habla Español.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       SECTION 3: Amenities
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-cream py-20 sm:py-28" aria-labelledby="amenities-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <p class="font-body text-xs uppercase tracking-widest text-green-mid mb-3">Patient Comfort</p>
+        <h2 id="amenities-heading" class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-green-dark mb-5">
+          Amenities That Put You at Ease
+        </h2>
+        <p class="font-body text-base sm:text-lg text-ink/60 max-w-2xl mx-auto leading-relaxed">
+          We offer extensive amenities to make each visit a positive experience for every member of the family.
+        </p>
+      </div>
+
+      <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 list-none m-0 p-0">
+        {amenities.map((a) => (
+          <li class="flex flex-col gap-4 p-6 rounded-2xl border border-neutral-200 bg-white h-full">
+            <div class="w-12 h-12 rounded-xl bg-green-dark/10 flex items-center justify-center shrink-0">
+              <svg class="w-6 h-6 text-green-dark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" set:html={a.icon}></svg>
+            </div>
+            <h3 class="font-display font-semibold text-lg text-green-dark leading-tight">{a.title}</h3>
+            <p class="font-body text-sm text-ink/60 leading-relaxed">{a.description}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       SECTION 4: Doctor Credentials Summary
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-white py-20 sm:py-28" aria-labelledby="credentials-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+        <div>
+          <p class="font-body text-xs uppercase tracking-widest text-green-mid mb-3">Our Team</p>
+          <h2 id="credentials-heading" class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-green-dark mb-7 leading-tight">
+            A Multi-Specialty Team, Elite Training
+          </h2>
+          <div class="space-y-5 font-body text-base text-ink/70 leading-relaxed">
+            <p>
+              LA Dental Town brings together six specialist doctors across general dentistry, cosmetic dentistry, pediatric dentistry, oral surgery, endodontics, and dental implants — so your whole family can get comprehensive care in one place.
+            </p>
+            <p>
+              Our doctors trained at some of the country's top dental schools, including UCSF, UC Berkeley, the University of the Pacific, and Boston University, and hold board certifications and specialty credentials in their respective fields. Drs. Jennifer Wu and Margaret Wu were selected as Top Rated Dentists in Los Angeles and featured in a Time Magazine advertorial.
+            </p>
+          </div>
+          <div class="mt-8">
+            <a href="/provider/" class="inline-flex items-center gap-2 bg-green-mid hover:bg-green-dark text-white font-body font-semibold px-7 py-3.5 rounded-full transition-colors duration-200">
+              Meet the Full Team
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-cream rounded-2xl p-6 border border-neutral-200 flex flex-col gap-2">
+            <p class="font-display font-bold text-4xl text-green-dark leading-none">6</p>
+            <p class="font-body text-sm text-ink/60 leading-snug">Specialist doctors on staff</p>
+          </div>
+          <div class="bg-green-dark text-white rounded-2xl p-6 flex flex-col gap-2">
+            <p class="font-display font-bold text-4xl leading-none">4.9<span class="text-gold text-2xl">★</span></p>
+            <p class="font-body text-sm text-white/70 leading-snug">Google Rating</p>
+          </div>
+          <div class="col-span-2 bg-white rounded-2xl p-6 border border-neutral-200">
+            <p class="font-body text-xs uppercase tracking-widest text-green-mid mb-2">Doctor Credentials</p>
+            <p class="font-body text-sm text-ink/70 leading-relaxed">UCSF · UC Berkeley · Univ. of the Pacific · Boston University — elite training for exceptional outcomes.</p>
+          </div>
+          <div class="col-span-2 bg-cream rounded-2xl p-6 border border-neutral-200 flex flex-col gap-2">
+            <p class="font-display font-bold text-xl text-green-dark leading-tight">Top Rated</p>
+            <p class="font-body text-sm text-ink/70 leading-snug">America's Top Dentists — multiple years — featured in a Time Magazine advertorial.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       SECTION 5: Closing CTA
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-teal-dark text-white py-16 sm:py-20" aria-labelledby="about-cta-heading">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 id="about-cta-heading" class="font-display font-bold text-2xl sm:text-3xl lg:text-4xl text-white mb-5 leading-tight">
+        Come See What Sets Us Apart
+      </h2>
+      <p class="font-body text-base text-white/75 leading-relaxed max-w-2xl mx-auto mb-8">
+        Walk-ins welcome. Se Habla Español. Most PPO insurances and Denti-Cal accepted.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="/contents/appointments/" class="bg-green-mid hover:bg-green-dark text-white font-body font-semibold px-8 py-4 rounded-full transition-colors duration-200">
+          Book an Appointment
+        </a>
+        <a href="tel:+13238870088" class="border-2 border-white/40 hover:border-white text-white font-body font-medium px-8 py-4 rounded-full transition-all duration-200">
+          Call (323) 887-0088
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceHero from '../../components/ServiceHero.astro';
+import ServiceProviders from '../../components/ServiceProviders.astro';
+import ServiceCTA from '../../components/ServiceCTA.astro';
+import { ICONS, CATEGORY_COLORS } from '../../lib/serviceIcons';
+
+const seoTitle = 'Pediatric Dentistry | LA Dental Town';
+const seoDescription = 'Gentle pediatric dental care in East Los Angeles — first visits, cleanings & exams for kids in a fun, comfortable environment at LA Dental Town.';
+
+// Note: no confirmed pediatric-dentistry sub-services yet — this stays a
+// standalone category page. The most relevant existing cross-link is the
+// site's First Visit patient-resources page, not an invented sub-service.
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+
+  <ServiceHero
+    breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services/' }, { label: 'Pediatric Dentistry' }]}
+    eyebrow="Category"
+    title="Pediatric Dentistry"
+    description="Pediatric dentistry is dental care built around kids — gentler, more patient, and set up to make the first visits feel easy rather than scary. The American Dental Association recommends a child's first dental visit happen by their first birthday, and our pediatric dentist specializes in exactly that early-age care."
+    icon={ICONS.kids}
+    iconColor={CATEGORY_COLORS.pediatric.iconColor}
+    bgColor={CATEGORY_COLORS.pediatric.bgColor}
+  />
+
+  <section class="bg-white py-16 sm:py-20" aria-labelledby="overview-heading">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="overview-heading" class="font-display font-bold text-2xl sm:text-3xl text-green-dark mb-6">
+        Building Comfort With the Dentist Early
+      </h2>
+      <div class="space-y-5 font-body text-base text-ink/70 leading-relaxed">
+        <p>
+          A child's early experiences at the dentist tend to shape how comfortable they are with dental visits for years afterward. Pediatric dentistry focuses on making those first visits positive — through a gentle, patient approach, kid-friendly explanations, and an environment that doesn't feel clinical or intimidating.
+        </p>
+        <p>
+          Beyond comfort, pediatric checkups help catch issues like early cavities, thumb-sucking effects, or crowding while there's still time to address them simply. Our office includes a dedicated play area and PlayStation, so waiting — and the visit itself — feels less like a chore.
+        </p>
+      </div>
+
+      <h3 class="font-display font-semibold text-xl text-green-dark mt-10 mb-4">The First Visit</h3>
+      <p class="font-body text-base text-ink/60 leading-relaxed mb-4">
+        Per American Dental Association guidance, a child's first dental visit should generally happen around their first birthday, or within six months of their first tooth coming in. Early visits are typically short and gentle, focused on getting your child familiar with the office and checking that their teeth and jaw are developing normally — more of an introduction than an intensive exam.
+      </p>
+      <p class="font-body text-base text-ink/60 leading-relaxed">
+        For more detail on preparing for that first appointment, see our <a href="/contents/patient-resources/first-visit/" class="text-green-mid hover:text-green-dark font-semibold underline underline-offset-2">First Visit guide</a>.
+      </p>
+    </div>
+  </section>
+
+  <ServiceProviders
+    heading="Who Provides This Care"
+    providers={[
+      { name: 'Dr. Tiffany Tran, DDS, MS', title: 'Pediatric Dentist', href: '/provider/tiffany-tran-dds/' },
+    ]}
+  />
+
+  <ServiceCTA
+    heading="Ready to schedule your child's visit?"
+    description="Walk-ins welcome. Se Habla Español. Most PPO insurance and Denti-Cal accepted for pediatric care."
+  />
+
+</BaseLayout>

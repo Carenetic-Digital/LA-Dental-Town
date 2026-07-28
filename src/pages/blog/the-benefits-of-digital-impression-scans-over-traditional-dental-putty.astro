@@ -1,0 +1,168 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const title = 'The Benefits of Digital Impression Scans Over Traditional Dental Putty';
+const seoTitle = `${title} | LA Dental Town Blog`;
+const seoDescription = 'No more sticky trays — see how digital impression scans at LA Dental Town offer more comfort, precision, and speed than traditional dental putty.';
+
+const tag = 'Technology';
+const gradient = 'linear-gradient(135deg, #1D4D2F, #3A7D44)';
+
+const relatedPosts = [
+  {
+    title: 'Say Goodbye to Messy Impressions: The Advantages of Digital Scans',
+    href: '/blog/say-goodbye-to-messy-impressions-the-advantages-of-digital-scans/',
+    tag: 'Technology',
+    gradient: 'linear-gradient(135deg, #163232, #1D4D2F)',
+  },
+  {
+    title: 'Why Same-Day Crowns Are the Best Option for Busy Professionals',
+    href: '/blog/why-same-day-crowns-are-the-best-option-for-busy-professionals/',
+    tag: 'Restorative',
+    gradient: 'linear-gradient(135deg, #163232, #1D4D2F)',
+  },
+  {
+    title: 'Get Your Smile Holiday-Ready With Same-Day Crowns',
+    href: '/blog/get-your-smile-holiday-ready-with-same-day-crowns/',
+    tag: 'Restorative',
+    gradient: 'linear-gradient(135deg, #3A7D44, #C9A84C)',
+  },
+];
+
+const publishDate = '2026-05-05';
+const displayDate = 'May 5, 2026';
+
+const articleData = {
+  headline: title,
+  datePublished: publishDate,
+  author: { '@type': 'Organization', name: 'LA Dental Town' },
+  publisher: { '@type': 'Organization', name: 'LA Dental Town' },
+  mainEntityOfPage: new URL('/blog/the-benefits-of-digital-impression-scans-over-traditional-dental-putty/', Astro.site).href,
+};
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+  <StructuredData type="BlogPosting" data={articleData} />
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       Post Header
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-cream py-14 sm:py-20" aria-label="Blog post header">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav aria-label="Breadcrumb" class="mb-6">
+        <ol class="flex items-center gap-2 font-body text-sm text-ink/50 list-none m-0 p-0">
+          <li><a href="/blog/" class="hover:text-green-mid transition-colors">Blog</a></li>
+          <li aria-hidden="true">/</li>
+          <li class="text-ink/70">{tag}</li>
+        </ol>
+      </nav>
+      <span class="inline-block font-body text-xs font-semibold text-white bg-green-mid rounded-full px-3 py-1 mb-5">{tag}</span>
+      <h1 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-green-dark leading-tight">
+        {title}
+      </h1>
+      <p class="font-body text-sm text-ink/50 mt-4">
+        <time datetime={publishDate}>{displayDate}</time> · LA Dental Town
+      </p>
+    </div>
+  </section>
+
+  <!-- Gradient banner placeholder — no photography available for blog posts -->
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 -mt-2 sm:-mt-4">
+    <div class="h-48 sm:h-64 rounded-3xl" style={`background: ${gradient}`} aria-hidden="true"></div>
+  </div>
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       Article Body
+  ─────────────────────────────────────────────────────────────────────── -->
+  <article class="bg-white py-14 sm:py-20">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="font-body text-base sm:text-lg text-ink/80 leading-relaxed space-y-6">
+        <p>
+          Does the idea of biting down on a tray of thick, goopy dental putty make you shudder? For many patients, the most stressful part of getting a new crown or bridge isn't the procedure itself but the uncomfortable, messy impression process.
+        </p>
+        <p>
+          LA Dental Town offers digital scanning technology to capture high-resolution, 3D images of your mouth with no putty required. Our dentists use these intraoral scans as the blueprint for a variety of custom restorations and appliances, including crowns, veneers, dentures, and nightguards.
+        </p>
+        <p>
+          While skipping the sticky putty is the most obvious advantage, it's only one reason why the vast majority of patients prefer digital scans over traditional impressions. Let's take a look at some of the benefits you may not have considered.
+        </p>
+
+        <h2 class="font-display font-semibold text-xl sm:text-2xl text-green-dark !mt-12 !mb-2">Instant visual feedback</h2>
+        <p>
+          To take a digital impression, we simply glide an unobtrusive handheld scanner over the surface of your teeth. As the sensor moves, it generates an interactive 3D model of your teeth and gums on a nearby screen.
+        </p>
+        <p>
+          This 360-degree view makes it easy to visualize and understand what's happening in your mouth — and how your new restoration or appliance will address it. Our team explains every step of the process in detail so you feel confident and informed before any work begins.
+        </p>
+
+        <h2 class="font-display font-semibold text-xl sm:text-2xl text-green-dark !mt-12 !mb-2">Less time spent in the chair</h2>
+        <p>
+          Between selecting the right size trays, mixing the putty, and waiting for it to set, the traditional impression process can add significant time to your appointment. For busy patients on a tight schedule — or those with dental anxiety — these extra minutes add up.
+        </p>
+        <p>
+          Digital scans are fast and efficient, taking just a few minutes per arch to capture every angle of your bite. It requires minimal preparation beforehand and no cleanup afterward, which means you can get back to your day as quickly as possible.
+        </p>
+
+        <h2 class="font-display font-semibold text-xl sm:text-2xl text-green-dark !mt-12 !mb-2">Faster turnaround time</h2>
+        <p>
+          Once your scan is complete, we send the digital file directly to our in-office milling machine or a dental lab. Physical molds need to be handled, packaged, and shipped to their destination, adding days to your total treatment time.
+        </p>
+        <p>
+          With same-day crowns, we can craft and place your permanent restoration in the same appointment as your scan. There's no need to wait weeks with an uncomfortable temporary crown or return for a second office visit — you can enjoy your new smile immediately.
+        </p>
+
+        <h2 class="font-display font-semibold text-xl sm:text-2xl text-green-dark !mt-12 !mb-2">Greater precision for a perfect fit</h2>
+        <p>
+          The handheld scanner captures thousands of data points per second to create a perfect virtual replica of your teeth and gums. While putty molds occasionally warp or develop air bubbles — which often means repeating the impression process — digital data minimizes any chance of error.
+        </p>
+        <p>
+          This high level of precision ensures that your restoration or appliance fits securely and aligns with your natural bite from the start. In many cases, the finished piece slides into place with minimal adjustments, making your final fitting as comfortable and efficient as possible.
+        </p>
+
+        <h2 class="font-display font-semibold text-xl sm:text-2xl text-green-dark !mt-12 !mb-2">Experience a more comfortable dental visit</h2>
+        <p>
+          Why settle for uncomfortable, outdated impression methods when you could enjoy the speed and precision of digital technology? By eliminating the mess, discomfort, and wait, we make it easier than ever to maintain a healthy, beautiful smile.
+        </p>
+        <p>
+          Whether you need a new crown or just a routine cleaning, our team is ready to help. Call us today to schedule a consultation at LA Dental Town in East Los Angeles, California.
+        </p>
+      </div>
+
+      <!-- CTA -->
+      <div class="mt-14 bg-cream border border-neutral-200 rounded-2xl p-8 sm:p-10 text-center">
+        <h2 class="font-display font-semibold text-2xl text-green-dark mb-3">Ready to Experience Digital Scans?</h2>
+        <p class="font-body text-ink/70 mb-6">Skip the messy putty — schedule your visit at LA Dental Town today.</p>
+        <a href="/contents/appointments/" class="inline-flex items-center gap-2 bg-green-mid hover:bg-green-dark text-white font-body font-semibold px-8 py-3.5 rounded-full transition-colors duration-200">
+          Book an Appointment
+        </a>
+      </div>
+    </div>
+  </article>
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       Related Posts
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-cream py-16 sm:py-20" aria-labelledby="related-heading">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="related-heading" class="font-display font-bold text-2xl sm:text-3xl text-green-dark mb-10 text-center">
+        Related Reading
+      </h2>
+      <ul class="grid grid-cols-1 sm:grid-cols-3 gap-6 list-none m-0 p-0">
+        {relatedPosts.map((post) => (
+          <li>
+            <a href={post.href} class="group block rounded-2xl bg-white border border-neutral-200 hover:border-green-mid/40 hover:shadow-xl overflow-hidden transition-all duration-200 h-full">
+              <div class="h-32 flex items-end p-4" style={`background: ${post.gradient}`} aria-hidden="true">
+                <span class="inline-block font-body text-xs font-semibold text-white/90 bg-white/20 rounded-full px-3 py-1">{post.tag}</span>
+              </div>
+              <div class="p-5">
+                <h3 class="font-display font-semibold text-sm text-green-dark leading-snug group-hover:text-green-mid transition-colors line-clamp-3">{post.title}</h3>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceHero from '../../components/ServiceHero.astro';
+import RelatedServiceGrid from '../../components/RelatedServiceGrid.astro';
+import ServiceProviders from '../../components/ServiceProviders.astro';
+import ServiceCTA from '../../components/ServiceCTA.astro';
+import { ICONS, CATEGORY_COLORS } from '../../lib/serviceIcons';
+
+const seoTitle = 'Veneers | LA Dental Town';
+const seoDescription = 'Porcelain veneers in East Los Angeles — fix chips, gaps & discoloration for a natural, long-lasting smile makeover at LA Dental Town.';
+
+const related = [
+  {
+    title: 'Cosmetic Dentistry',
+    description: 'See the full range of smile-focused treatments veneers belong to.',
+    href: '/services/cosmetic-dentistry/',
+    icon: ICONS.star,
+    ...CATEGORY_COLORS.cosmetic,
+  },
+  {
+    title: 'Teeth Whitening',
+    description: 'Brighten your natural teeth first, or pair whitening with veneers for a uniform shade.',
+    href: '/services/teeth-whitening/',
+    icon: ICONS.sparkle,
+    ...CATEGORY_COLORS.cosmetic,
+  },
+  {
+    title: 'Invisalign',
+    description: "Straighten teeth before veneers if alignment is part of what you'd like to change.",
+    href: '/services/invisalign/',
+    icon: ICONS.aligner,
+    ...CATEGORY_COLORS.cosmetic,
+  },
+];
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+
+  <ServiceHero
+    breadcrumbs={[
+      { label: 'Home', href: '/' },
+      { label: 'Services', href: '/services/' },
+      { label: 'Cosmetic Dentistry', href: '/services/cosmetic-dentistry/' },
+      { label: 'Veneers' },
+    ]}
+    eyebrow="Cosmetic Dentistry"
+    title="Veneers"
+    description="Veneers are thin, custom-made shells bonded to the front of your teeth to cover chips, gaps, discoloration, or uneven shapes — giving you a uniform, natural-looking smile without altering the healthy tooth structure underneath."
+    icon={ICONS.smile}
+    iconColor={CATEGORY_COLORS.cosmetic.iconColor}
+    bgColor={CATEGORY_COLORS.cosmetic.bgColor}
+  />
+
+  <section class="bg-white py-16 sm:py-20" aria-labelledby="overview-heading">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="overview-heading" class="font-display font-bold text-2xl sm:text-3xl text-green-dark mb-6">
+        A Natural-Looking Fix for Common Smile Concerns
+      </h2>
+      <div class="space-y-5 font-body text-base text-ink/70 leading-relaxed">
+        <p>
+          Chipped edges, gaps between teeth, and stains that won't respond to whitening are some of the most common reasons patients ask about veneers. Because each veneer is custom-shaped and shaded to match your surrounding teeth, the result is designed to look like an improved version of your natural smile — not an obviously artificial one.
+        </p>
+        <p>
+          We offer traditional porcelain veneers as well as Lumineers, a thinner alternative that typically requires less removal of the natural tooth surface. Which option makes sense depends on the condition of your teeth and the look you're going for, and it's something your dentist will walk through with you during a consultation.
+        </p>
+      </div>
+
+      <h3 class="font-display font-semibold text-xl text-green-dark mt-10 mb-4">What to Expect</h3>
+      <p class="font-body text-base text-ink/60 leading-relaxed">
+        Veneers are generally completed over two appointments. At the first visit, the teeth are prepared and a mold or digital scan is taken to design your veneers, with a temporary placed in the meantime. At the second visit, once your custom veneers are ready, they're checked for fit and color match, then permanently bonded in place.
+      </p>
+    </div>
+  </section>
+
+  <RelatedServiceGrid
+    heading="Related Services"
+    items={related}
+    background="cream"
+  />
+
+  <ServiceProviders
+    heading="Who Provides This Care"
+    providers={[
+      { name: 'Dr. Margaret Wu, DDS', title: 'Co-Founder, General & Cosmetic Dentist', href: '/provider/margaret-wu-dds/' },
+      { name: 'Dr. Jennifer Wu, DDS', title: 'Co-Founder, Cosmetic Dentist', href: '/provider/jennifer-wu-dds/' },
+    ]}
+  />
+
+  <ServiceCTA />
+
+</BaseLayout>

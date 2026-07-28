@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const seoTitle = 'Patient Testimonials & Reviews | LA Dental Town — East Los Angeles, CA';
+const seoDescription = 'Read real reviews from LA Dental Town patients in East Los Angeles — a 4.93 average rating across our curated patient testimonials.';
+
+// Verbatim migrated content — sourced from reference/analysis.md "Full Testimonials"
+// (15 reviews, 4.93/5 avg). Preserved exactly as written, including original
+// spelling, punctuation, and any Spanish-language text. Do not paraphrase.
+const testimonials = [
+  { author: 'Gema T.', stars: 5, date: 'October 2024', text: 'We always have a good experience, the doctor and all the staff are always friendly.' },
+  { author: 'Rosslu L.', stars: 5, date: 'February 2022', text: 'Excelente servicio. La doctora Jennifer Wu muy profesional y amable. El lugar impecable.' },
+  { author: 'Yogi P.', stars: 5, date: 'September 2020', text: 'They took great care of us!...Dr Wu, Dr Jen, Dr Tiff and their entire team are awesome!' },
+  { author: 'Maria M.', stars: 5, date: 'August 2019', text: 'Best service' },
+  { author: 'Phyllis O.', stars: 5, date: 'August 2019', text: 'They were very Professional and up to date on evrything...very kind and gentle.' },
+  { author: 'Katty A.', stars: 5, date: 'August 2019', text: 'Dr.Wu did such a great job on taking out my wisdom teeth very gental!' },
+  { author: 'Jose F.', stars: 5, date: 'August 2019', text: 'Dr. Wu is the best. Great facilities and attentive staff.' },
+  { author: 'Nancy C.', stars: 5, date: 'July 2019', text: 'Excellent service from start to finish...Dr. Wu is amazing.' },
+  { author: 'Johnny R.', stars: 5, date: 'July 2019', text: "They are always amazing with my kids! They aren't afraid of the dentist anymore." },
+  { author: 'Jaylenne L.', stars: 5, date: 'July 2019', text: 'Excellent!!! and very happy with the service....' },
+  { author: 'Kristie B.', stars: 5, date: 'July 2019', text: 'Very professional and caring...overall great dental experience!' },
+  { author: 'Jacob J.', stars: 5, date: 'July 2019', text: 'Drs. are AMAZING! My boys are always happy when have to go.' },
+  { author: 'Leticia A.', stars: 4, date: 'June 2019', text: 'They staff is friendly and very profesional...Always accommodating.' },
+  { author: 'Janet A.', stars: 5, date: 'June 2019', text: 'Ana was so gentle and put me at ease. LA DentalTown is a gem!!!' },
+  { author: 'Jasmin A.', stars: 5, date: 'June 2019', text: 'I had a great experience here, they took very good care of me.' },
+];
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       SECTION 1: Page Intro
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-cream py-20 sm:py-28" aria-labelledby="testimonials-hero-heading">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="font-body text-xs uppercase tracking-widest text-green-mid mb-3">Patient Reviews</p>
+      <h1 id="testimonials-hero-heading" class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl text-green-dark mb-6 leading-tight">
+        What Our Patients Say
+      </h1>
+      <p class="font-body text-lg sm:text-xl text-ink/65 leading-relaxed mb-6">
+        Real reviews from LA Dental Town patients in East Los Angeles — curated, not auto-pulled.
+      </p>
+      <div class="inline-flex items-center gap-2 bg-white border border-neutral-200 rounded-full px-5 py-2.5">
+        <span class="text-gold text-lg" aria-label="4.93 out of 5 stars">★★★★★</span>
+        <span class="font-body font-semibold text-ink text-sm">4.93 average</span>
+        <span class="font-body text-ink/50 text-sm">· 15 reviews</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       SECTION 2: Testimonials Grid
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-white py-16 sm:py-24" aria-label="Patient testimonials">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 list-none m-0 p-0">
+        {testimonials.map((t) => (
+          <li class="bg-cream rounded-2xl p-7 border border-neutral-200/60 flex flex-col gap-4">
+            <div class="flex items-center gap-1 text-gold" aria-label={`${t.stars} out of 5 stars`}>
+              {'★'.repeat(t.stars)}
+              {t.stars < 5 && <span class="text-neutral-300">{'★'.repeat(5 - t.stars)}</span>}
+            </div>
+            <blockquote class="font-body text-base text-ink/80 leading-relaxed flex-grow">
+              "{t.text}"
+            </blockquote>
+            <footer class="flex items-center justify-between gap-3">
+              <cite class="font-body font-semibold text-sm text-ink not-italic">{t.author}</cite>
+              <span class="font-body text-xs text-ink/60 bg-white border border-neutral-200 rounded-full px-3 py-1 whitespace-nowrap">{t.date}</span>
+            </footer>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       SECTION 3: Closing CTA
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-teal-dark text-white py-16 sm:py-20" aria-labelledby="testimonials-cta-heading">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 id="testimonials-cta-heading" class="font-display font-bold text-2xl sm:text-3xl lg:text-4xl text-white mb-5 leading-tight">
+        Ready to Experience It Yourself?
+      </h2>
+      <p class="font-body text-base text-white/75 leading-relaxed max-w-2xl mx-auto mb-8">
+        Walk-ins welcome. Se Habla Español. Most PPO insurances and Denti-Cal accepted.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="/contents/appointments/" class="bg-green-mid hover:bg-green-dark text-white font-body font-semibold px-8 py-4 rounded-full transition-colors duration-200">
+          Book an Appointment
+        </a>
+        <a href="tel:+13238870088" class="border-2 border-white/40 hover:border-white text-white font-body font-medium px-8 py-4 rounded-full transition-all duration-200">
+          Call (323) 887-0088
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

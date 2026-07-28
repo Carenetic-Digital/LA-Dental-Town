@@ -42,20 +42,23 @@ The current site platform (PatientPop) is being migrated off. The new site will 
 
 The following sites were referenced during the call as design and UX inspiration. Each is cited below with what specifically to borrow.
 
+> **Correction (2026-07-27):** "Bel Air Dental Arts" and "Bedford Dental Group (BDFG / bhdentist.com)" are the same practice — Bedford Dental Group at https://www.bhdentists.com/ — mislabeled as two separate references earlier in this doc. "Children's Fun Zone / CDF Zone (cdfzone.com)" is actually Children's Dental FunZone at https://www.childrensdentalfunzone.com/. Every mention of these names below refers to the corrected single sites.
+
 ### Primary Inspiration
-**Bel Air Dental Arts** — Overall look, feel, and layout  
+**Bedford Dental Group (Beverly Hills)** — https://www.bhdentists.com/ — Overall look, feel, and layout  
 - Light color palette, elevated aesthetic
 - Sticky "Book Now" CTA that follows the user on scroll
 - Floating Google Reviews badge (lower-left corner, follows scroll)
 - About/location/CTA structure on homepage
 - Testimonials section style (curated, well-worded, not auto-pulled)
+- Services / Cosmetic Dentistry section — category dropdown navigation, real doctor photos
+- Meet the Doctors (https://www.bhdentists.com/meet-our-doctors/) — layout with credentials and education; specific reference for provider bio pages
 
 ### Secondary Inspiration
 | Site | What to Borrow |
 |------|---------------|
-| **Trusted Dental Group** (Hawthorne) | Hero section: ~20-second welcome/walk-in video above the fold |
-| **Bedford Dental Group (BDFG / bhdentist.com)** | Services page: category dropdown navigation, real doctor photos; Meet the Doctors layout with credentials and education |
-| **Children's Fun Zone / CDF Zone (cdfzone.com)** | Google rating badge in upper-left (e.g., "4.9 ★ on Google") — displayed prominently near navigation; service display as rounded bubbles/cards |
+| **Trusted Dental & Orthodontics** (Hawthorne, CA) — https://dentisthawthorneca.com/ | Hero section: ~20-second welcome/walk-in video above the fold |
+| **Children's Dental FunZone** — https://www.childrensdentalfunzone.com/ | Review-count badge (17,000 reviews, 4.7 rating) in upper-left, displayed prominently near navigation; service display as rounded bubbles/cards |
 
 ---
 

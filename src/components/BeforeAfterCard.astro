@@ -1,0 +1,79 @@
+---
+// component-builder: BeforeAfterCard
+// Purpose: Two-panel before/after photo card for a single patient case, used in the Before & After gallery.
+
+interface Props {
+  caseNumber: string; // e.g. "01"
+  beforeWidth: number;
+  beforeHeight: number;
+  afterWidth: number;
+  afterHeight: number;
+  class?: string;
+}
+
+const {
+  caseNumber,
+  beforeWidth,
+  beforeHeight,
+  afterWidth,
+  afterHeight,
+  class: className,
+} = Astro.props;
+
+const basePath = `/images/before-after/case-${caseNumber}`;
+---
+
+<article
+  class:list={[
+    'group bg-white rounded-2xl border border-neutral-200 overflow-hidden hover:border-green-mid/40 hover:shadow-lg transition-all duration-200',
+    className,
+  ]}
+>
+  <div class="grid grid-cols-2">
+    <!-- Before panel -->
+    <figure class="relative m-0">
+      <div class="aspect-[4/3] bg-neutral-100 overflow-hidden flex items-center justify-center">
+        <picture>
+          <source srcset={`${basePath}-before.webp`} type="image/webp" />
+          <img
+            src={`${basePath}-before.jpg`}
+            width={beforeWidth}
+            height={beforeHeight}
+            alt={`LA Dental Town patient case ${caseNumber} — before treatment`}
+            loading="lazy"
+            decoding="async"
+            class="w-full h-full object-contain"
+          />
+        </picture>
+      </div>
+      <figcaption class="absolute bottom-2 left-2 bg-ink/70 text-white text-[11px] font-body font-semibold uppercase tracking-wide px-2 py-1 rounded-md">
+        Before
+      </figcaption>
+    </figure>
+
+    <!-- After panel -->
+    <figure class="relative m-0 border-l border-neutral-200">
+      <div class="aspect-[4/3] bg-neutral-100 overflow-hidden flex items-center justify-center">
+        <picture>
+          <source srcset={`${basePath}-after.webp`} type="image/webp" />
+          <img
+            src={`${basePath}-after.jpg`}
+            width={afterWidth}
+            height={afterHeight}
+            alt={`LA Dental Town patient case ${caseNumber} — after treatment`}
+            loading="lazy"
+            decoding="async"
+            class="w-full h-full object-contain"
+          />
+        </picture>
+      </div>
+      <figcaption class="absolute bottom-2 left-2 bg-green-dark/80 text-white text-[11px] font-body font-semibold uppercase tracking-wide px-2 py-1 rounded-md">
+        After
+      </figcaption>
+    </figure>
+  </div>
+
+  <div class="px-4 py-3 border-t border-neutral-100">
+    <span class="font-body text-sm font-semibold text-green-dark">Case {caseNumber}</span>
+  </div>
+</article>

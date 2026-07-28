@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceHero from '../../components/ServiceHero.astro';
+import RelatedServiceGrid from '../../components/RelatedServiceGrid.astro';
+import ServiceProviders from '../../components/ServiceProviders.astro';
+import ServiceCTA from '../../components/ServiceCTA.astro';
+import { ICONS, CATEGORY_COLORS } from '../../lib/serviceIcons';
+
+const seoTitle = 'General & Family Dentistry | LA Dental Town';
+const seoDescription = 'Comprehensive general and family dental care in East Los Angeles — exams, cleanings, and restorative treatments like crowns & bridges for patients of every age.';
+
+const related = [
+  {
+    title: 'Crowns and Bridges',
+    description: 'Restore damaged, weakened, or missing teeth with a durable, natural-looking fit.',
+    href: '/services/crowns-and-bridges/',
+    icon: ICONS.crown,
+    ...CATEGORY_COLORS.generalFamily,
+  },
+  {
+    title: 'Cosmetic Dentistry',
+    description: 'Veneers, whitening & Invisalign from the same doctors who handle your family checkups.',
+    href: '/services/cosmetic-dentistry/',
+    icon: ICONS.star,
+    ...CATEGORY_COLORS.cosmetic,
+  },
+];
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+
+  <ServiceHero
+    breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services/' }, { label: 'General & Family Dentistry' }]}
+    eyebrow="Category"
+    title="General & Family Dentistry"
+    description="Routine dental care for every member of the household, from a child's first checkup to a grandparent's next crown. Our general and family dentists focus on catching small issues early, so treatment stays simple and costs stay manageable."
+    icon={ICONS.tooth}
+    iconColor={CATEGORY_COLORS.generalFamily.iconColor}
+    bgColor={CATEGORY_COLORS.generalFamily.bgColor}
+  />
+
+  <section class="bg-white py-16 sm:py-20" aria-labelledby="overview-heading">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="overview-heading" class="font-display font-bold text-2xl sm:text-3xl text-green-dark mb-6">
+        Why Regular Dental Care Matters
+      </h2>
+      <div class="space-y-5 font-body text-base text-ink/70 leading-relaxed">
+        <p>
+          General and family dentistry is the foundation of a healthy smile — it's the ongoing care that prevents small problems from becoming painful, expensive ones. Regular exams and cleanings let your dentist catch cavities, gum disease, and bite issues while they're still easy to treat, and give you a chance to ask questions about anything that's bothering you before it becomes urgent.
+        </p>
+        <p>
+          Seeing family dentists who treat patients of every age also means fewer separate providers to coordinate. Kids, parents, and grandparents can be seen at the same East Los Angeles office, with one team that keeps track of everyone's dental history.
+        </p>
+      </div>
+
+      <h3 class="font-display font-semibold text-xl text-green-dark mt-10 mb-4">What a Routine Visit Typically Involves</h3>
+      <p class="font-body text-base text-ink/60 leading-relaxed mb-4">
+        The American Dental Association recommends most patients schedule a checkup twice a year. A standard visit generally includes:
+      </p>
+      <ul class="space-y-3 font-body text-base text-ink/70 leading-relaxed list-none pl-0">
+        <li class="flex items-start gap-3">
+          <svg class="w-5 h-5 text-green-mid shrink-0 mt-0.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
+          <span>A professional cleaning to remove plaque and tartar buildup that regular brushing can't reach.</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <svg class="w-5 h-5 text-green-mid shrink-0 mt-0.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
+          <span>A visual exam and, periodically, digital X-rays to check for cavities, bone loss, or other issues below the surface.</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <svg class="w-5 h-5 text-green-mid shrink-0 mt-0.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
+          <span>A conversation about your home care routine and any next steps, if treatment is needed.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <RelatedServiceGrid
+    heading="Treatments Under This Category"
+    subheading="General & family dentistry at LA Dental Town includes the following dedicated service."
+    items={related}
+    background="cream"
+  />
+
+  <ServiceProviders
+    heading="Who Provides This Care"
+    note="General and family dentistry is provided by our co-founding dentists, who see patients of all ages."
+    providers={[
+      { name: 'Dr. Margaret Wu, DDS', title: 'Co-Founder, General & Cosmetic Dentist', href: '/provider/margaret-wu-dds/' },
+      { name: 'Dr. Jennifer Wu, DDS', title: 'Co-Founder, General & Cosmetic Dentist', href: '/provider/jennifer-wu-dds/' },
+    ]}
+  />
+
+  <ServiceCTA />
+
+</BaseLayout>

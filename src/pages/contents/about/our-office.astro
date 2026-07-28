@@ -1,0 +1,234 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const seoTitle = 'Our Office | LA Dental Town — East Los Angeles, CA';
+const seoDescription = "Take a look inside LA Dental Town's East Los Angeles office — comfort amenities, dental technology, and what to expect when you arrive.";
+
+const technology = [
+  {
+    title: 'Digital Impression Scanning',
+    description: 'No more messy, goopy dental impressions — our digital scanners capture a precise, comfortable impression in minutes.',
+    iconColor: '#3A7D44',
+    bgColor: '#EBF4EC',
+    icon: `<path d="M19.5 12c0-3.59-2.91-6.5-6.5-6.5S6.5 8.41 6.5 12H4c0-4.97 4.03-9 9-9s9 4.03 9 9h-2.5zm-6.5 6c0 .55-.45 1-1 1h-1c-.55 0-1-.45-1-1v-4.5c0-.55.45-1 1-1h1c.55 0 1 .45 1 1V18z"/>`,
+  },
+  {
+    title: 'Same-Day Crowns',
+    description: 'Our in-office milling machine means many patients can skip the temporary crown and walk out with a finished restoration the same day.',
+    iconColor: '#1D4D2F',
+    bgColor: '#E8F2EB',
+    icon: `<path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>`,
+  },
+  {
+    title: 'Digital X-Rays & Panoramic Imaging',
+    description: 'Advanced imaging helps our doctors diagnose accurately with lower radiation exposure than traditional film X-rays.',
+    iconColor: '#163232',
+    bgColor: '#E6EFEF',
+    icon: `<path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 14.24L12 13.41l-4.23 2.83L9.1 11.35 5.42 8.34l5.03-.36L12 3.4l1.55 4.58 5.03.36-3.68 3.01 1.33 4.89z"/>`,
+  },
+  {
+    title: 'Optional Oral Sedation & Nitrous Oxide',
+    description: "Feeling anxious about your visit? We offer sedation options to help you relax, from nitrous oxide to oral sedation.",
+    iconColor: '#3A7D44',
+    bgColor: '#EBF4EC',
+    icon: `<path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>`,
+  },
+  {
+    title: 'Blankets, Pillows & Flatscreen TVs',
+    description: 'Settle in with a cozy blanket and pillow, and watch a show on a flatscreen TV while we take care of you.',
+    iconColor: '#1D4D2F',
+    bgColor: '#E8F2EB',
+    icon: `<path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/>`,
+  },
+  {
+    title: "Kids' Play Area & PlayStation",
+    description: 'A dedicated play area and PlayStation help younger patients feel at home before their appointment.',
+    iconColor: '#163232',
+    bgColor: '#E6EFEF',
+    icon: `<path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h3.05l1.05-1.05L8.17 16H16l1.05 1.05L18.17 16H21c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM11 12H9v2H7v-2H5v-2h2V8h2v2h2v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm3-3c-.83 0-1.5-.67-1.5-1.5S17.67 8 18.5 8s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>`,
+  },
+];
+
+const arrivalSteps = [
+  {
+    title: 'Check In',
+    description: 'Our front desk team will greet you and confirm your appointment — walk-ins are always welcome, and our staff can help Se Habla Español.',
+  },
+  {
+    title: 'Complete Your Forms',
+    description: "First time here? You can review or complete your patient forms ahead of time on our Patient Forms page.",
+    href: '/contents/patient-resources/patient-forms/',
+    hrefLabel: 'Patient Forms',
+  },
+  {
+    title: 'Get Comfortable',
+    description: 'Settle into a treatment room with a blanket, pillow, and flatscreen TV — kids can relax in our play area beforehand.',
+  },
+  {
+    title: 'Meet Your Care Team',
+    description: 'One of our doctors and hygienists will walk you through your visit, answer questions, and make sure you feel at ease every step of the way.',
+  },
+];
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       SECTION 1: Page Intro
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-cream py-20 sm:py-28" aria-labelledby="office-hero-heading">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="font-body text-xs uppercase tracking-widest text-green-mid mb-3">About Us</p>
+      <h1 id="office-hero-heading" class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl text-green-dark mb-6 leading-tight">
+        Our Office
+      </h1>
+      <p class="font-body text-lg sm:text-xl text-ink/65 leading-relaxed">
+        Located in East Los Angeles, our office is designed around one goal — making dental visits comfortable for every member of the family.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       SECTION 2: Office Tour Placeholder (design-forward, no photos yet)
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-white py-16 sm:py-20" aria-label="Office tour">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="relative w-full rounded-3xl overflow-hidden" style="aspect-ratio: 16/9; background: linear-gradient(135deg, #1D4D2F 0%, #3A7D44 55%, #163232 100%);">
+        <!-- Subtle grain texture, matches homepage hero treatment -->
+        <div class="absolute inset-0 opacity-[0.06]" style="background-image: radial-gradient(circle, rgba(255,255,255,0.9) 1px, transparent 1px); background-size: 24px 24px" aria-hidden="true"></div>
+
+        <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 sm:px-12 gap-4">
+          <div class="w-16 h-16 rounded-full bg-white/15 flex items-center justify-center">
+            <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 15.2a3.2 3.2 0 100-6.4 3.2 3.2 0 000 6.4z"/>
+              <path d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/>
+            </svg>
+          </div>
+          <p class="font-display font-semibold text-xl sm:text-2xl text-white leading-snug max-w-lg">
+            New photos and a video tour of our office are on the way
+          </p>
+          <p class="font-body text-sm sm:text-base text-white/70 max-w-md leading-relaxed">
+            In the meantime, here's what to expect when you visit LA Dental Town in East Los Angeles.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       SECTION 3: Technology & Amenities
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-cream py-20 sm:py-28" aria-labelledby="tech-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <p class="font-body text-xs uppercase tracking-widest text-green-mid mb-3">Technology &amp; Amenities</p>
+        <h2 id="tech-heading" class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-green-dark mb-5">
+          Modern Care, Comfortable Visits
+        </h2>
+        <p class="font-body text-base sm:text-lg text-ink/60 max-w-2xl mx-auto leading-relaxed">
+          We invest in advanced dental technology and thoughtful amenities so every visit is efficient, accurate, and stress-free.
+        </p>
+      </div>
+
+      <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 list-none m-0 p-0">
+        {technology.map((t) => (
+          <li class="flex flex-col gap-4 p-6 rounded-2xl border border-neutral-200 bg-white h-full">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center shrink-0" style={`background-color: ${t.bgColor}`}>
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill={t.iconColor} aria-hidden="true" set:html={t.icon}></svg>
+            </div>
+            <h3 class="font-display font-semibold text-lg text-green-dark leading-tight">{t.title}</h3>
+            <p class="font-body text-sm text-ink/60 leading-relaxed">{t.description}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       SECTION 4: Accessibility & Language
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-white py-16 sm:py-20" aria-labelledby="accessibility-heading">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="font-body text-xs uppercase tracking-widest text-green-mid mb-3">Accessibility &amp; Language</p>
+      <h2 id="accessibility-heading" class="font-display font-bold text-2xl sm:text-3xl lg:text-4xl text-green-dark mb-6 leading-tight">
+        Welcoming to Every Patient
+      </h2>
+      <p class="font-body text-base sm:text-lg text-ink/70 leading-relaxed max-w-2xl mx-auto mb-6">
+        Our team is bilingual and happy to assist Se Habla Español, and walk-ins are always welcome. If you have specific accessibility needs, let us know when you call or book — we're glad to help make your visit as comfortable as possible.
+      </p>
+      <a href="tel:+13238870088" class="inline-flex items-center gap-2 text-green-mid hover:text-green-dark font-body font-semibold text-sm transition-colors">
+        Call us with any questions
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       SECTION 5: What to Expect on Arrival
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-cream py-20 sm:py-28" aria-labelledby="arrival-heading">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <p class="font-body text-xs uppercase tracking-widest text-green-mid mb-3">Your Visit</p>
+        <h2 id="arrival-heading" class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-green-dark mb-5">
+          What to Expect When You Arrive
+        </h2>
+      </div>
+
+      <ol class="grid grid-cols-1 sm:grid-cols-2 gap-5 list-none m-0 p-0">
+        {arrivalSteps.map((step, i) => (
+          <li class="flex gap-4 p-6 rounded-2xl bg-white border border-neutral-200">
+            <span class="shrink-0 w-9 h-9 rounded-full bg-green-dark text-white font-display font-bold text-base flex items-center justify-center" aria-hidden="true">
+              {i + 1}
+            </span>
+            <div>
+              <h3 class="font-display font-semibold text-lg text-green-dark leading-tight mb-1.5">{step.title}</h3>
+              <p class="font-body text-sm text-ink/60 leading-relaxed">
+                {step.description}
+                {step.href && (
+                  <>
+                    {' '}
+                    <a href={step.href} class="font-semibold text-green-mid hover:text-green-dark transition-colors">
+                      {step.hrefLabel}
+                    </a>
+                    .
+                  </>
+                )}
+              </p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       SECTION 6: Closing CTA
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-teal-dark text-white py-16 sm:py-20" aria-labelledby="office-cta-heading">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 id="office-cta-heading" class="font-display font-bold text-2xl sm:text-3xl lg:text-4xl text-white mb-5 leading-tight">
+        See Our Office in Person
+      </h2>
+      <p class="font-body text-base text-white/75 leading-relaxed max-w-2xl mx-auto mb-8">
+        5262 E Beverly Blvd, East Los Angeles, CA 90022 · Walk-ins welcome · Se Habla Español
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="/contents/appointments/" class="bg-green-mid hover:bg-green-dark text-white font-body font-semibold px-8 py-4 rounded-full transition-colors duration-200">
+          Book an Appointment
+        </a>
+        <a href="/contactus/" class="border-2 border-white/40 hover:border-white text-white font-body font-medium px-8 py-4 rounded-full transition-all duration-200">
+          Get Directions
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

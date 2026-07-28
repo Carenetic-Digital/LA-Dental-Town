@@ -1,0 +1,162 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const title = 'How Veneers Can Fix Chips, Gaps, and Discoloration for a Perfect Smile';
+const seoTitle = `${title} | LA Dental Town Blog`;
+const seoDescription = 'Veneers can correct chips, gaps, and stubborn discoloration in a few visits. See how the process works at LA Dental Town in East Los Angeles.';
+
+const tag = 'Cosmetic';
+const gradient = 'linear-gradient(135deg, #163232, #3A7D44)';
+
+const relatedPosts = [
+  {
+    title: 'Are You a Candidate for Dental Implants?',
+    href: '/blog/are-you-a-candidate-for-dental-implants/',
+    tag: 'Implants',
+    gradient: 'linear-gradient(135deg, #3A7D44, #C9A84C)',
+  },
+  {
+    title: 'What Is a Root Canal and Why Do I Need One?',
+    href: '/blog/what-is-a-root-canal-and-why-do-i-need-one/',
+    tag: 'Endodontics',
+    gradient: 'linear-gradient(135deg, #1D4D2F, #3A7D44)',
+  },
+  {
+    title: 'Why Same-Day Crowns Are the Best Option for Busy Professionals',
+    href: '/blog/why-same-day-crowns-are-the-best-option-for-busy-professionals/',
+    tag: 'Restorative',
+    gradient: 'linear-gradient(135deg, #163232, #1D4D2F)',
+  },
+];
+
+const publishDate = '2025-12-11';
+const displayDate = 'Dec 11, 2025';
+
+const articleData = {
+  headline: title,
+  datePublished: publishDate,
+  author: { '@type': 'Organization', name: 'LA Dental Town' },
+  publisher: { '@type': 'Organization', name: 'LA Dental Town' },
+  mainEntityOfPage: new URL('/blog/how-veneers-can-fix-chips-gaps-and-discoloration-for-a-perfect-smile/', Astro.site).href,
+};
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+  <StructuredData type="BlogPosting" data={articleData} />
+
+  <section class="bg-cream py-14 sm:py-20" aria-label="Blog post header">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav aria-label="Breadcrumb" class="mb-6">
+        <ol class="flex items-center gap-2 font-body text-sm text-ink/50 list-none m-0 p-0">
+          <li><a href="/blog/" class="hover:text-green-mid transition-colors">Blog</a></li>
+          <li aria-hidden="true">/</li>
+          <li class="text-ink/70">{tag}</li>
+        </ol>
+      </nav>
+      <span class="inline-block font-body text-xs font-semibold text-white bg-green-mid rounded-full px-3 py-1 mb-5">{tag}</span>
+      <h1 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-green-dark leading-tight">
+        {title}
+      </h1>
+      <p class="font-body text-sm text-ink/50 mt-4">
+        <time datetime={publishDate}>{displayDate}</time> · LA Dental Town
+      </p>
+    </div>
+  </section>
+
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 -mt-2 sm:-mt-4">
+    <div class="h-48 sm:h-64 rounded-3xl" style={`background: ${gradient}`} aria-hidden="true"></div>
+  </div>
+
+  <article class="bg-white py-14 sm:py-20">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="font-body text-base sm:text-lg text-ink/80 leading-relaxed space-y-6">
+        <p>
+          Are you hiding your smile due to stubborn discoloration or feeling self-conscious about noticeable chips or gaps in your teeth? Veneers offer a simple, customizable way to fix a variety of aesthetic imperfections.
+        </p>
+        <p>
+          For the latest in cosmetic dentistry, turn to the experts at LA Dental Town, in East Los Angeles, California. Our team works closely with you to create a perfect smile that you can't wait to show off to family, friends, and colleagues.
+        </p>
+        <p>
+          This winter, transform your appearance with high-quality, natural-looking veneers. In this post, we explain how they work and what to expect from the process, from your initial consultation to the final application.
+        </p>
+
+        <h2 class="font-display font-semibold text-xl sm:text-2xl text-green-dark !mt-12 !mb-2">What are veneers?</h2>
+        <p>
+          Veneers are ultra-thin shells fabricated from a durable porcelain or composite material that mimics the color and texture of real enamel. These infinitely customizable restorations fit over the front surfaces of your teeth, allowing us to instantly change the shape, size, and shade of each tooth for a symmetrical, uniform smile.
+        </p>
+        <p>
+          Veneers feel and function just like natural teeth, and they're highly resistant to stains and discoloration. With proper maintenance, they have a lifespan of up to 15 years — or even longer — providing a lasting upgrade to your look and your confidence level.
+        </p>
+
+        <h2 class="font-display font-semibold text-xl sm:text-2xl text-green-dark !mt-12 !mb-2">How veneers correct common dental imperfections</h2>
+        <p>
+          By covering the entire visible surface of the tooth, veneers effectively mask a variety of imperfections that might otherwise require multiple procedures and a great deal of time to correct. Here's how veneers address three common cosmetic concerns.
+        </p>
+
+        <h3 class="font-display font-semibold text-lg sm:text-xl text-green-dark !mt-8 !mb-2">Chips and cracks</h3>
+        <p>
+          Small chips and hairline fractures often appear at the edges of teeth, creating a rough, uneven appearance. Veneers not only conceal the damage and restore a smooth contour; they also add structural integrity and reinforce the underlying tooth against further wear.
+        </p>
+
+        <h3 class="font-display font-semibold text-lg sm:text-xl text-green-dark !mt-8 !mb-2">Gaps and uneven spacing</h3>
+        <p>
+          For mild to moderate spacing issues or gaps between teeth, veneers offer an alternative to lengthy orthodontic treatments like braces or clear aligners. The veneer shells are made slightly wider than the original tooth, filling the space and instantly creating a fuller, straighter smile.
+        </p>
+
+        <h3 class="font-display font-semibold text-lg sm:text-xl text-green-dark !mt-8 !mb-2">Deep-seated stains and discoloration</h3>
+        <p>
+          While professional teeth whitening treatments are an excellent option for removing surface stains, they often fail to resolve deep-seated discoloration that begins in the dentin layer. Veneers conceal any level of discoloration with a stain-resistant layer of porcelain in your desired shade.
+        </p>
+
+        <h2 class="font-display font-semibold text-xl sm:text-2xl text-green-dark !mt-12 !mb-2">The veneer process: What to expect</h2>
+        <p>
+          The path to your new perfect smile starts with a personalized consultation, during which we discuss your treatment goals and assess your oral health to ensure you're a good candidate. If any underlying decay or gum disease is present, we must address it before going ahead with the procedure to ensure a stable foundation for your veneers and to prevent complications.
+        </p>
+        <p>
+          To begin the process, we prepare the surface of each tooth by removing a thin layer of enamel, creating the necessary space for the porcelain shell to fit seamlessly. Next, we take digital impressions of your prepared teeth — these act as the blueprints of your custom restorations.
+        </p>
+        <p>
+          Once your veneers are ready — we send your impressions to a dental lab for manufacturing, which takes a couple of weeks — you return to our office so we can check their fit, shape, and color, making sure they meet your exact specifications. We then permanently bond each shell in place to complete your new smile.
+        </p>
+        <p>
+          There's virtually no downtime after the bonding procedure, and caring for your veneers is as simple as caring for your natural teeth. Twice-daily brushing, flossing, and regular dental check-ups are all that's needed to keep these restorations in great shape for years to come.
+        </p>
+        <p>
+          Ready to make that perfect smile a reality? Call or click to schedule a consultation at LA Dental Town and find out if veneers are the right choice to fix any chips, gaps, or discoloration in your teeth.
+        </p>
+      </div>
+
+      <div class="mt-14 bg-cream border border-neutral-200 rounded-2xl p-8 sm:p-10 text-center">
+        <h2 class="font-display font-semibold text-2xl text-green-dark mb-3">Ready for Your Perfect Smile?</h2>
+        <p class="font-body text-ink/70 mb-6">Find out if veneers are the right fit for your chips, gaps, or discoloration.</p>
+        <a href="/contents/appointments/" class="inline-flex items-center gap-2 bg-green-mid hover:bg-green-dark text-white font-body font-semibold px-8 py-3.5 rounded-full transition-colors duration-200">
+          Book an Appointment
+        </a>
+      </div>
+    </div>
+  </article>
+
+  <section class="bg-cream py-16 sm:py-20" aria-labelledby="related-heading">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="related-heading" class="font-display font-bold text-2xl sm:text-3xl text-green-dark mb-10 text-center">
+        Related Reading
+      </h2>
+      <ul class="grid grid-cols-1 sm:grid-cols-3 gap-6 list-none m-0 p-0">
+        {relatedPosts.map((post) => (
+          <li>
+            <a href={post.href} class="group block rounded-2xl bg-white border border-neutral-200 hover:border-green-mid/40 hover:shadow-xl overflow-hidden transition-all duration-200 h-full">
+              <div class="h-32 flex items-end p-4" style={`background: ${post.gradient}`} aria-hidden="true">
+                <span class="inline-block font-body text-xs font-semibold text-white/90 bg-white/20 rounded-full px-3 py-1">{post.tag}</span>
+              </div>
+              <div class="p-5">
+                <h3 class="font-display font-semibold text-sm text-green-dark leading-snug group-hover:text-green-mid transition-colors line-clamp-3">{post.title}</h3>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+</BaseLayout>

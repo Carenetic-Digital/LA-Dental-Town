@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceHero from '../../components/ServiceHero.astro';
+import RelatedServiceGrid from '../../components/RelatedServiceGrid.astro';
+import ServiceProviders from '../../components/ServiceProviders.astro';
+import ServiceCTA from '../../components/ServiceCTA.astro';
+import { ICONS, CATEGORY_COLORS } from '../../lib/serviceIcons';
+
+const seoTitle = 'Cosmetic Dentistry | LA Dental Town';
+const seoDescription = 'Veneers, teeth whitening, Invisalign & smile makeovers in East Los Angeles — beautiful, natural-looking cosmetic dentistry for every smile.';
+
+const related = [
+  {
+    title: 'Veneers',
+    description: 'Thin porcelain shells that cover chips, gaps, and discoloration for a natural finish.',
+    href: '/services/veneers/',
+    icon: ICONS.smile,
+    ...CATEGORY_COLORS.cosmetic,
+  },
+  {
+    title: 'Teeth Whitening',
+    description: 'In-office laser whitening — noticeably brighter in about an hour.',
+    href: '/services/teeth-whitening/',
+    icon: ICONS.sparkle,
+    ...CATEGORY_COLORS.cosmetic,
+  },
+  {
+    title: 'Invisalign',
+    description: 'Clear aligners that straighten teeth without metal brackets or wires.',
+    href: '/services/invisalign/',
+    icon: ICONS.aligner,
+    ...CATEGORY_COLORS.cosmetic,
+  },
+];
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+
+  <ServiceHero
+    breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services/' }, { label: 'Cosmetic Dentistry' }]}
+    eyebrow="Category"
+    title="Cosmetic Dentistry"
+    description="A smile you're comfortable sharing can change how you show up in everyday life — in photos, at work, and in conversation. Our cosmetic treatments are designed to look natural, not obviously 'done,' so the results feel like you, just more confident."
+    icon={ICONS.star}
+    iconColor={CATEGORY_COLORS.cosmetic.iconColor}
+    bgColor={CATEGORY_COLORS.cosmetic.bgColor}
+  />
+
+  <section class="bg-white py-16 sm:py-20" aria-labelledby="overview-heading">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="overview-heading" class="font-display font-bold text-2xl sm:text-3xl text-green-dark mb-6">
+        More Than Just Appearance
+      </h2>
+      <div class="space-y-5 font-body text-base text-ink/70 leading-relaxed">
+        <p>
+          Cosmetic dentistry covers a range of treatments aimed at improving the color, shape, size, or alignment of your teeth. While the primary goal is appearance, many cosmetic treatments also improve function — straighter teeth are easier to clean, and a well-fitted veneer or crown can protect a tooth that's chipped or worn.
+        </p>
+        <p>
+          At LA Dental Town, cosmetic care is provided by the same dentists who handle your routine checkups, so any smile makeover starts from a full picture of your oral health — not just what shows when you smile.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <RelatedServiceGrid
+    heading="Cosmetic Treatments We Offer"
+    subheading="Each treatment below has its own dedicated page with more detail on the process and what it can address."
+    items={related}
+    background="cream"
+  />
+
+  <ServiceProviders
+    heading="Who Provides This Care"
+    note="Dr. Jennifer Wu is a Certified Invisalign Premier Provider; both doctors provide veneers, whitening, and smile-focused restorative work."
+    providers={[
+      { name: 'Dr. Margaret Wu, DDS', title: 'Co-Founder, General & Cosmetic Dentist', href: '/provider/margaret-wu-dds/' },
+      { name: 'Dr. Jennifer Wu, DDS', title: 'Co-Founder, Cosmetic Dentist & Certified Invisalign Premier Provider', href: '/provider/jennifer-wu-dds/' },
+    ]}
+  />
+
+  <ServiceCTA />
+
+</BaseLayout>

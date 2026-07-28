@@ -1,0 +1,169 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const seoTitle = 'Dental Health Blog | LA Dental Town — East Los Angeles, CA';
+const seoDescription = 'Tips and insights on dental implants, same-day crowns, veneers, root canals, digital impressions & more from the team at LA Dental Town in East Los Angeles.';
+
+// All 14 migrated posts. Gradient + tag-chip cards match the homepage
+// "From Our Blog" preview pattern (SECTION 7 of src/pages/index.astro) —
+// no photography available, so brand-color gradients stand in for thumbnails.
+const gradients = [
+  'linear-gradient(135deg, #1D4D2F, #3A7D44)',
+  'linear-gradient(135deg, #163232, #1D4D2F)',
+  'linear-gradient(135deg, #3A7D44, #C9A84C)',
+  'linear-gradient(135deg, #163232, #3A7D44)',
+];
+
+const posts = [
+  {
+    title: 'The Benefits of Digital Impression Scans Over Traditional Dental Putty',
+    href: '/blog/the-benefits-of-digital-impression-scans-over-traditional-dental-putty/',
+    tag: 'Technology',
+  },
+  {
+    title: 'Why Same-Day Crowns Are the Best Option for Busy Professionals',
+    href: '/blog/why-same-day-crowns-are-the-best-option-for-busy-professionals/',
+    tag: 'Restorative',
+  },
+  {
+    title: 'Are You a Candidate for Dental Implants?',
+    href: '/blog/are-you-a-candidate-for-dental-implants/',
+    tag: 'Implants',
+  },
+  {
+    title: 'What Is a Root Canal and Why Do I Need One?',
+    href: '/blog/what-is-a-root-canal-and-why-do-i-need-one/',
+    tag: 'Endodontics',
+  },
+  {
+    title: 'Say Goodbye to Messy Impressions: The Advantages of Digital Scans',
+    href: '/blog/say-goodbye-to-messy-impressions-the-advantages-of-digital-scans/',
+    tag: 'Technology',
+  },
+  {
+    title: 'How Veneers Can Fix Chips, Gaps, and Discoloration for a Perfect Smile',
+    href: '/blog/how-veneers-can-fix-chips-gaps-and-discoloration-for-a-perfect-smile/',
+    tag: 'Cosmetic',
+  },
+  {
+    title: 'Get Your Smile Holiday-Ready With Same-Day Crowns',
+    href: '/blog/get-your-smile-holiday-ready-with-same-day-crowns/',
+    tag: 'Restorative',
+  },
+  {
+    title: "I Brush My Teeth a Lot: Why Aren't They Staying White?",
+    href: '/blog/i-brush-my-teeth-a-lot-why-arent-they-staying-white/',
+    tag: 'Cosmetic',
+  },
+  {
+    title: 'No Messy, Goopy Dental Impressions Here. We Use Fast and Easy Digital Scans',
+    href: '/blog/no-messy-goopy-dental-impressions-here-we-use-fast-and-easy-digital-scans/',
+    tag: 'Technology',
+  },
+  {
+    title: 'Forget the Temps. We Offer Same-Day Crowns With Our In-Office Milling Machine',
+    href: '/blog/forget-the-temps-we-offer-same-day-crowns-with-our-in-office-milling-machine/',
+    tag: 'Restorative',
+  },
+  {
+    title: 'When Is Wisdom Teeth Removal a Must?',
+    href: '/blog/when-is-wisdom-teeth-removal-a-must/',
+    tag: 'Oral Surgery',
+  },
+  {
+    title: "Why You Shouldn't Skip Your Biannual Dental Cleaning and Checkup",
+    href: '/blog/why-you-shouldnt-skip-your-biannual-dental-cleaning-and-checkup/',
+    tag: 'Preventive',
+  },
+  {
+    title: '5 Signs That You May Need a Root Canal',
+    href: '/blog/5-signs-that-you-may-need-a-root-canal/',
+    tag: 'Endodontics',
+  },
+  {
+    title: 'The Importance of Replacing Missing Teeth',
+    href: '/blog/the-importance-of-replacing-missing-teeth/',
+    tag: 'Implants',
+  },
+];
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       Header
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-cream py-16 sm:py-24" aria-labelledby="blog-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="font-body text-xs uppercase tracking-widest text-green-mid mb-3">Dental Health</p>
+      <h1 id="blog-heading" class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl text-green-dark mb-5 leading-tight">
+        From Our Blog
+      </h1>
+      <p class="font-body text-base sm:text-lg text-ink/60 max-w-2xl mx-auto leading-relaxed mb-5">
+        Tips, explainers, and answers from the LA Dental Town team — covering everything from digital impression scans to dental implants and veneers.
+      </p>
+      <a href="/blog/archive/" class="font-body text-sm font-semibold text-green-mid hover:text-green-dark transition-colors">
+        View chronological archive →
+      </a>
+    </div>
+  </section>
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       Post Grid
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-white py-16 sm:py-24" aria-label="All blog posts">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 list-none m-0 p-0">
+        {posts.map((post, i) => (
+          <li>
+            <a href={post.href} class="group block rounded-2xl bg-white border border-neutral-200 hover:border-green-mid/40 hover:shadow-xl overflow-hidden transition-all duration-200 h-full">
+              <!-- Gradient placeholder — no photography available for blog posts -->
+              <div
+                class="h-44 flex items-end p-4"
+                style={`background: ${gradients[i % gradients.length]}`}
+                aria-hidden="true">
+                <span class="inline-block font-body text-xs font-semibold text-white/90 bg-white/20 rounded-full px-3 py-1">
+                  {post.tag}
+                </span>
+              </div>
+              <div class="p-6">
+                <h2 class="font-display font-semibold text-base text-green-dark leading-snug group-hover:text-green-mid transition-colors line-clamp-3">
+                  {post.title}
+                </h2>
+                <span class="mt-4 inline-flex items-center gap-1 font-body text-sm font-semibold text-green-mid">
+                  Read more
+                  <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                  </svg>
+                </span>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       Bottom CTA
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-teal-dark text-white py-16 sm:py-20" aria-labelledby="blog-cta-heading">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 id="blog-cta-heading" class="font-display font-bold text-2xl sm:text-3xl lg:text-4xl text-white mb-5 leading-tight">
+        Have a Question About Your Smile?
+      </h2>
+      <p class="font-body text-base text-white/75 leading-relaxed mb-8 max-w-xl mx-auto">
+        Our East Los Angeles team is here to help — walk-ins welcome, Se Habla Español.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="/contents/appointments/" class="inline-flex items-center gap-2 bg-green-mid hover:bg-green-dark text-white font-body font-semibold px-8 py-3.5 rounded-full transition-colors duration-200">
+          Book an Appointment
+        </a>
+        <a href="tel:+13238870088" class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-body font-medium px-8 py-3.5 rounded-full transition-all duration-200">
+          (323) 887-0088
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

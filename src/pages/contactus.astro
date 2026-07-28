@@ -1,0 +1,211 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const seoTitle = 'Contact Us | LA Dental Town — East Los Angeles, CA';
+const seoDescription = 'Contact LA Dental Town in East Los Angeles — call, email, or send us a message. Find our address, office hours, and directions.';
+
+const mapEmbedSrc = 'https://www.google.com/maps?q=5262+E+Beverly+Blvd,+East+Los+Angeles,+CA+90022&output=embed';
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       SECTION 1: Page Intro
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-cream py-20 sm:py-28" aria-labelledby="contact-hero-heading">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="font-body text-xs uppercase tracking-widest text-green-mid mb-3">Get In Touch</p>
+      <h1 id="contact-hero-heading" class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl text-green-dark mb-6 leading-tight">
+        Contact LA Dental Town
+      </h1>
+      <p class="font-body text-lg sm:text-xl text-ink/65 leading-relaxed">
+        Questions about a service, insurance, or scheduling? We're happy to help — walk-ins welcome, Se Habla Español.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       SECTION 2: Contact Info + Form
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-white py-16 sm:py-24" aria-label="Contact information and message form">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
+
+        <!-- Contact info card -->
+        <div class="bg-cream rounded-3xl p-8 sm:p-10 border border-neutral-200 h-full">
+          <h2 class="font-display font-semibold text-2xl text-green-dark mb-6">Office Information</h2>
+
+          <ul class="space-y-6">
+            <li class="flex items-start gap-4">
+              <div class="w-11 h-11 rounded-full bg-green-dark/10 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-green-dark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="font-body font-semibold text-sm text-ink mb-0.5">Address</p>
+                <p class="font-body text-sm text-ink/70 leading-relaxed">5262 E Beverly Blvd<br>East Los Angeles, CA 90022</p>
+              </div>
+            </li>
+
+            <li class="flex items-start gap-4">
+              <div class="w-11 h-11 rounded-full bg-green-dark/10 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-green-dark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="font-body font-semibold text-sm text-ink mb-0.5">Phone</p>
+                <a href="tel:+13238870088" class="font-body text-sm text-green-mid hover:text-green-dark transition-colors">(323) 887-0088</a>
+              </div>
+            </li>
+
+            <li class="flex items-start gap-4">
+              <div class="w-11 h-11 rounded-full bg-green-dark/10 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-green-dark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="font-body font-semibold text-sm text-ink mb-0.5">Email</p>
+                <a href="mailto:ladentaltown13@gmail.com" class="font-body text-sm text-green-mid hover:text-green-dark transition-colors break-all">ladentaltown13@gmail.com</a>
+              </div>
+            </li>
+
+            <li class="flex items-start gap-4">
+              <div class="w-11 h-11 rounded-full bg-green-dark/10 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-green-dark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="font-body font-semibold text-sm text-ink mb-0.5">Office Hours</p>
+                <p class="font-body text-sm text-ink/70 leading-relaxed">Monday–Friday: 8:30am – 5:30pm<br><span class="text-ink/50">Saturday–Sunday: Closed</span></p>
+              </div>
+            </li>
+          </ul>
+
+          <div class="mt-8 pt-8 border-t border-neutral-200 flex flex-wrap gap-3">
+            <a href="/contents/appointments/" class="inline-flex items-center gap-2 bg-green-mid hover:bg-green-dark text-white font-body font-semibold px-6 py-3 rounded-full transition-colors duration-200 text-sm">
+              Book an Appointment
+            </a>
+            <a href="tel:+13238870088" class="inline-flex items-center gap-2 border-2 border-green-dark text-green-dark hover:bg-green-dark hover:text-white font-body font-semibold px-6 py-3 rounded-full transition-all duration-200 text-sm">
+              Call Now
+            </a>
+          </div>
+        </div>
+
+        <!-- Contact form -->
+        <div class="bg-white rounded-3xl p-8 sm:p-10 border border-neutral-200 h-full">
+          <h2 class="font-display font-semibold text-2xl text-green-dark mb-2">Send Us a Message</h2>
+          <p class="font-body text-sm text-ink/60 mb-6 leading-relaxed">
+            For the fastest response, please call us at <a href="tel:+13238870088" class="text-green-mid font-semibold hover:text-green-dark">(323) 887-0088</a>. This form is not yet connected to our office system — someone will follow up as soon as we're able to check messages sent here.
+          </p>
+
+          <form id="contact-form" class="space-y-4" novalidate>
+            <div>
+              <label for="name" class="block font-body text-sm font-semibold text-ink mb-1.5">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                class="w-full rounded-xl border border-neutral-300 px-4 py-3 font-body text-sm text-ink focus:outline-none focus:ring-2 focus:ring-green-mid focus:border-green-mid transition-colors"
+              />
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="email" class="block font-body text-sm font-semibold text-ink mb-1.5">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  class="w-full rounded-xl border border-neutral-300 px-4 py-3 font-body text-sm text-ink focus:outline-none focus:ring-2 focus:ring-green-mid focus:border-green-mid transition-colors"
+                />
+              </div>
+              <div>
+                <label for="phone" class="block font-body text-sm font-semibold text-ink mb-1.5">Phone <span class="text-ink/40 font-normal">(optional)</span></label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  class="w-full rounded-xl border border-neutral-300 px-4 py-3 font-body text-sm text-ink focus:outline-none focus:ring-2 focus:ring-green-mid focus:border-green-mid transition-colors"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label for="message" class="block font-body text-sm font-semibold text-ink mb-1.5">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+                class="w-full rounded-xl border border-neutral-300 px-4 py-3 font-body text-sm text-ink focus:outline-none focus:ring-2 focus:ring-green-mid focus:border-green-mid transition-colors resize-none"
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full bg-green-mid hover:bg-green-dark text-white font-body font-semibold py-3.5 rounded-full transition-colors duration-200">
+              Send Message
+            </button>
+
+            <p id="contact-form-status" class="font-body text-sm leading-relaxed" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       SECTION 3: Map
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-cream py-16 sm:py-20" aria-labelledby="map-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <p class="font-body text-xs uppercase tracking-widest text-green-mid mb-3">Find Us</p>
+        <h2 id="map-heading" class="font-display font-bold text-3xl sm:text-4xl text-green-dark mb-3">
+          5262 E Beverly Blvd, East Los Angeles, CA 90022
+        </h2>
+      </div>
+      <div class="rounded-3xl overflow-hidden border border-neutral-200" style="aspect-ratio: 16/8;">
+        <iframe
+          src={mapEmbedSrc}
+          width="100%"
+          height="100%"
+          style="border:0;"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Map showing LA Dental Town's location at 5262 E Beverly Blvd, East Los Angeles, CA 90022">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<script>
+  // Client-side only — no backend is wired up yet. We deliberately do NOT
+  // simulate a real submission or claim the message was delivered anywhere.
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const status = document.getElementById('contact-form-status');
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+    if (status) {
+      status.textContent =
+        "This contact form isn't connected to our office system yet, so we can't receive your message this way. Please call us at (323) 887-0088 or email ladentaltown13@gmail.com and we'll get right back to you.";
+      status.className = 'font-body text-sm leading-relaxed text-green-dark font-medium';
+    }
+  });
+</script>

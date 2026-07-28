@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceHero from '../../components/ServiceHero.astro';
+import ProviderCTA from '../../components/ProviderCTA.astro';
+import { PROVIDERS } from '../../lib/providers';
+import { ICONS, CATEGORY_COLORS } from '../../lib/serviceIcons';
+
+const seoTitle = 'Meet Our Doctors | LA Dental Town — East Los Angeles, CA';
+const seoDescription = 'Meet the general, cosmetic, and specialist dentists at LA Dental Town in East Los Angeles.';
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+
+  <ServiceHero
+    breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Providers' }]}
+    eyebrow="Meet the Team"
+    title="Meet Our Doctors"
+    description="Six specialist doctors and a dedicated hygiene team, all under one roof in East Los Angeles. Get to know the providers behind your care — their training, their credentials, and what they specialize in."
+    icon={ICONS.tooth}
+    iconColor={CATEGORY_COLORS.generalFamily.iconColor}
+    bgColor={CATEGORY_COLORS.generalFamily.bgColor}
+  />
+
+  <section class="bg-white py-16 sm:py-20" aria-labelledby="providers-grid-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="providers-grid-heading" class="sr-only">Our Providers</h2>
+
+      <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 list-none m-0 p-0">
+        {PROVIDERS.map((p) => (
+          <li>
+            <a
+              href={`/provider/${p.slug}/`}
+              class="group flex flex-col items-center text-center gap-4 p-8 rounded-2xl border border-neutral-200 hover:border-green-mid/40 hover:shadow-xl transition-all duration-200 h-full bg-white">
+
+              {p.photoSlug ? (
+                <picture>
+                  <source srcset={`/images/providers/${p.photoSlug}.webp`} type="image/webp" />
+                  <img
+                    src={`/images/providers/${p.photoSlug}.jpg`}
+                    alt={`Portrait of ${p.name}`}
+                    width="800"
+                    height="800"
+                    loading="lazy"
+                    class="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover shadow-md"
+                  />
+                </picture>
+              ) : (
+                <div
+                  class="w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-green-dark flex items-center justify-center shadow-md shrink-0"
+                  role="img"
+                  aria-label={`Photo not yet available for ${p.name}`}>
+                  <span class="font-display font-bold text-white text-3xl" aria-hidden="true">{p.initials}</span>
+                </div>
+              )}
+
+              <div>
+                <p class="font-display font-semibold text-lg text-green-dark group-hover:text-green-mid transition-colors">
+                  {p.name}
+                </p>
+                <p class="font-body text-sm text-ink/60 mt-1">{p.cardTitle}</p>
+                {!p.photoSlug && (
+                  <p class="font-body text-xs text-ink/40 italic mt-1">Photo coming soon</p>
+                )}
+              </div>
+
+              <span class="font-body text-sm font-semibold text-green-mid group-hover:gap-2 flex items-center gap-1.5 transition-all">
+                View Profile
+                <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                </svg>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <ProviderCTA
+    heading="Ready to Meet the Team?"
+    description="Walk-ins welcome. Se Habla Español. Book online or call our office — we'll match you with the right provider for your visit."
+  />
+
+</BaseLayout>

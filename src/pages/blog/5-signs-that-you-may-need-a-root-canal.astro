@@ -1,0 +1,123 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const seoTitle = '5 Signs That You May Need a Root Canal | LA Dental Town Blog';
+const seoDescription = 'Persistent tooth pain, temperature sensitivity, and swollen gums can signal infected tooth pulp. LA Dental Town outlines five warning signs and what root canal treatment involves.';
+
+const postTitle = '5 Signs That You May Need a Root Canal';
+const publishDate = '2025-05-02';
+const displayDate = 'May 2, 2025';
+const tag = 'Endodontics';
+
+const relatedPosts = [
+  { title: 'When Is Wisdom Teeth Removal a Must?', href: '/blog/when-is-wisdom-teeth-removal-a-must/', gradient: '#163232, #1D4D2F' },
+  { title: "Why You Shouldn't Skip Your Biannual Dental Cleaning and Checkup", href: '/blog/why-you-shouldnt-skip-your-biannual-dental-cleaning-and-checkup/', gradient: '#1D4D2F, #3A7D44' },
+  { title: 'The Importance of Replacing Missing Teeth', href: '/blog/the-importance-of-replacing-missing-teeth/', gradient: '#3A7D44, #C9A84C' },
+];
+
+const articleData = {
+  headline: postTitle,
+  datePublished: publishDate,
+  author: { '@type': 'Organization', name: 'LA Dental Town' },
+  publisher: { '@type': 'Organization', name: 'LA Dental Town' },
+  mainEntityOfPage: new URL('/blog/5-signs-that-you-may-need-a-root-canal/', Astro.site).href,
+};
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+  <StructuredData type="BlogPosting" data={articleData} />
+
+  <section class="bg-cream py-16 sm:py-20" aria-label="Article header">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <a href="/blog/" class="inline-flex items-center gap-1.5 font-body text-sm font-semibold text-green-mid hover:text-green-dark transition-colors mb-6">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+        </svg>
+        Back to Blog
+      </a>
+      <span class="inline-block font-body text-xs font-semibold text-white bg-green-mid rounded-full px-3 py-1 mb-5">{tag}</span>
+      <h1 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-green-dark leading-tight mb-4">
+        {postTitle}
+      </h1>
+      <p class="font-body text-sm text-ink/50">
+        <time datetime={publishDate}>{displayDate}</time> · LA Dental Town
+      </p>
+    </div>
+  </section>
+
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 -mt-2 mb-2">
+    <div class="h-56 sm:h-72 rounded-2xl" style="background: linear-gradient(135deg, #1D4D2F, #3A7D44)" aria-hidden="true"></div>
+  </div>
+
+  <section class="bg-white py-14 sm:py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="font-body text-base sm:text-lg text-ink/80 leading-relaxed">
+        <p class="mb-5">
+          Are you ignoring a nagging toothache, hoping it will just go away? Don't let fear get in the way of your oral health. Root canals get a bad rap, but they're a highly effective way to save your tooth and alleviate pain.
+        </p>
+        <p class="mb-5">
+          Inside every tooth is pulp containing nerves, blood vessels, and connective tissue that help keep the tooth healthy and strong. When bacteria invade through cavities or cracks, an infection can develop that requires treatment to save the tooth.
+        </p>
+        <p class="mb-5">
+          Here are five signs that may mean it's time to see our team about a root canal.
+        </p>
+
+        <h2 class="font-display font-semibold text-2xl text-green-dark mt-10 mb-4">The five signs</h2>
+        <ol class="list-decimal pl-6 mb-5 space-y-4">
+          <li>
+            <span class="font-semibold text-ink">Persistent tooth pain.</span> Pain deep within the tooth or radiating to the jaw and face, especially pain that worsens when biting or chewing.
+          </li>
+          <li>
+            <span class="font-semibold text-ink">Temperature sensitivity.</span> Hurting when consuming hot or cold foods and drinks, especially if the pain lingers well after eating.
+          </li>
+          <li>
+            <span class="font-semibold text-ink">Swollen gums.</span> Tenderness near the affected tooth, potentially including a small pimple-like bump filled with pus, also called an abscess.
+          </li>
+          <li>
+            <span class="font-semibold text-ink">Tooth discoloration.</span> Darkening of the tooth, which can indicate internal damage or infection.
+          </li>
+          <li>
+            <span class="font-semibold text-ink">A loose tooth.</span> Advanced infection can weaken the structures that support the tooth, causing looseness.
+          </li>
+        </ol>
+
+        <h2 class="font-display font-semibold text-2xl text-green-dark mt-10 mb-4">What to expect from treatment</h2>
+        <p class="mb-5">
+          If you recognize any of these signs, it's important not to wait. Modern dental technology has transformed the experience, and these days, undergoing a root canal isn't that different from getting a regular filling. Local anesthesia and sedation options are available to help keep you comfortable throughout the procedure, and many patients are able to return to their normal activities right after.
+        </p>
+      </div>
+
+      <div class="mt-14 bg-cream border border-neutral-200 rounded-2xl p-8 text-center">
+        <h3 class="font-display font-semibold text-xl text-green-dark mb-2">Don't ignore tooth pain</h3>
+        <p class="font-body text-sm text-ink/60 mb-6 max-w-md mx-auto">
+          Walk-ins welcome. Se Habla Español. Book online or call our office if you're experiencing any of these signs.
+        </p>
+        <a href="/contents/appointments/" class="inline-flex items-center gap-2 bg-green-mid hover:bg-green-dark text-white font-body font-semibold px-7 py-3.5 rounded-full transition-colors duration-200">
+          Book an Appointment
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-cream py-14 sm:py-20" aria-labelledby="related-heading">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="related-heading" class="font-display font-bold text-2xl sm:text-3xl text-green-dark mb-8">Related Articles</h2>
+      <ul class="grid grid-cols-1 sm:grid-cols-3 gap-6 list-none m-0 p-0">
+        {relatedPosts.map((post) => (
+          <li>
+            <a href={post.href} class="group block rounded-2xl bg-white border border-neutral-200 hover:border-green-mid/40 hover:shadow-xl overflow-hidden transition-all duration-200 h-full">
+              <div class="h-32 rounded-t-2xl" style={`background: linear-gradient(135deg, ${post.gradient})`} aria-hidden="true"></div>
+              <div class="p-5">
+                <h3 class="font-display font-semibold text-sm text-green-dark leading-snug group-hover:text-green-mid transition-colors line-clamp-3">
+                  {post.title}
+                </h3>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+</BaseLayout>

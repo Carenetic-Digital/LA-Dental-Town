@@ -19,14 +19,18 @@ const {
   noindex = false,
 } = Astro.props;
 
-// Site-wide structured data
+// Site-wide structured data — Dentist (a LocalBusiness subtype) is the
+// correct schema.org type for a single-location dental practice; it's what
+// makes `openingHours`, `address`, and `aggregateRating` valid properties.
 const organizationData = {
   name: "LA Dental Town",
   url: Astro.site?.href,
   logo: new URL('/images/logo.png', Astro.site).href,
+  image: new URL('/images/logo.png', Astro.site).href,
   telephone: "(323) 887-0088",
   email: "ladentaltown13@gmail.com",
   address: {
+    "@type": "PostalAddress",
     streetAddress: "5262 E Beverly Blvd",
     addressLocality: "East Los Angeles",
     addressRegion: "CA",
@@ -34,6 +38,11 @@ const organizationData = {
     addressCountry: "US",
   },
   openingHours: "Mo-Fr 08:30-17:30",
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.9",
+    reviewCount: "305",
+  },
 };
 ---
 
@@ -68,7 +77,7 @@ const organizationData = {
       noindex={noindex}
     />
 
-    <StructuredData type="Organization" data={organizationData} />
+    <StructuredData type="Dentist" data={organizationData} />
   </head>
   <body class="font-body antialiased">
 

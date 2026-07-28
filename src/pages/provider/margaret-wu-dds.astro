@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProviderHero from '../../components/ProviderHero.astro';
+import ProviderBio from '../../components/ProviderBio.astro';
+import ProviderCredentials from '../../components/ProviderCredentials.astro';
+import ProviderDifferentiators from '../../components/ProviderDifferentiators.astro';
+import ProviderCTA from '../../components/ProviderCTA.astro';
+import RelatedServiceGrid from '../../components/RelatedServiceGrid.astro';
+import { getProvider } from '../../lib/providers';
+import { resolveServices } from '../../lib/providerServices';
+
+const provider = getProvider('margaret-wu-dds')!;
+const services = resolveServices(provider.services);
+
+const seoTitle = 'Margaret Wu, DDS | Dentist in East Los Angeles | LA Dental Town';
+const seoDescription = "Meet Dr. Margaret Wu, DDS — co-founder of LA Dental Town, board-certified general dentist, and certified Invisalign® Premier Provider serving East Los Angeles.";
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+
+  <ProviderHero
+    name={provider.name}
+    specialtyLine={provider.specialtyLine}
+    tagline={provider.tagline}
+    photoSlug={provider.photoSlug}
+    initials={provider.initials}
+  />
+
+  <ProviderBio
+    shortName={provider.shortName}
+    hasBio={provider.hasBio}
+    paragraphs={provider.bioParagraphs}
+  />
+
+  <ProviderCredentials
+    shortName={provider.shortName}
+    intro={provider.credentialsIntro}
+    items={provider.credentialsList}
+  />
+
+  <ProviderDifferentiators />
+
+  <ProviderCTA />
+
+  <RelatedServiceGrid
+    heading={`Services Provided by ${provider.shortName}`}
+    subheading="Dr. Wu treats patients of all ages across the following services at LA Dental Town."
+    items={services}
+    background="white"
+    headingId="provider-services-heading"
+  />
+
+</BaseLayout>

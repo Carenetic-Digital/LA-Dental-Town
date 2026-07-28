@@ -1,0 +1,38 @@
+---
+// component-builder: ServiceCTA
+// Purpose: Bottom-of-page booking CTA banner for /services/* pages, matching
+// the teal-dark CTA treatment used elsewhere on the site.
+
+interface Props {
+  heading?: string;
+  description?: string;
+}
+
+const {
+  heading = 'Ready to get started?',
+  description = "Walk-ins welcome. Se Habla Español. Book online or call our office — we'll find a time that works for you.",
+} = Astro.props;
+---
+
+<section class="bg-teal-dark text-white py-14 sm:py-16" aria-labelledby="service-cta-heading">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 id="service-cta-heading" class="font-display font-bold text-2xl sm:text-3xl text-white mb-4 leading-tight">
+      {heading}
+    </h2>
+    <p class="font-body text-base text-white/75 leading-relaxed max-w-2xl mx-auto mb-8">
+      {description}
+    </p>
+    <div class="flex flex-wrap items-center justify-center gap-4">
+      <a
+        href="/contents/appointments/"
+        class="inline-flex items-center gap-2 bg-green-mid hover:bg-green-dark text-white font-body font-semibold px-8 py-3.5 rounded-full transition-colors duration-200">
+        Book Appointment
+      </a>
+      <a
+        href="tel:+13238870088"
+        class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-body font-medium px-8 py-3.5 rounded-full transition-colors duration-200">
+        Call (323) 887-0088
+      </a>
+    </div>
+  </div>
+</section>

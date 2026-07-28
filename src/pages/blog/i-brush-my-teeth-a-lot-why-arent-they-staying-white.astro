@@ -1,0 +1,142 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const seoTitle = "Why Aren't My Teeth Staying White? | LA Dental Town";
+const seoDescription = "Diligent brushing isn't always enough to fight stains. LA Dental Town explains tooth discoloration and cosmetic whitening solutions.";
+
+const postTitle = "I Brush My Teeth a Lot: Why Aren't They Staying White?";
+const publishDate = '2025-10-22';
+const displayDate = 'October 22, 2025';
+const tag = 'Cosmetic Dentistry';
+
+const relatedPosts = [
+  { title: "Why You Shouldn't Skip Your Biannual Dental Cleaning and Checkup", href: '/blog/why-you-shouldnt-skip-your-biannual-dental-cleaning-and-checkup/', gradient: '#1D4D2F, #3A7D44' },
+  { title: '5 Signs That You May Need a Root Canal', href: '/blog/5-signs-that-you-may-need-a-root-canal/', gradient: '#163232, #1D4D2F' },
+  { title: 'The Importance of Replacing Missing Teeth', href: '/blog/the-importance-of-replacing-missing-teeth/', gradient: '#3A7D44, #C9A84C' },
+];
+
+const articleData = {
+  headline: postTitle,
+  datePublished: publishDate,
+  author: { '@type': 'Organization', name: 'LA Dental Town' },
+  publisher: { '@type': 'Organization', name: 'LA Dental Town' },
+  mainEntityOfPage: new URL('/blog/i-brush-my-teeth-a-lot-why-arent-they-staying-white/', Astro.site).href,
+};
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+  <StructuredData type="BlogPosting" data={articleData} />
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       Article Header
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-cream py-16 sm:py-20" aria-label="Article header">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <a href="/blog/" class="inline-flex items-center gap-1.5 font-body text-sm font-semibold text-green-mid hover:text-green-dark transition-colors mb-6">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+        </svg>
+        Back to Blog
+      </a>
+      <span class="inline-block font-body text-xs font-semibold text-white bg-green-mid rounded-full px-3 py-1 mb-5">{tag}</span>
+      <h1 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-green-dark leading-tight mb-4">
+        {postTitle}
+      </h1>
+      <p class="font-body text-sm text-ink/50">
+        <time datetime={publishDate}>{displayDate}</time> · LA Dental Town
+      </p>
+    </div>
+  </section>
+
+  <!-- Gradient placeholder banner (see homepage blog preview pattern — no stock photography) -->
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 -mt-2 mb-2">
+    <div class="h-56 sm:h-72 rounded-2xl" style="background: linear-gradient(135deg, #3A7D44, #C9A84C)" aria-hidden="true"></div>
+  </div>
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       Article Body
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-white py-14 sm:py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="font-body text-base sm:text-lg text-ink/80 leading-relaxed">
+        <p class="mb-5">
+          Do you brush and floss diligently, yet your teeth aren't staying as white as you'd like? When it comes to dull, stained, or discolored teeth, your oral hygiene routine is only one piece of the puzzle.
+        </p>
+        <p class="mb-5">
+          If you're tired of hiding your smile, see the expert team at LA Dental Town in East Los Angeles, California. We offer advanced cosmetic solutions to help you look and feel your best, including teeth whitening and veneers. Here, we explore why your teeth don't stay bright and white and what you can do about it.
+        </p>
+
+        <h2 class="font-display font-semibold text-2xl text-green-dark mt-10 mb-4">What causes tooth discoloration?</h2>
+        <p class="mb-5">
+          While brushing and flossing are essential to remove plaque and food debris on and around your teeth, they can't always prevent staining. Let's take a look at the two main types of tooth discoloration:
+        </p>
+
+        <h3 class="font-display font-semibold text-lg text-green-dark mt-7 mb-3">Extrinsic stains</h3>
+        <p class="mb-5">
+          Certain foods and beverages — such as coffee, tea, berries, pasta sauce, and red wine — contain strong pigments that stain your teeth with repeated exposure. Tobacco is another major culprit. These pigments cling to microscopic grooves in the tooth enamel, causing stubborn stains and yellowing.
+        </p>
+
+        <h3 class="font-display font-semibold text-lg text-green-dark mt-7 mb-3">Intrinsic stains</h3>
+        <p class="mb-5">
+          Intrinsic stains come from within the tooth. This type of discoloration may result from dental trauma, certain medications or health conditions, or overexposure to fluoride during childhood. Aging also contributes to discoloration as enamel naturally thins, allowing the yellowish dentin layer inside to become visible. Because intrinsic stains exist below the enamel, they're impossible to remove with brushing alone.
+        </p>
+
+        <h2 class="font-display font-semibold text-2xl text-green-dark mt-10 mb-4">Advanced solutions for a brighter smile</h2>
+        <p class="mb-5">
+          Whether you're dealing with surface-level discoloration or a deeper issue, our team can help you achieve a brighter, whiter smile. Regular dental cleanings keep stains at bay, but a real smile makeover requires advanced solutions.
+        </p>
+
+        <h3 class="font-display font-semibold text-lg text-green-dark mt-7 mb-3">Laser whitening</h3>
+        <p class="mb-5">
+          Laser teeth whitening is a fast and effective way to tackle both extrinsic and intrinsic stains. Unlike at-home kits, professional treatments use a stronger, medical-grade bleaching agent that penetrates deeply. Results can last up to three years.
+        </p>
+
+        <h3 class="font-display font-semibold text-lg text-green-dark mt-7 mb-3">Veneers</h3>
+        <p class="mb-5">
+          When stubborn discoloration accompanies chips or cracks, veneers offer a solution. These custom porcelain shells bond to teeth to change color, shape, or size. With proper care, veneers can provide a whiter, brighter, and more even smile that lasts for over a decade.
+        </p>
+
+        <h2 class="font-display font-semibold text-2xl text-green-dark mt-10 mb-4">Your new smile is waiting</h2>
+        <p class="mb-5">
+          To get started on your brilliant new smile, schedule a consultation at LA Dental Town by calling or messaging the office today.
+        </p>
+      </div>
+
+      <!-- CTA -->
+      <div class="mt-14 bg-cream border border-neutral-200 rounded-2xl p-8 text-center">
+        <h3 class="font-display font-semibold text-xl text-green-dark mb-2">Ready to brighten your smile?</h3>
+        <p class="font-body text-sm text-ink/60 mb-6 max-w-md mx-auto">
+          Walk-ins welcome. Se Habla Español. Book online or call our office to schedule your consultation.
+        </p>
+        <a href="/contents/appointments/" class="inline-flex items-center gap-2 bg-green-mid hover:bg-green-dark text-white font-body font-semibold px-7 py-3.5 rounded-full transition-colors duration-200">
+          Book an Appointment
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       Related Articles
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-cream py-14 sm:py-20" aria-labelledby="related-heading">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="related-heading" class="font-display font-bold text-2xl sm:text-3xl text-green-dark mb-8">Related Articles</h2>
+      <ul class="grid grid-cols-1 sm:grid-cols-3 gap-6 list-none m-0 p-0">
+        {relatedPosts.map((post) => (
+          <li>
+            <a href={post.href} class="group block rounded-2xl bg-white border border-neutral-200 hover:border-green-mid/40 hover:shadow-xl overflow-hidden transition-all duration-200 h-full">
+              <div class="h-32 rounded-t-2xl" style={`background: linear-gradient(135deg, ${post.gradient})`} aria-hidden="true"></div>
+              <div class="p-5">
+                <h3 class="font-display font-semibold text-sm text-green-dark leading-snug group-hover:text-green-mid transition-colors line-clamp-3">
+                  {post.title}
+                </h3>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+</BaseLayout>

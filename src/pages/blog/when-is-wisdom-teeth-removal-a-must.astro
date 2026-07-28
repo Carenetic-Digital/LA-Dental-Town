@@ -1,0 +1,152 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const seoTitle = 'When Is Wisdom Teeth Removal a Must? | LA Dental Town Blog';
+const seoDescription = 'Impacted or misaligned wisdom teeth can cause pain, infection, and crowding. LA Dental Town explains when extraction is necessary and what recovery looks like.';
+
+const postTitle = 'When Is Wisdom Teeth Removal a Must?';
+const publishDate = '2025-07-01';
+const displayDate = 'July 1, 2025';
+const tag = 'Oral Surgery';
+
+const relatedPosts = [
+  { title: '5 Signs That You May Need a Root Canal', href: '/blog/5-signs-that-you-may-need-a-root-canal/', gradient: '#1D4D2F, #3A7D44' },
+  { title: "Why You Shouldn't Skip Your Biannual Dental Cleaning and Checkup", href: '/blog/why-you-shouldnt-skip-your-biannual-dental-cleaning-and-checkup/', gradient: '#163232, #1D4D2F' },
+  { title: 'The Importance of Replacing Missing Teeth', href: '/blog/the-importance-of-replacing-missing-teeth/', gradient: '#3A7D44, #C9A84C' },
+];
+
+const articleData = {
+  headline: postTitle,
+  datePublished: publishDate,
+  author: { '@type': 'Organization', name: 'LA Dental Town' },
+  publisher: { '@type': 'Organization', name: 'LA Dental Town' },
+  mainEntityOfPage: new URL('/blog/when-is-wisdom-teeth-removal-a-must/', Astro.site).href,
+};
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+  <StructuredData type="BlogPosting" data={articleData} />
+
+  <section class="bg-cream py-16 sm:py-20" aria-label="Article header">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <a href="/blog/" class="inline-flex items-center gap-1.5 font-body text-sm font-semibold text-green-mid hover:text-green-dark transition-colors mb-6">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+        </svg>
+        Back to Blog
+      </a>
+      <span class="inline-block font-body text-xs font-semibold text-white bg-green-mid rounded-full px-3 py-1 mb-5">{tag}</span>
+      <h1 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-green-dark leading-tight mb-4">
+        {postTitle}
+      </h1>
+      <p class="font-body text-sm text-ink/50">
+        <time datetime={publishDate}>{displayDate}</time> · LA Dental Town
+      </p>
+    </div>
+  </section>
+
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 -mt-2 mb-2">
+    <div class="h-56 sm:h-72 rounded-2xl" style="background: linear-gradient(135deg, #163232, #1D4D2F)" aria-hidden="true"></div>
+  </div>
+
+  <section class="bg-white py-14 sm:py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="font-body text-base sm:text-lg text-ink/80 leading-relaxed">
+        <p class="mb-5">
+          Early human ancestors may have welcomed a third set of molars for chewing raw plants and meat, but today, wisdom teeth can do more harm than good. Often, these teeth struggle to find space in smaller modern jaws, which makes removal a must.
+        </p>
+        <p class="mb-5">
+          At LA Dental Town, our skilled providers offer comprehensive exams and digital X-rays to spot any problems early. If necessary, we perform extractions right here in our East Los Angeles, California, office to ensure seamless care in a familiar setting.
+        </p>
+        <p class="mb-5">
+          Do you have questions about your teen's — or your own — emerging wisdom teeth? Take a moment to get some answers and learn when removal is the best path forward.
+        </p>
+
+        <h2 class="font-display font-semibold text-2xl text-green-dark mt-10 mb-4">Why can wisdom teeth become a problem?</h2>
+        <p class="mb-5">
+          When wisdom teeth begin to appear — typically between the ages of 17 and 25 — they often face challenges growing in properly due to limited jaw space.
+        </p>
+        <p class="mb-5">
+          One common concern is impaction, where the tooth is trapped — growing sideways, at an angle, or only partially breaking through the gums. It can press on neighboring teeth and potentially cause shifting or root damage.
+        </p>
+        <p class="mb-5">
+          Partially erupted wisdom teeth are difficult to keep clean, which creates areas where bacteria thrive. This can result in painful infections or cavities in the wisdom tooth or adjacent molars.
+        </p>
+
+        <h2 class="font-display font-semibold text-2xl text-green-dark mt-10 mb-4">When we recommend removal</h2>
+        <p class="mb-5">
+          If your wisdom teeth are healthy, fully erupted, properly aligned, and not causing any problems, there's generally no reason for extraction. We keep a close eye on them during your regular checkups to make sure no issues start to develop.
+        </p>
+        <p class="mb-5">
+          But when these teeth don't have enough room to grow in correctly, removal is the right choice. We recommend extraction if your wisdom teeth are causing persistent pain, recurring infections, or tooth decay. Other reasons for removal may include:
+        </p>
+        <ul class="list-disc pl-6 mb-5 space-y-2">
+          <li>Gum disease</li>
+          <li>Cysts</li>
+          <li>Damage to nearby teeth</li>
+          <li>Tooth crowding or bite alignment issues</li>
+        </ul>
+        <p class="mb-5">
+          Removing problematic wisdom teeth early, during the teen and young adult years, may result in an easier procedure and quicker recovery. However, we can safely remove them at any age.
+        </p>
+
+        <h2 class="font-display font-semibold text-2xl text-green-dark mt-10 mb-4">What to expect during and after extraction</h2>
+        <p class="mb-5">
+          At LA Dental Town, our patients' comfort and safety are our top priorities. If you're feeling anxious, we offer oral sedation and nitrous oxide (laughing gas) to calm your nerves during the extraction.
+        </p>
+        <p class="mb-5">
+          Our in-house oral surgeon begins by numbing your teeth and gums with a local anesthetic. The procedure itself typically takes about an hour, but that can vary depending on how many wisdom teeth we're removing and their position.
+        </p>
+        <p class="mb-5">
+          After your wisdom tooth removal, it's normal to experience some pain, swelling, and even bleeding. We provide detailed aftercare instructions to help you manage these side effects and promote healing. Some general guidelines include:
+        </p>
+        <ul class="list-disc pl-6 mb-5 space-y-2">
+          <li>Rest as much as possible and avoid strenuous activity while healing</li>
+          <li>Choose soft foods such as soups, applesauce, mashed potatoes, or yogurt</li>
+          <li>Brush and floss your other teeth as normal, and follow our instructions for cleaning the extraction area(s) to protect your healing gums</li>
+        </ul>
+        <p class="mb-5">
+          Avoid drinking through a straw or smoking, as the suction created in your mouth can dislodge the blood clot that forms over the extraction site. This can slow healing and potentially lead to a painful condition called dry socket.
+        </p>
+        <p class="mb-5">
+          While it might take a week or more to feel completely back to normal, most people can resume light activities like school or work within three to five days.
+        </p>
+        <p class="mb-5">
+          If you're concerned about wisdom teeth, our expert team can give you peace of mind. Contact LA Dental Town today to schedule an appointment.
+        </p>
+      </div>
+
+      <div class="mt-14 bg-cream border border-neutral-200 rounded-2xl p-8 text-center">
+        <h3 class="font-display font-semibold text-xl text-green-dark mb-2">Concerned about wisdom teeth?</h3>
+        <p class="font-body text-sm text-ink/60 mb-6 max-w-md mx-auto">
+          Walk-ins welcome. Se Habla Español. Book online or call our office to schedule an exam.
+        </p>
+        <a href="/contents/appointments/" class="inline-flex items-center gap-2 bg-green-mid hover:bg-green-dark text-white font-body font-semibold px-7 py-3.5 rounded-full transition-colors duration-200">
+          Book an Appointment
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-cream py-14 sm:py-20" aria-labelledby="related-heading">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="related-heading" class="font-display font-bold text-2xl sm:text-3xl text-green-dark mb-8">Related Articles</h2>
+      <ul class="grid grid-cols-1 sm:grid-cols-3 gap-6 list-none m-0 p-0">
+        {relatedPosts.map((post) => (
+          <li>
+            <a href={post.href} class="group block rounded-2xl bg-white border border-neutral-200 hover:border-green-mid/40 hover:shadow-xl overflow-hidden transition-all duration-200 h-full">
+              <div class="h-32 rounded-t-2xl" style={`background: linear-gradient(135deg, ${post.gradient})`} aria-hidden="true"></div>
+              <div class="p-5">
+                <h3 class="font-display font-semibold text-sm text-green-dark leading-snug group-hover:text-green-mid transition-colors line-clamp-3">
+                  {post.title}
+                </h3>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+</BaseLayout>

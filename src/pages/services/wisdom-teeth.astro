@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceHero from '../../components/ServiceHero.astro';
+import RelatedServiceGrid from '../../components/RelatedServiceGrid.astro';
+import ServiceProviders from '../../components/ServiceProviders.astro';
+import ServiceCTA from '../../components/ServiceCTA.astro';
+import { ICONS, CATEGORY_COLORS } from '../../lib/serviceIcons';
+
+const seoTitle = 'Wisdom Teeth Removal | LA Dental Town';
+const seoDescription = 'Wisdom teeth extraction in East Los Angeles by the on-staff oral surgeon at LA Dental Town, with digital X-ray monitoring and sedation options.';
+
+const related = [
+  {
+    title: 'Oral Surgery',
+    description: 'See the full range of surgical care our on-staff oral surgeon provides.',
+    href: '/services/oral-surgery/',
+    icon: ICONS.surgery,
+    ...CATEGORY_COLORS.oralSurgery,
+  },
+];
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+
+  <ServiceHero
+    breadcrumbs={[
+      { label: 'Home', href: '/' },
+      { label: 'Services', href: '/services/' },
+      { label: 'Oral Surgery', href: '/services/oral-surgery/' },
+      { label: 'Wisdom Teeth' },
+    ]}
+    eyebrow="Oral Surgery"
+    title="Wisdom Teeth"
+    description="Wisdom teeth — the last set of molars to come in, usually in the late teens or early twenties — often don't have enough room to grow in properly. Our on-staff oral surgeon monitors their development with digital X-rays and removes them when needed, before they cause pain or crowding."
+    icon={ICONS.tooth}
+    iconColor={CATEGORY_COLORS.oralSurgery.iconColor}
+    bgColor={CATEGORY_COLORS.oralSurgery.bgColor}
+  />
+
+  <section class="bg-white py-16 sm:py-20" aria-labelledby="overview-heading">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="overview-heading" class="font-display font-bold text-2xl sm:text-3xl text-green-dark mb-6">
+        When Wisdom Teeth Become a Problem
+      </h2>
+      <div class="space-y-5 font-body text-base text-ink/70 leading-relaxed">
+        <p>
+          Not every wisdom tooth needs to be removed — some come in fully and cause no trouble at all. But many mouths simply don't have room for a third set of molars, which can leave wisdom teeth impacted (stuck below the gumline), growing in at an angle, or crowding the teeth around them. Left alone, this can lead to pain, infection, cysts, or damage to neighboring teeth.
+        </p>
+        <p>
+          Because we monitor wisdom teeth with digital X-rays during routine visits, we can usually flag a developing issue well before it becomes an emergency — and plan removal on a timeline that works for you, rather than as a rushed, urgent procedure.
+        </p>
+      </div>
+
+      <h3 class="font-display font-semibold text-xl text-green-dark mt-10 mb-4">What to Expect</h3>
+      <p class="font-body text-base text-ink/60 leading-relaxed">
+        Wisdom teeth removal typically starts with an X-ray evaluation to see how the teeth are positioned. The extraction itself is performed with local anesthesia, and sedation options are available for patients who prefer to be more relaxed during the procedure. Recovery generally involves some swelling and soreness for a few days, with most patients back to normal activity within a week.
+      </p>
+    </div>
+  </section>
+
+  <RelatedServiceGrid
+    heading="Related Services"
+    items={related}
+    background="cream"
+  />
+
+  <ServiceProviders
+    heading="Who Provides This Care"
+    providers={[
+      { name: 'Dr. Nadia Hassan, DDS', title: 'Oral Surgeon', href: '/provider/nadia-hassan-dds/' },
+    ]}
+  />
+
+  <ServiceCTA />
+
+</BaseLayout>

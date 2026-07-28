@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const seoTitle = 'The Importance of Replacing Missing Teeth | LA Dental Town Blog';
+const seoDescription = 'A missing tooth affects more than your smile — it can cause shifting teeth and jawbone loss. LA Dental Town explains why timely replacement with implants or bridges matters.';
+
+const postTitle = 'The Importance of Replacing Missing Teeth';
+const publishDate = '2025-04-01';
+const displayDate = 'April 1, 2025';
+const tag = 'Restorative Dentistry';
+
+const relatedPosts = [
+  { title: 'Forget the Temps. We Offer Same-Day Crowns With Our In-Office Milling Machine', href: '/blog/forget-the-temps-we-offer-same-day-crowns-with-our-in-office-milling-machine/', gradient: '#1D4D2F, #3A7D44' },
+  { title: 'When Is Wisdom Teeth Removal a Must?', href: '/blog/when-is-wisdom-teeth-removal-a-must/', gradient: '#163232, #1D4D2F' },
+  { title: "I Brush My Teeth a Lot: Why Aren't They Staying White?", href: '/blog/i-brush-my-teeth-a-lot-why-arent-they-staying-white/', gradient: '#3A7D44, #C9A84C' },
+];
+
+const articleData = {
+  headline: postTitle,
+  datePublished: publishDate,
+  author: { '@type': 'Organization', name: 'LA Dental Town' },
+  publisher: { '@type': 'Organization', name: 'LA Dental Town' },
+  mainEntityOfPage: new URL('/blog/the-importance-of-replacing-missing-teeth/', Astro.site).href,
+};
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+  <StructuredData type="BlogPosting" data={articleData} />
+
+  <section class="bg-cream py-16 sm:py-20" aria-label="Article header">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <a href="/blog/" class="inline-flex items-center gap-1.5 font-body text-sm font-semibold text-green-mid hover:text-green-dark transition-colors mb-6">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+        </svg>
+        Back to Blog
+      </a>
+      <span class="inline-block font-body text-xs font-semibold text-white bg-green-mid rounded-full px-3 py-1 mb-5">{tag}</span>
+      <h1 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-green-dark leading-tight mb-4">
+        {postTitle}
+      </h1>
+      <p class="font-body text-sm text-ink/50">
+        <time datetime={publishDate}>{displayDate}</time> · LA Dental Town
+      </p>
+    </div>
+  </section>
+
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 -mt-2 mb-2">
+    <div class="h-56 sm:h-72 rounded-2xl" style="background: linear-gradient(135deg, #3A7D44, #C9A84C)" aria-hidden="true"></div>
+  </div>
+
+  <section class="bg-white py-14 sm:py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="font-body text-base sm:text-lg text-ink/80 leading-relaxed">
+        <p class="mb-5">
+          Losing a tooth isn't only about aesthetics. It may also affect your oral health, confidence, and overall well-being. Whether from an injury, gum disease, or decay, a missing tooth can lead to misalignment, jawbone deterioration, and even difficulty speaking and eating.
+        </p>
+
+        <h2 class="font-display font-semibold text-2xl text-green-dark mt-10 mb-4">Shifting teeth</h2>
+        <p class="mb-5">
+          Your teeth work together to help you chew food, support proper alignment, and maintain facial structure. When a tooth is lost, remaining teeth may drift, causing:
+        </p>
+        <ul class="list-disc pl-6 mb-5 space-y-2">
+          <li>Uneven tooth wear</li>
+          <li>Bite problems</li>
+          <li>Extra stress on the temporomandibular joint (TMJ)</li>
+          <li>Loose teeth</li>
+          <li>More tooth loss</li>
+        </ul>
+        <p class="mb-5">
+          These issues may lead to other dental problems like temporomandibular joint disorder, a chronic pain condition. The shifting also creates spaces for bacteria, increasing gum disease risk.
+        </p>
+
+        <h2 class="font-display font-semibold text-2xl text-green-dark mt-10 mb-4">Deterioration of jawbone</h2>
+        <p class="mb-5">
+          Your teeth do more than help you chew. They also play an essential role in maintaining jawbone strength. The tooth root stimulates jawbone production when you chew. Without a tooth, bone loss occurs over time. Signs include:
+        </p>
+        <ul class="list-disc pl-6 mb-5 space-y-2">
+          <li>Changes in facial structure</li>
+          <li>Wrinkles around your mouth</li>
+          <li>Sunken lips</li>
+          <li>Difficulty chewing or speaking</li>
+        </ul>
+
+        <h2 class="font-display font-semibold text-2xl text-green-dark mt-10 mb-4">Dental options for missing teeth</h2>
+        <p class="mb-5">
+          Solutions include dental implants, crowns, and bridges. Dental implants are a tooth root replacement that we place into the jawbone, mimicking the actions of the natural tooth root to prevent jawbone deterioration.
+        </p>
+      </div>
+
+      <div class="mt-14 bg-cream border border-neutral-200 rounded-2xl p-8 text-center">
+        <h3 class="font-display font-semibold text-xl text-green-dark mb-2">Don't wait to replace a missing tooth</h3>
+        <p class="font-body text-sm text-ink/60 mb-6 max-w-md mx-auto">
+          Walk-ins welcome. Se Habla Español. Book online or call our office to explore your options.
+        </p>
+        <a href="/contents/appointments/" class="inline-flex items-center gap-2 bg-green-mid hover:bg-green-dark text-white font-body font-semibold px-7 py-3.5 rounded-full transition-colors duration-200">
+          Book an Appointment
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-cream py-14 sm:py-20" aria-labelledby="related-heading">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="related-heading" class="font-display font-bold text-2xl sm:text-3xl text-green-dark mb-8">Related Articles</h2>
+      <ul class="grid grid-cols-1 sm:grid-cols-3 gap-6 list-none m-0 p-0">
+        {relatedPosts.map((post) => (
+          <li>
+            <a href={post.href} class="group block rounded-2xl bg-white border border-neutral-200 hover:border-green-mid/40 hover:shadow-xl overflow-hidden transition-all duration-200 h-full">
+              <div class="h-32 rounded-t-2xl" style={`background: linear-gradient(135deg, ${post.gradient})`} aria-hidden="true"></div>
+              <div class="p-5">
+                <h3 class="font-display font-semibold text-sm text-green-dark leading-snug group-hover:text-green-mid transition-colors line-clamp-3">
+                  {post.title}
+                </h3>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+</BaseLayout>
