@@ -4,17 +4,23 @@
 // intake/ladentaltown-intake-summary.md and public/images/providers/):
 //   - Real photos exist ONLY for margaret-wu, jennifer-wu, tiffany-tran.
 //   - The other 4 providers have no photo on file anywhere (confirmed by
-//     inspecting the live site's raw HTML — not a fetch failure). photoSlug
-//     is null for them; pages must render the initials placeholder, never a
-//     broken <img> or an invented photo.
+//     inspecting the live site's raw HTML on 2026-07-29 — no <img> tags with
+//     src on their bio pages, not a fetch failure). photoSlug is null for
+//     them; pages must render the initials placeholder, never a broken
+//     <img> or an invented photo.
 //
-// Bio status (see intake/ladentaltown-intake-summary.md lines 239-294):
-//   - Approved narrative bios exist ONLY for margaret-wu, jennifer-wu,
-//     tiffany-tran. hasBio is true only for those three.
-//   - The other 4 providers' bios are confirmed pending from Norma. Their
-//     entries carry only facts confirmed in reference/analysis.md's Provider
-//     Profiles table — name, title, specialty/credential. No hobbies,
-//     education, or personality details are invented for them.
+// Bio status (pulled verbatim from https://www.ladentaltown.com/provider/
+// on 2026-07-29):
+//   - All 7 providers now have approved narrative bios. The 2026-07-29 pull
+//     added bios for nadia-hassan-dds, seong-lee-dds, eugene-kim-dds, and
+//     angelica — previously these carried only facts confirmed in
+//     reference/analysis.md's Provider Profiles table.
+//   - NOTE: the live site lists this pediatric dentist as "Tiffany Wu, DDS"
+//     (URL /provider/tiffany-wu-dds/), with bio text identical to what this
+//     file already has under slug tiffany-tran-dds ("Dr. Tiff"/Boston
+//     University/maltipoo Toby). Left as tiffany-tran-dds here pending
+//     confirmation from the client on which surname is current — flag
+//     before launch.
 
 export interface Provider {
   slug: string;
@@ -136,9 +142,19 @@ export const PROVIDERS: Provider[] = [
     initials: 'NH',
     photoSlug: null,
     tagline: 'Oral surgeon on staff at LA Dental Town, providing wisdom teeth removal and extractions for patients in East Los Angeles.',
-    hasBio: false,
-    bioParagraphs: [],
-    credentialsList: [],
+    hasBio: true,
+    bioParagraphs: [
+      "Dr. Nadia Hassan is a Southern California native and oral and maxillofacial surgeon on staff at LA Dental Town. She earned a bachelor's degree in biological science and neuroscience from the University of Southern California, graduating among the top of her class, before pursuing her dental degree at the UCLA School of Dentistry, where she again graduated among the top of her class and received honors in several categories along with awards for clinical excellence and patient care. She went on to complete UCLA's Oral and Maxillofacial Surgery program, earning a Medical Degree from the David Geffen School of Medicine at UCLA along with an internship certificate in general surgery and advanced training in temporomandibular joint disorders, maxillofacial trauma, benign tumor resection and reconstruction, and dental reconstruction with implants and allogeneic bone grafting.",
+      "Dr. Hassan is committed to enhancing patient care by integrating her background in biology with her dental and surgical training, and hopes to pursue research in the field, though she considers patient care her first priority. Outside the practice, she enjoys traveling, skiing, reading, and spending time with family and friends.",
+    ],
+    credentialsIntro: "Dr. Hassan's combined medical and dental training reflects an unusually deep foundation in oral and maxillofacial surgery.",
+    credentialsList: [
+      'Doctor of Dental Surgery (DDS) — UCLA School of Dentistry',
+      "Bachelor's degree in Biological Science/Neuroscience — University of Southern California",
+      'Medical Degree (MD) — David Geffen School of Medicine at UCLA',
+      'Certificate, Oral and Maxillofacial Surgery — UCLA',
+      'Internship Certificate, General Surgery',
+    ],
     services: ['oral-surgery', 'wisdom-teeth'],
   },
   {
@@ -150,9 +166,19 @@ export const PROVIDERS: Provider[] = [
     initials: 'SL',
     photoSlug: null,
     tagline: 'Board-certified endodontist trained at Columbia University, providing root canal therapy on staff at LA Dental Town.',
-    hasBio: false,
-    bioParagraphs: [],
-    credentialsList: ['Board Certified Endodontist', 'Trained at Columbia University'],
+    hasBio: true,
+    bioParagraphs: [
+      "Dr. Seong Lee is a Board Certified endodontist on staff at LA Dental Town, specializing in root canal therapy. He earned a bachelor's degree in biology from the University of California, Irvine, and his dental degree from the University of Pennsylvania School of Dentistry. Before pursuing his specialty, Dr. Lee served three years as a general dentist in the U.S. Army, where he performed all facets of restorative dentistry. He then completed his endodontic residency at Columbia University.",
+      "Dr. Lee helps patients dealing with a painful bite, high sensitivity to temperature, or swelling around a tooth, providing timely and responsive care designed to save natural teeth whenever possible. Outside the office, he enjoys spending time with his wife and two kids, traveling, hiking, and golf.",
+    ],
+    credentialsIntro: "Dr. Lee's military dental service and endodontic residency at Columbia give him deep experience across both general restorative and specialty root canal care.",
+    credentialsList: [
+      'Doctor of Dental Surgery (DDS) — University of Pennsylvania School of Dentistry',
+      "Bachelor's degree in Biology — University of California, Irvine",
+      'Endodontic Residency — Columbia University',
+      'Board Certified Endodontist',
+      'Former General Dentist, U.S. Army (3 years)',
+    ],
     services: ['endodontics', 'root-canal'],
   },
   {
@@ -164,9 +190,21 @@ export const PROVIDERS: Provider[] = [
     initials: 'EK',
     photoSlug: null,
     tagline: 'Dental implant specialist on staff at LA Dental Town, providing permanent, natural-looking tooth replacement.',
-    hasBio: false,
-    bioParagraphs: [],
-    credentialsList: [],
+    hasBio: true,
+    bioParagraphs: [
+      "Dr. Eugene Kim is a dental implant specialist on staff at LA Dental Town and one of dentistry's most respected clinicians and educators in implant surgery and prosthodontics. He earned his dental degree from the UCLA School of Dentistry and completed advanced specialty training in prosthodontics, also at UCLA, where he later served as a clinical instructor in the department of removable prosthodontics.",
+      "Dr. Kim founded and directs the Pacific Implant Academy, where he currently serves as president, and maintains a private practice in Buena Park focused on implant surgery and prosthodontics. He is a member of the Academy of Osseointegration, the American College of Prosthodontists, and the American Dental Association, and his work has been recognized by organizations including the Filipino Dental Society, the Aesthetic Dental Institute, and the Contemporary Dental Institute. He remains active in teaching implant dentistry through lectures, seminars, and live surgical courses.",
+    ],
+    credentialsIntro: "Dr. Kim's advanced prosthodontics training and years directing the Pacific Implant Academy reflect a specialty focus on complex implant and restorative cases.",
+    credentialsList: [
+      'Doctor of Dental Surgery (DDS) — UCLA School of Dentistry',
+      'Advanced Specialty Training in Prosthodontics — UCLA',
+      'Founder & President, Pacific Implant Academy',
+      'Former Clinical Instructor, Department of Removable Prosthodontics, UCLA School of Dentistry',
+      'Member, Academy of Osseointegration',
+      'Member, American College of Prosthodontists',
+      'Member, American Dental Association',
+    ],
     services: ['dental-implants'],
   },
   {
@@ -178,9 +216,15 @@ export const PROVIDERS: Provider[] = [
     initials: 'A',
     photoSlug: null,
     tagline: 'Registered Dental Hygienist providing cleanings and preventive care at LA Dental Town.',
-    hasBio: false,
-    bioParagraphs: [],
-    credentialsList: [],
+    hasBio: true,
+    bioParagraphs: [
+      "Angelica is a Registered Dental Hygienist at LA Dental Town who earned her bachelor's degree in Dental Hygiene from the University of Southern California. She is happy to work hand in hand with the practice's team of compassionate doctors and assistants, and hopes to give every patient a positive dental experience while helping them maintain their best oral health. Patients value her gentle, thorough, and kind approach during routine and deep cleanings.",
+      "Outside the office, Angelica enjoys working out, exploring California, and spending time with her dog, Ford.",
+    ],
+    credentialsList: [
+      "Bachelor's degree in Dental Hygiene — University of Southern California",
+      'Registered Dental Hygienist (RDH)',
+    ],
     services: ['general-family-dentistry'],
   },
 ];
