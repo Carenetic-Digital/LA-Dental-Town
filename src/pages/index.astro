@@ -177,6 +177,7 @@ const blogPosts = [
         <div class="lg:pl-8 xl:pl-12 pb-16 pt-8 lg:py-16 flex items-center">
           <div class="relative w-full rounded-3xl overflow-hidden" style="aspect-ratio: 16/10;">
             <video
+              id="hero-video"
               class="absolute inset-0 w-full h-full object-cover"
               poster="/videos/hero-welcome-poster.jpg"
               autoplay
@@ -487,7 +488,7 @@ const blogPosts = [
               Call Us
             </a>
           </div>
-          <div class="mt-6 flex items-center gap-3 text-white/50 text-xs">
+          <div class="mt-6 flex items-center gap-3 text-white/70 text-xs">
             <svg class="w-4 h-4 shrink-0 text-green-mid" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
             </svg>
@@ -499,3 +500,19 @@ const blogPosts = [
   </section>
 
 </BaseLayout>
+
+<script>
+  const heroVideo = document.getElementById('hero-video') as HTMLVideoElement | null;
+  if (heroVideo) {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const applyMotionPreference = () => {
+      if (prefersReducedMotion.matches) {
+        heroVideo.pause();
+      } else {
+        heroVideo.play().catch(() => {});
+      }
+    };
+    applyMotionPreference();
+    prefersReducedMotion.addEventListener('change', applyMotionPreference);
+  }
+</script>

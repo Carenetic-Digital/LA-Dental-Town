@@ -343,4 +343,17 @@
       ham3?.style.setProperty('transform', '');
     }
   });
+
+  // Close mobile menu on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    const isOpen = toggle?.getAttribute('aria-expanded') === 'true';
+    if (!isOpen) return;
+    menu?.classList.add('hidden');
+    toggle?.setAttribute('aria-expanded', 'false');
+    ham1?.style.setProperty('transform', '');
+    ham2?.style.setProperty('opacity', '');
+    ham3?.style.setProperty('transform', '');
+    toggle?.focus();
+  });
 </script>
