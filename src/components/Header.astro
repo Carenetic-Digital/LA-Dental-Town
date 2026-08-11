@@ -39,10 +39,13 @@
 
         <!-- Logo -->
         <a href="/" class="flex items-center gap-3 shrink-0 group" aria-label="LA Dental Town — Home">
-          <img src="/images/logo.png" alt="" class="w-10 h-10 object-contain shrink-0" width="256" height="256" />
+          <picture>
+            <source srcset="/images/logo.webp" type="image/webp" />
+            <img src="/images/logo.png" alt="LA Dental Town" class="w-10 h-10 object-contain shrink-0" width="256" height="256" loading="eager" />
+          </picture>
           <div class="leading-tight">
             <p class="font-display font-bold text-green-dark text-[17px] tracking-tight leading-none">LA Dental Town</p>
-            <p class="font-body text-xs text-ink/60 uppercase tracking-wider mt-0.5">Family &amp; Cosmetic Dentistry</p>
+            <p class="font-body text-xs text-ink/70 uppercase tracking-wider mt-0.5">Family &amp; Cosmetic Dentistry</p>
           </div>
         </a>
 
@@ -142,14 +145,14 @@
         <a href="/contents/appointments/" class="mobile-link font-semibold text-green-mid">Appointments</a>
 
         <div class="pt-2">
-          <p class="px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-ink/60">About Us</p>
+          <p class="px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-ink/70">About Us</p>
           <a href="/provider/" class="mobile-sublink">Meet the Doctors</a>
           <a href="/contents/about/our-office/" class="mobile-sublink">Our Office</a>
           <a href="/testimonials/" class="mobile-sublink">Testimonials</a>
         </div>
 
         <div class="pt-2">
-          <p class="px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-ink/60">Services</p>
+          <p class="px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-ink/70">Services</p>
           <a href="/services/" class="mobile-sublink font-medium">All Services</a>
           <a href="/services/general-family-dentistry/" class="mobile-sublink">General &amp; Family</a>
           <a href="/services/cosmetic-dentistry/" class="mobile-sublink">Cosmetic Dentistry</a>
@@ -160,7 +163,7 @@
         </div>
 
         <div class="pt-2">
-          <p class="px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-ink/60">Patient Resources</p>
+          <p class="px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-ink/70">Patient Resources</p>
           <a href="/contents/patient-resources/first-visit/" class="mobile-sublink">First Visit</a>
           <a href="/contents/patient-resources/financial/" class="mobile-sublink">Financial &amp; Insurance</a>
           <a href="/contents/patient-resources/patient-forms/" class="mobile-sublink">Patient Forms</a>
@@ -314,21 +317,23 @@
   const ham2 = document.getElementById('ham-2');
   const ham3 = document.getElementById('ham-3');
 
+  function setMenuOpen(isOpen: boolean) {
+    toggle?.setAttribute('aria-expanded', String(isOpen));
+    menu?.classList.toggle('hidden', !isOpen);
+    if (isOpen) {
+      ham1?.style.setProperty('transform', 'translateY(7px) rotate(45deg)');
+      ham2?.style.setProperty('opacity', '0');
+      ham3?.style.setProperty('transform', 'translateY(-7px) rotate(-45deg)');
+    } else {
+      ham1?.style.setProperty('transform', '');
+      ham2?.style.setProperty('opacity', '');
+      ham3?.style.setProperty('transform', '');
+    }
+  }
+
   if (toggle && menu) {
     toggle.addEventListener('click', () => {
-      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
-      toggle.setAttribute('aria-expanded', String(!isOpen));
-      menu.classList.toggle('hidden');
-      // Animate hamburger to X
-      if (!isOpen) {
-        ham1?.style.setProperty('transform', 'translateY(7px) rotate(45deg)');
-        ham2?.style.setProperty('opacity', '0');
-        ham3?.style.setProperty('transform', 'translateY(-7px) rotate(-45deg)');
-      } else {
-        ham1?.style.setProperty('transform', '');
-        ham2?.style.setProperty('opacity', '');
-        ham3?.style.setProperty('transform', '');
-      }
+      setMenuOpen(toggle.getAttribute('aria-expanded') !== 'true');
     });
   }
 
@@ -336,11 +341,30 @@
   document.addEventListener('click', (e) => {
     const header = document.getElementById('site-header');
     if (header && !header.contains(e.target as Node)) {
-      menu?.classList.add('hidden');
-      toggle?.setAttribute('aria-expanded', 'false');
-      ham1?.style.setProperty('transform', '');
-      ham2?.style.setProperty('opacity', '');
-      ham3?.style.setProperty('transform', '');
+      setMenuOpen(false);
     }
+  });
+
+  // Close mobile menu on Escape and return focus to the toggle button
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && toggle?.getAttribute('aria-expanded') === 'true') {
+      setMenuOpen(false);
+      toggle.focus();
+    }
+  });
+
+  // Sync aria-expanded on desktop dropdowns — CSS handles the hover/focus-within
+  // visuals, but assistive tech relies on this attribute reflecting open state.
+  document.querySelectorAll<HTMLButtonElement>('[data-dropdown]').forEach((button) => {
+    const group = button.closest('.nav-group');
+    if (!group) return;
+    const open = () => button.setAttribute('aria-expanded', 'true');
+    const close = () => button.setAttribute('aria-expanded', 'false');
+    group.addEventListener('mouseenter', open);
+    group.addEventListener('mouseleave', close);
+    group.addEventListener('focusin', open);
+    group.addEventListener('focusout', (e) => {
+      if (!group.contains((e as FocusEvent).relatedTarget as Node)) close();
+    });
   });
 </script>

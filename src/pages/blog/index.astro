@@ -4,16 +4,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 const seoTitle = 'Dental Health Blog | LA Dental Town — East Los Angeles, CA';
 const seoDescription = 'Tips and insights on dental implants, same-day crowns, veneers, root canals, digital impressions & more from the team at LA Dental Town in East Los Angeles.';
 
-// All 14 migrated posts. Gradient + tag-chip cards match the homepage
-// "From Our Blog" preview pattern (SECTION 7 of src/pages/index.astro) —
-// no photography available, so brand-color gradients stand in for thumbnails.
-const gradients = [
-  'linear-gradient(135deg, #1D4D2F, #3A7D44)',
-  'linear-gradient(135deg, #163232, #1D4D2F)',
-  'linear-gradient(135deg, #3A7D44, #C9A84C)',
-  'linear-gradient(135deg, #163232, #3A7D44)',
-];
-
 const posts = [
   {
     title: 'The Benefits of Digital Impression Scans Over Traditional Dental Putty',
@@ -99,7 +89,7 @@ const posts = [
       <h1 id="blog-heading" class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl text-green-dark mb-5 leading-tight">
         From Our Blog
       </h1>
-      <p class="font-body text-base sm:text-lg text-ink/60 max-w-2xl mx-auto leading-relaxed mb-5">
+      <p class="font-body text-base sm:text-lg text-ink/70 max-w-2xl mx-auto leading-relaxed mb-5">
         Tips, explainers, and answers from the LA Dental Town team — covering everything from digital impression scans to dental implants and veneers.
       </p>
       <a href="/blog/archive/" class="font-body text-sm font-semibold text-green-mid hover:text-green-dark transition-colors">
@@ -114,15 +104,23 @@ const posts = [
   <section class="bg-white py-16 sm:py-24" aria-label="All blog posts">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 list-none m-0 p-0">
-        {posts.map((post, i) => (
+        {posts.map((post) => (
           <li>
             <a href={post.href} class="group block rounded-2xl bg-white border border-neutral-200 hover:border-green-mid/40 hover:shadow-xl overflow-hidden transition-all duration-200 h-full">
-              <!-- Gradient placeholder — no photography available for blog posts -->
-              <div
-                class="h-44 flex items-end p-4"
-                style={`background: ${gradients[i % gradients.length]}`}
-                aria-hidden="true">
-                <span class="inline-block font-body text-xs font-semibold text-white/90 bg-white/20 rounded-full px-3 py-1">
+              <div class="relative h-44">
+                <picture>
+                  <source srcset={`/images/blog/${post.href.split('/').filter(Boolean).pop()}.webp`} type="image/webp" />
+                  <img
+                    src={`/images/blog/${post.href.split('/').filter(Boolean).pop()}.jpg`}
+                    alt={post.title}
+                    width="900"
+                    height="600"
+                    loading="lazy"
+                    class="absolute inset-0 w-full h-full object-cover"
+                  />
+                </picture>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" aria-hidden="true"></div>
+                <span class="absolute bottom-4 left-4 inline-block font-body text-xs font-semibold text-white bg-white/20 backdrop-blur-sm rounded-full px-3 py-1">
                   {post.tag}
                 </span>
               </div>

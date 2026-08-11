@@ -44,6 +44,11 @@ const organizationData = {
     reviewCount: "305",
   },
 };
+
+const websiteData = {
+  name: "LA Dental Town",
+  url: Astro.site?.href,
+};
 ---
 
 <!doctype html>
@@ -78,6 +83,7 @@ const organizationData = {
     />
 
     <StructuredData type="Dentist" data={organizationData} />
+    <StructuredData type="WebSite" data={websiteData} />
   </head>
   <body class="font-body antialiased">
 
@@ -85,41 +91,43 @@ const organizationData = {
 
     <Header />
 
-    <main id="main-content">
+    <main id="main-content" tabindex="-1">
       <slot />
     </main>
 
     <Footer />
 
-    <!-- ── Sticky "Book Now" button (sitewide, lower-right) ─────────────────
-         TODO: Replace href with booking widget trigger once embed code arrives
-    ─────────────────────────────────────────────────────────────────────── -->
-    <a
-      href="/contents/appointments/"
-      class="fixed bottom-5 right-5 z-40 flex items-center gap-2 bg-green-mid hover:bg-green-dark text-white font-body font-semibold text-sm px-5 py-3 rounded-full shadow-xl hover:shadow-2xl transition-all duration-200"
-      aria-label="Book an appointment">
-      <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z"/>
-      </svg>
-      Book Now
-    </a>
+    <aside aria-label="Quick actions">
+      <!-- ── Sticky "Book Now" button (sitewide, lower-right) ───────────────
+           TODO: Replace href with booking widget trigger once embed code arrives
+      ───────────────────────────────────────────────────────────────────── -->
+      <a
+        href="/contents/appointments/"
+        class="fixed bottom-5 right-5 z-40 flex items-center gap-2 bg-green-mid hover:bg-green-dark text-white font-body font-semibold text-sm px-5 py-3 rounded-full shadow-xl hover:shadow-2xl transition-all duration-200"
+        aria-label="Book an appointment">
+        <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z"/>
+        </svg>
+        Book Now
+      </a>
 
-    <!-- ── Floating Google Reviews badge (lower-left) ──────────────────────
-         TODO: Update href to the practice's verified Google Business profile URL
-    ─────────────────────────────────────────────────────────────────────── -->
-    <a
-      href="https://www.google.com/search?q=LA+Dental+Town+East+Los+Angeles+reviews"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="fixed bottom-5 left-5 z-40 flex items-center gap-3 bg-white hover:bg-neutral-50 text-ink shadow-xl hover:shadow-2xl rounded-2xl px-4 py-3 transition-all duration-200"
-      aria-label="View our 4.9-star Google Reviews">
-      <!-- Google G icon -->
-      <div class="w-8 h-8 rounded-full flex items-center justify-center shrink-0 text-white font-bold text-sm" style="background: linear-gradient(135deg, #4285F4 25%, #34A853 50%, #FBBC05 75%, #EA4335 100%)">G</div>
-      <div class="leading-tight">
-        <p class="text-[10px] text-ink/50 font-body uppercase tracking-wider">Google Rating</p>
-        <p class="text-base font-bold text-ink leading-none">4.9 <span class="text-gold">★</span></p>
-      </div>
-    </a>
+      <!-- ── Floating Google Reviews badge (lower-left) ────────────────────
+           TODO: Update href to the practice's verified Google Business profile URL
+      ───────────────────────────────────────────────────────────────────── -->
+      <a
+        href="https://www.google.com/search?q=LA+Dental+Town+East+Los+Angeles+reviews"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="fixed bottom-5 left-5 z-40 flex items-center gap-3 bg-white hover:bg-neutral-50 text-ink shadow-xl hover:shadow-2xl rounded-2xl px-4 py-3 transition-all duration-200"
+        aria-label="View our 4.9-star Google Reviews">
+        <!-- Google G icon -->
+        <div class="w-8 h-8 rounded-full flex items-center justify-center shrink-0 text-white font-bold text-sm" style="background: linear-gradient(135deg, #4285F4 25%, #34A853 50%, #FBBC05 75%, #EA4335 100%)">G</div>
+        <div class="leading-tight">
+          <p class="text-[10px] text-ink/70 font-body uppercase tracking-wider">Google Rating</p>
+          <p class="text-base font-bold text-ink leading-none">4.9 <span class="text-gold">★</span></p>
+        </div>
+      </a>
+    </aside>
 
   </body>
 </html>

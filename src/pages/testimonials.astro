@@ -41,9 +41,9 @@ const testimonials = [
         Real reviews from LA Dental Town patients in East Los Angeles — curated, not auto-pulled.
       </p>
       <div class="inline-flex items-center gap-2 bg-white border border-neutral-200 rounded-full px-5 py-2.5">
-        <span class="text-gold text-lg" aria-label="4.93 out of 5 stars">★★★★★</span>
+        <span class="text-gold text-lg" role="img" aria-label="4.93 out of 5 stars">★★★★★</span>
         <span class="font-body font-semibold text-ink text-sm">4.93 average</span>
-        <span class="font-body text-ink/50 text-sm">· 15 reviews</span>
+        <span class="font-body text-ink/70 text-sm">· 15 reviews</span>
       </div>
     </div>
   </section>
@@ -57,7 +57,7 @@ const testimonials = [
       <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 list-none m-0 p-0">
         {testimonials.map((t) => (
           <li class="bg-cream rounded-2xl p-7 border border-neutral-200/60 flex flex-col gap-4">
-            <div class="flex items-center gap-1 text-gold" aria-label={`${t.stars} out of 5 stars`}>
+            <div class="flex items-center gap-1 text-gold" role="img" aria-label={`${t.stars} out of 5 stars`}>
               {'★'.repeat(t.stars)}
               {t.stars < 5 && <span class="text-neutral-300">{'★'.repeat(5 - t.stars)}</span>}
             </div>
@@ -66,7 +66,7 @@ const testimonials = [
             </blockquote>
             <footer class="flex items-center justify-between gap-3">
               <cite class="font-body font-semibold text-sm text-ink not-italic">{t.author}</cite>
-              <span class="font-body text-xs text-ink/60 bg-white border border-neutral-200 rounded-full px-3 py-1 whitespace-nowrap">{t.date}</span>
+              <span class="font-body text-xs text-ink/70 bg-white border border-neutral-200 rounded-full px-3 py-1 whitespace-nowrap">{t.date}</span>
             </footer>
           </li>
         ))}

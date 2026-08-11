@@ -140,7 +140,7 @@ export const PROVIDERS: Provider[] = [
     specialtyLine: 'Oral Surgeon',
     cardTitle: 'Oral Surgeon',
     initials: 'NH',
-    photoSlug: null,
+    photoSlug: 'nadia-hassan',
     tagline: 'Oral surgeon on staff at LA Dental Town, providing wisdom teeth removal and extractions for patients in East Los Angeles.',
     hasBio: true,
     bioParagraphs: [
@@ -164,7 +164,7 @@ export const PROVIDERS: Provider[] = [
     specialtyLine: 'Endodontist',
     cardTitle: 'Endodontist',
     initials: 'SL',
-    photoSlug: null,
+    photoSlug: 'seong-lee',
     tagline: 'Board-certified endodontist trained at Columbia University, providing root canal therapy on staff at LA Dental Town.',
     hasBio: true,
     bioParagraphs: [
@@ -188,7 +188,7 @@ export const PROVIDERS: Provider[] = [
     specialtyLine: 'Dental Implant Specialist',
     cardTitle: 'Dental Implant Specialist',
     initials: 'EK',
-    photoSlug: null,
+    photoSlug: 'eugene-kim',
     tagline: 'Dental implant specialist on staff at LA Dental Town, providing permanent, natural-looking tooth replacement.',
     hasBio: true,
     bioParagraphs: [

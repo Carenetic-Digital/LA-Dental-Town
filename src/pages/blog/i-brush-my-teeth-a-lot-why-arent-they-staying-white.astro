@@ -11,10 +11,18 @@ const displayDate = 'October 22, 2025';
 const tag = 'Cosmetic Dentistry';
 
 const relatedPosts = [
-  { title: "Why You Shouldn't Skip Your Biannual Dental Cleaning and Checkup", href: '/blog/why-you-shouldnt-skip-your-biannual-dental-cleaning-and-checkup/', gradient: '#1D4D2F, #3A7D44' },
-  { title: '5 Signs That You May Need a Root Canal', href: '/blog/5-signs-that-you-may-need-a-root-canal/', gradient: '#163232, #1D4D2F' },
-  { title: 'The Importance of Replacing Missing Teeth', href: '/blog/the-importance-of-replacing-missing-teeth/', gradient: '#3A7D44, #C9A84C' },
+  { title: "Why You Shouldn't Skip Your Biannual Dental Cleaning and Checkup", href: '/blog/why-you-shouldnt-skip-your-biannual-dental-cleaning-and-checkup/' },
+  { title: '5 Signs That You May Need a Root Canal', href: '/blog/5-signs-that-you-may-need-a-root-canal/' },
+  { title: 'The Importance of Replacing Missing Teeth', href: '/blog/the-importance-of-replacing-missing-teeth/' },
 ];
+
+const breadcrumbData = {
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: new URL('/', Astro.site).href },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: new URL('/blog/', Astro.site).href },
+    { '@type': 'ListItem', position: 3, name: postTitle },
+  ],
+};
 
 const articleData = {
   headline: postTitle,
@@ -26,6 +34,7 @@ const articleData = {
 ---
 
 <BaseLayout title={seoTitle} description={seoDescription}>
+  <StructuredData type="BreadcrumbList" data={breadcrumbData} />
   <StructuredData type="BlogPosting" data={articleData} />
 
   <!-- ──────────────────────────────────────────────────────────────────────
@@ -43,7 +52,7 @@ const articleData = {
       <h1 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-green-dark leading-tight mb-4">
         {postTitle}
       </h1>
-      <p class="font-body text-sm text-ink/50">
+      <p class="font-body text-sm text-ink/70">
         <time datetime={publishDate}>{displayDate}</time> · LA Dental Town
       </p>
     </div>
@@ -51,7 +60,18 @@ const articleData = {
 
   <!-- Gradient placeholder banner (see homepage blog preview pattern — no stock photography) -->
   <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 -mt-2 mb-2">
-    <div class="h-56 sm:h-72 rounded-2xl" style="background: linear-gradient(135deg, #3A7D44, #C9A84C)" aria-hidden="true"></div>
+    <picture>
+      <source srcset="/images/blog/i-brush-my-teeth-a-lot-why-arent-they-staying-white.webp" type="image/webp" />
+      <img
+        src="/images/blog/i-brush-my-teeth-a-lot-why-arent-they-staying-white.jpg"
+        alt={postTitle}
+        width="900"
+        height="600"
+        loading="eager"
+        fetchpriority="high"
+        class="w-full h-56 sm:h-72 rounded-2xl object-cover"
+      />
+    </picture>
   </div>
 
   <!-- ──────────────────────────────────────────────────────────────────────
@@ -106,7 +126,7 @@ const articleData = {
       <!-- CTA -->
       <div class="mt-14 bg-cream border border-neutral-200 rounded-2xl p-8 text-center">
         <h3 class="font-display font-semibold text-xl text-green-dark mb-2">Ready to brighten your smile?</h3>
-        <p class="font-body text-sm text-ink/60 mb-6 max-w-md mx-auto">
+        <p class="font-body text-sm text-ink/70 mb-6 max-w-md mx-auto">
           Walk-ins welcome. Se Habla Español. Book online or call our office to schedule your consultation.
         </p>
         <a href="/contents/appointments/" class="inline-flex items-center gap-2 bg-green-mid hover:bg-green-dark text-white font-body font-semibold px-7 py-3.5 rounded-full transition-colors duration-200">
@@ -126,7 +146,19 @@ const articleData = {
         {relatedPosts.map((post) => (
           <li>
             <a href={post.href} class="group block rounded-2xl bg-white border border-neutral-200 hover:border-green-mid/40 hover:shadow-xl overflow-hidden transition-all duration-200 h-full">
-              <div class="h-32 rounded-t-2xl" style={`background: linear-gradient(135deg, ${post.gradient})`} aria-hidden="true"></div>
+              <div class="relative h-32 rounded-t-2xl overflow-hidden">
+                <picture>
+                  <source srcset={`/images/blog/${post.href.split('/').filter(Boolean).pop()}.webp`} type="image/webp" />
+                  <img
+                    src={`/images/blog/${post.href.split('/').filter(Boolean).pop()}.jpg`}
+                    alt={post.title}
+                    width="900"
+                    height="600"
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                  />
+                </picture>
+              </div>
               <div class="p-5">
                 <h3 class="font-display font-semibold text-sm text-green-dark leading-snug group-hover:text-green-mid transition-colors line-clamp-3">
                   {post.title}

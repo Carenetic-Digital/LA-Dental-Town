@@ -1,6 +1,7 @@
 ---
 // component-builder: ServiceHero
 // Purpose: Page-top hero for /services/* pages — breadcrumb, icon, H1, intro copy, CTAs.
+import StructuredData from './StructuredData.astro';
 
 interface Breadcrumb {
   label: string;
@@ -18,13 +19,24 @@ interface Props {
 }
 
 const { breadcrumbs, eyebrow, title, description, icon, iconColor, bgColor } = Astro.props;
+
+const breadcrumbListData = {
+  itemListElement: breadcrumbs.map((b, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: b.label,
+    ...(b.href ? { item: new URL(b.href, Astro.site).href } : {}),
+  })),
+};
 ---
+
+<StructuredData type="BreadcrumbList" data={breadcrumbListData} />
 
 <section class="bg-cream" aria-label={title}>
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-16 sm:pt-14 sm:pb-20">
 
     <nav aria-label="Breadcrumb" class="mb-8">
-      <ol class="flex items-center gap-2 text-xs font-body text-ink/50 flex-wrap list-none m-0 p-0">
+      <ol class="flex items-center gap-2 text-xs font-body text-ink/70 flex-wrap list-none m-0 p-0">
         {breadcrumbs.map((b, i) => (
           <li class="flex items-center gap-2">
             {b.href ? (

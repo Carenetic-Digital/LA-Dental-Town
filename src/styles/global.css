@@ -9,6 +9,7 @@
   --color-green-dark:   #1D4D2F; /* Logo, footer, nav elements, badge backgrounds */
   --color-green-mid:    #3A7D44; /* CTA buttons, links, hover states, highlights  */
   --color-teal-dark:    #163232; /* Dark panel backgrounds (footer, CTA sections)  */
+  --color-green-pale:   #E7EEE7; /* Light section backgrounds — tinted alternative to dark green panels */
 
   /* Accent */
   --color-gold:         #C9A84C; /* Star ratings, dividers, sparkle icons — use sparingly */

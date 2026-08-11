@@ -21,7 +21,7 @@ const { providers, heading = 'Who Provides This Care', note } = Astro.props;
 <section class="bg-cream py-16 sm:py-20" aria-labelledby="providers-heading">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <h2 id="providers-heading" class="font-display font-bold text-2xl sm:text-3xl text-green-dark mb-3">{heading}</h2>
-    {note && <p class="font-body text-base text-ink/60 max-w-2xl leading-relaxed mb-8">{note}</p>}
+    {note && <p class="font-body text-base text-ink/70 max-w-2xl leading-relaxed mb-8">{note}</p>}
 
     <ul class:list={[
       'grid gap-4 list-none m-0 p-0',
@@ -40,7 +40,7 @@ const { providers, heading = 'Who Provides This Care', note } = Astro.props;
             </div>
             <div class="flex-grow min-w-0">
               <p class="font-display font-semibold text-base text-green-dark group-hover:text-green-mid transition-colors">{p.name}</p>
-              <p class="font-body text-sm text-ink/60">{p.title}</p>
+              <p class="font-body text-sm text-ink/70">{p.title}</p>
             </div>
             <svg class="w-4 h-4 text-green-mid shrink-0 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>

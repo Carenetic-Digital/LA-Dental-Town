@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import StructuredData from '../../components/StructuredData.astro';
 
 const seoTitle = '5 Signs That You May Need a Root Canal | LA Dental Town Blog';
-const seoDescription = 'Persistent tooth pain, temperature sensitivity, and swollen gums can signal infected tooth pulp. LA Dental Town outlines five warning signs and what root canal treatment involves.';
+const seoDescription = 'Persistent tooth pain, temperature sensitivity, and swollen gums can signal infected tooth pulp. LA Dental Town outlines five warning signs to watch for.';
 
 const postTitle = '5 Signs That You May Need a Root Canal';
 const publishDate = '2025-05-02';
@@ -11,10 +11,18 @@ const displayDate = 'May 2, 2025';
 const tag = 'Endodontics';
 
 const relatedPosts = [
-  { title: 'When Is Wisdom Teeth Removal a Must?', href: '/blog/when-is-wisdom-teeth-removal-a-must/', gradient: '#163232, #1D4D2F' },
-  { title: "Why You Shouldn't Skip Your Biannual Dental Cleaning and Checkup", href: '/blog/why-you-shouldnt-skip-your-biannual-dental-cleaning-and-checkup/', gradient: '#1D4D2F, #3A7D44' },
-  { title: 'The Importance of Replacing Missing Teeth', href: '/blog/the-importance-of-replacing-missing-teeth/', gradient: '#3A7D44, #C9A84C' },
+  { title: 'When Is Wisdom Teeth Removal a Must?', href: '/blog/when-is-wisdom-teeth-removal-a-must/' },
+  { title: "Why You Shouldn't Skip Your Biannual Dental Cleaning and Checkup", href: '/blog/why-you-shouldnt-skip-your-biannual-dental-cleaning-and-checkup/' },
+  { title: 'The Importance of Replacing Missing Teeth', href: '/blog/the-importance-of-replacing-missing-teeth/' },
 ];
+
+const breadcrumbData = {
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: new URL('/', Astro.site).href },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: new URL('/blog/', Astro.site).href },
+    { '@type': 'ListItem', position: 3, name: postTitle },
+  ],
+};
 
 const articleData = {
   headline: postTitle,
@@ -26,6 +34,7 @@ const articleData = {
 ---
 
 <BaseLayout title={seoTitle} description={seoDescription}>
+  <StructuredData type="BreadcrumbList" data={breadcrumbData} />
   <StructuredData type="BlogPosting" data={articleData} />
 
   <section class="bg-cream py-16 sm:py-20" aria-label="Article header">
@@ -40,14 +49,25 @@ const articleData = {
       <h1 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-green-dark leading-tight mb-4">
         {postTitle}
       </h1>
-      <p class="font-body text-sm text-ink/50">
+      <p class="font-body text-sm text-ink/70">
         <time datetime={publishDate}>{displayDate}</time> · LA Dental Town
       </p>
     </div>
   </section>
 
   <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 -mt-2 mb-2">
-    <div class="h-56 sm:h-72 rounded-2xl" style="background: linear-gradient(135deg, #1D4D2F, #3A7D44)" aria-hidden="true"></div>
+    <picture>
+      <source srcset="/images/blog/5-signs-that-you-may-need-a-root-canal.webp" type="image/webp" />
+      <img
+        src="/images/blog/5-signs-that-you-may-need-a-root-canal.jpg"
+        alt={postTitle}
+        width="900"
+        height="600"
+        loading="eager"
+        fetchpriority="high"
+        class="w-full h-56 sm:h-72 rounded-2xl object-cover"
+      />
+    </picture>
   </div>
 
   <section class="bg-white py-14 sm:py-20">
@@ -90,7 +110,7 @@ const articleData = {
 
       <div class="mt-14 bg-cream border border-neutral-200 rounded-2xl p-8 text-center">
         <h3 class="font-display font-semibold text-xl text-green-dark mb-2">Don't ignore tooth pain</h3>
-        <p class="font-body text-sm text-ink/60 mb-6 max-w-md mx-auto">
+        <p class="font-body text-sm text-ink/70 mb-6 max-w-md mx-auto">
           Walk-ins welcome. Se Habla Español. Book online or call our office if you're experiencing any of these signs.
         </p>
         <a href="/contents/appointments/" class="inline-flex items-center gap-2 bg-green-mid hover:bg-green-dark text-white font-body font-semibold px-7 py-3.5 rounded-full transition-colors duration-200">
@@ -107,7 +127,19 @@ const articleData = {
         {relatedPosts.map((post) => (
           <li>
             <a href={post.href} class="group block rounded-2xl bg-white border border-neutral-200 hover:border-green-mid/40 hover:shadow-xl overflow-hidden transition-all duration-200 h-full">
-              <div class="h-32 rounded-t-2xl" style={`background: linear-gradient(135deg, ${post.gradient})`} aria-hidden="true"></div>
+              <div class="relative h-32 rounded-t-2xl overflow-hidden">
+                <picture>
+                  <source srcset={`/images/blog/${post.href.split('/').filter(Boolean).pop()}.webp`} type="image/webp" />
+                  <img
+                    src={`/images/blog/${post.href.split('/').filter(Boolean).pop()}.jpg`}
+                    alt={post.title}
+                    width="900"
+                    height="600"
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                  />
+                </picture>
+              </div>
               <div class="p-5">
                 <h3 class="font-display font-semibold text-sm text-green-dark leading-snug group-hover:text-green-mid transition-colors line-clamp-3">
                   {post.title}

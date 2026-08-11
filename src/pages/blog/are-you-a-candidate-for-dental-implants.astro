@@ -7,31 +7,35 @@ const seoTitle = `${title} | LA Dental Town Blog`;
 const seoDescription = 'Missing a tooth? Learn what factors determine whether dental implants are right for you, from gum health to jawbone density, at LA Dental Town.';
 
 const tag = 'Implants';
-const gradient = 'linear-gradient(135deg, #3A7D44, #C9A84C)';
 
 const relatedPosts = [
   {
     title: 'What Is a Root Canal and Why Do I Need One?',
     href: '/blog/what-is-a-root-canal-and-why-do-i-need-one/',
     tag: 'Endodontics',
-    gradient: 'linear-gradient(135deg, #1D4D2F, #3A7D44)',
   },
   {
     title: 'How Veneers Can Fix Chips, Gaps, and Discoloration for a Perfect Smile',
     href: '/blog/how-veneers-can-fix-chips-gaps-and-discoloration-for-a-perfect-smile/',
     tag: 'Cosmetic',
-    gradient: 'linear-gradient(135deg, #163232, #3A7D44)',
   },
   {
     title: 'Why Same-Day Crowns Are the Best Option for Busy Professionals',
     href: '/blog/why-same-day-crowns-are-the-best-option-for-busy-professionals/',
     tag: 'Restorative',
-    gradient: 'linear-gradient(135deg, #163232, #1D4D2F)',
   },
 ];
 
 const publishDate = '2026-03-12';
 const displayDate = 'Mar 12, 2026';
+
+const breadcrumbData = {
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: new URL('/', Astro.site).href },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: new URL('/blog/', Astro.site).href },
+    { '@type': 'ListItem', position: 3, name: title },
+  ],
+};
 
 const articleData = {
   headline: title,
@@ -43,12 +47,13 @@ const articleData = {
 ---
 
 <BaseLayout title={seoTitle} description={seoDescription}>
+  <StructuredData type="BreadcrumbList" data={breadcrumbData} />
   <StructuredData type="BlogPosting" data={articleData} />
 
   <section class="bg-cream py-14 sm:py-20" aria-label="Blog post header">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       <nav aria-label="Breadcrumb" class="mb-6">
-        <ol class="flex items-center gap-2 font-body text-sm text-ink/50 list-none m-0 p-0">
+        <ol class="flex items-center gap-2 font-body text-sm text-ink/70 list-none m-0 p-0">
           <li><a href="/blog/" class="hover:text-green-mid transition-colors">Blog</a></li>
           <li aria-hidden="true">/</li>
           <li class="text-ink/70">{tag}</li>
@@ -58,14 +63,25 @@ const articleData = {
       <h1 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-green-dark leading-tight">
         {title}
       </h1>
-      <p class="font-body text-sm text-ink/50 mt-4">
+      <p class="font-body text-sm text-ink/70 mt-4">
         <time datetime={publishDate}>{displayDate}</time> · LA Dental Town
       </p>
     </div>
   </section>
 
   <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 -mt-2 sm:-mt-4">
-    <div class="h-48 sm:h-64 rounded-3xl" style={`background: ${gradient}`} aria-hidden="true"></div>
+    <picture>
+      <source srcset="/images/blog/are-you-a-candidate-for-dental-implants.webp" type="image/webp" />
+      <img
+        src="/images/blog/are-you-a-candidate-for-dental-implants.jpg"
+        alt={title}
+        width="900"
+        height="600"
+        loading="eager"
+        fetchpriority="high"
+        class="w-full h-48 sm:h-64 rounded-3xl object-cover"
+      />
+    </picture>
   </div>
 
   <article class="bg-white py-14 sm:py-20">
@@ -149,8 +165,20 @@ const articleData = {
         {relatedPosts.map((post) => (
           <li>
             <a href={post.href} class="group block rounded-2xl bg-white border border-neutral-200 hover:border-green-mid/40 hover:shadow-xl overflow-hidden transition-all duration-200 h-full">
-              <div class="h-32 flex items-end p-4" style={`background: ${post.gradient}`} aria-hidden="true">
-                <span class="inline-block font-body text-xs font-semibold text-white/90 bg-white/20 rounded-full px-3 py-1">{post.tag}</span>
+              <div class="relative h-32">
+                <picture>
+                  <source srcset={`/images/blog/${post.href.split('/').filter(Boolean).pop()}.webp`} type="image/webp" />
+                  <img
+                    src={`/images/blog/${post.href.split('/').filter(Boolean).pop()}.jpg`}
+                    alt={post.title}
+                    width="900"
+                    height="600"
+                    loading="lazy"
+                    class="absolute inset-0 w-full h-full object-cover"
+                  />
+                </picture>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" aria-hidden="true"></div>
+                <span class="absolute bottom-4 left-4 inline-block font-body text-xs font-semibold text-white bg-white/20 backdrop-blur-sm rounded-full px-3 py-1">{post.tag}</span>
               </div>
               <div class="p-5">
                 <h3 class="font-display font-semibold text-sm text-green-dark leading-snug group-hover:text-green-mid transition-colors line-clamp-3">{post.title}</h3>

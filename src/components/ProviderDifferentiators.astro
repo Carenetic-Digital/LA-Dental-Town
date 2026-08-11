@@ -1,31 +1,33 @@
 ---
 // component-builder: ProviderDifferentiators
-// Purpose: Dark icon-card differentiator grid for /provider/[slug]/ pages —
+// Purpose: Light icon-card differentiator grid for /provider/[slug]/ pages —
 // structural echo of the bhdentists.com "What Sets [Name] Apart?" 2x2 card
-// grid (reference/analysis.md §1, step 6), rebuilt in our own green-dark
-// palette and reusing the site's existing 6 differentiators (see
-// src/lib/differentiators.ts, sourced verbatim from src/pages/index.astro)
-// so messaging stays consistent sitewide rather than inventing new copy.
+// grid (reference/analysis.md §1, step 6), reusing the site's existing 6
+// differentiators (see src/lib/differentiators.ts, sourced verbatim from
+// src/pages/index.astro) so messaging stays consistent sitewide rather than
+// inventing new copy. Uses a pale green panel rather than the dark green
+// treatment so it doesn't stack two dark sections against the ProviderCTA
+// panel directly below it.
 
 import { DIFFERENTIATORS } from '../lib/differentiators';
 ---
 
-<section class="bg-green-dark py-16 sm:py-20" aria-labelledby="differentiators-heading">
+<section class="bg-green-pale py-16 sm:py-20" aria-labelledby="differentiators-heading">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-10">
-      <p class="font-body text-xs uppercase tracking-widest text-gold mb-3">Why Choose LA Dental Town</p>
-      <h2 id="differentiators-heading" class="font-display font-bold text-2xl sm:text-3xl text-white">
+      <p class="font-body text-xs uppercase tracking-widest text-green-mid mb-3">Why Choose LA Dental Town</p>
+      <h2 id="differentiators-heading" class="font-display font-bold text-2xl sm:text-3xl text-green-dark">
         What Sets Our Team Apart
       </h2>
     </div>
 
     <ul class="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-5 list-none m-0 p-0">
       {DIFFERENTIATORS.map((d) => (
-        <li class="flex flex-col items-center text-center gap-3 p-6 rounded-2xl bg-white/10 border border-white/10">
-          <div class="w-11 h-11 bg-white/15 rounded-full flex items-center justify-center shrink-0">
-            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" set:html={d.icon}></svg>
+        <li class="flex flex-col items-center text-center gap-3 p-6 rounded-2xl bg-white border border-green-dark/10">
+          <div class="w-11 h-11 bg-green-dark/10 rounded-full flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5 text-green-dark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" set:html={d.icon}></svg>
           </div>
-          <span class="font-body font-semibold text-white text-sm leading-tight">{d.label}</span>
+          <span class="font-body font-semibold text-green-dark text-sm leading-tight">{d.label}</span>
         </li>
       ))}
     </ul>
