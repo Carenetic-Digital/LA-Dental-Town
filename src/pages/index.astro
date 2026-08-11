@@ -567,7 +567,8 @@ const blogPosts = [
 </BaseLayout>
 
 <script>
-  // Hero video: respect prefers-reduced-motion, and always offer a manual pause/play toggle (WCAG 2.2.2).
+  // Hero video: respect prefers-reduced-motion (including live changes to the
+  // OS setting), and always offer a manual pause/play toggle (WCAG 2.2.2).
   const heroVideo = document.getElementById('hero-video') as HTMLVideoElement | null;
   const heroToggle = document.getElementById('hero-video-toggle');
   const pauseIcon = document.getElementById('hero-video-pause-icon');
@@ -589,10 +590,13 @@ const blogPosts = [
   }
 
   if (heroVideo) {
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (prefersReducedMotion.matches) {
       setHeroVideoPlaying(false);
     }
+    prefersReducedMotion.addEventListener('change', (e) => {
+      setHeroVideoPlaying(!e.matches);
+    });
   }
 
   heroToggle?.addEventListener('click', () => {

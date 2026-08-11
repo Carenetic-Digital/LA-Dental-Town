@@ -8,3 +8,21 @@
 
 # CSP - start permissive, tighten as needed
   Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://cloudflareinsights.com; frame-src https://challenges.cloudflare.com https://www.google.com https://maps.google.com
+
+# Patient/appointment-related pages — never cache (HIPAA hygiene: correct by
+# default even though these pages don't render patient-specific data today)
+/contents/appointments/*
+  Cache-Control: no-store
+  Pragma: no-cache
+
+/contactus/*
+  Cache-Control: no-store
+  Pragma: no-cache
+
+/contents/patient-resources/*
+  Cache-Control: no-store
+  Pragma: no-cache
+
+/testimonials/*
+  Cache-Control: no-store
+  Pragma: no-cache
