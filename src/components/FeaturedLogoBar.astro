@@ -1,0 +1,111 @@
+---
+// Scrolling "as featured in" bar. The logo list is duplicated once so the
+// track can translate a full 50% and loop seamlessly; the copy is hidden from
+// assistive tech so each mark is announced only once.
+interface Logo {
+  src: string;
+  alt: string;
+  /** Optical height class — some marks read smaller than their box implies. */
+  size?: string;
+}
+
+interface Props {
+  heading?: string;
+  logos: Logo[];
+}
+
+const { heading = 'As Featured In', logos } = Astro.props;
+---
+
+<section class="bg-cream" aria-labelledby="featured-logos-heading">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-14">
+
+    <h2
+      id="featured-logos-heading"
+      class="font-body text-xs uppercase tracking-widest text-green-dark/70 text-center mb-8">
+      {heading}
+    </h2>
+
+    <div class="logo-marquee relative overflow-hidden">
+      <div class="logo-track flex items-center gap-12 sm:gap-16 w-max">
+        {logos.map((logo) => (
+          <img
+            src={logo.src}
+            alt={logo.alt}
+            loading="lazy"
+            class={`w-auto shrink-0 object-contain grayscale opacity-80 ${logo.size ?? 'h-8 sm:h-10'}`}
+          />
+        ))}
+        {logos.map((logo) => (
+          <img
+            src={logo.src}
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            class={`w-auto shrink-0 object-contain grayscale opacity-80 ${logo.size ?? 'h-8 sm:h-10'}`}
+          />
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .logo-marquee {
+    /* Fade the marks out at both edges so they don't collide with the rule */
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 6rem,
+      #000 calc(100% - 6rem),
+      transparent
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 6rem,
+      #000 calc(100% - 6rem),
+      transparent
+    );
+  }
+
+  .logo-track {
+    animation: logo-scroll 40s linear infinite;
+  }
+
+  /* Half the track is the duplicated copy, so -50% lands on a seam-free loop */
+  @keyframes logo-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Pausing on hover lets someone actually read a mark they spotted */
+  .logo-marquee:hover .logo-track {
+    animation-play-state: paused;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .logo-marquee {
+      mask-image: none;
+      -webkit-mask-image: none;
+    }
+
+    .logo-track {
+      animation: none;
+      width: 100%;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem 3rem;
+    }
+
+    /* The duplicate exists only to feed the loop — drop it when static */
+    .logo-track img[aria-hidden='true'] {
+      display: none;
+    }
+  }
+</style>
