@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ServiceHero from '../../components/ServiceHero.astro';
 import RelatedServiceGrid from '../../components/RelatedServiceGrid.astro';
-import ServiceProviders from '../../components/ServiceProviders.astro';
 import ServiceCTA from '../../components/ServiceCTA.astro';
 import { ICONS, CATEGORY_COLORS } from '../../lib/serviceIcons';
 
@@ -52,13 +51,6 @@ const related = [
     heading="Treatments Under This Category"
     items={related}
     background="cream"
-  />
-
-  <ServiceProviders
-    heading="Who Provides This Care"
-    providers={[
-      { name: 'Dr. Nadia Hassan, DDS', title: 'Oral Surgeon', href: '/provider/nadia-hassan-dds/' },
-    ]}
   />
 
   <ServiceCTA />

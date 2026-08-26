@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ServiceHero from '../../components/ServiceHero.astro';
 import RelatedServiceGrid from '../../components/RelatedServiceGrid.astro';
-import ServiceProviders from '../../components/ServiceProviders.astro';
 import ServiceCTA from '../../components/ServiceCTA.astro';
 import { ICONS, CATEGORY_COLORS } from '../../lib/serviceIcons';
 
@@ -79,15 +78,6 @@ const related = [
     subheading="General & family dentistry at LA Dental Town includes the following dedicated service."
     items={related}
     background="cream"
-  />
-
-  <ServiceProviders
-    heading="Who Provides This Care"
-    note="General and family dentistry is provided by our co-founding dentists, who see patients of all ages."
-    providers={[
-      { name: 'Dr. Margaret Wu, DDS', title: 'Co-Founder, General & Cosmetic Dentist', href: '/provider/margaret-wu-dds/' },
-      { name: 'Dr. Jennifer Wu, DDS', title: 'Co-Founder, General & Cosmetic Dentist', href: '/provider/jennifer-wu-dds/' },
-    ]}
   />
 
   <ServiceCTA />

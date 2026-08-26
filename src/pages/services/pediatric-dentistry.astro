@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ServiceHero from '../../components/ServiceHero.astro';
-import ServiceProviders from '../../components/ServiceProviders.astro';
 import ServiceCTA from '../../components/ServiceCTA.astro';
 import { ICONS, CATEGORY_COLORS } from '../../lib/serviceIcons';
 
@@ -48,13 +47,6 @@ const seoDescription = 'Gentle pediatric dental care in East Los Angeles — fir
       </p>
     </div>
   </section>
-
-  <ServiceProviders
-    heading="Who Provides This Care"
-    providers={[
-      { name: 'Dr. Tiffany Tran, DDS, MS', title: 'Pediatric Dentist', href: '/provider/tiffany-tran-dds/' },
-    ]}
-  />
 
   <ServiceCTA
     heading="Ready to schedule your child's visit?"
