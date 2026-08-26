@@ -299,18 +299,18 @@ const blogPosts = [
 
       <ul class="grid grid-cols-1 sm:grid-cols-3 gap-5 list-none m-0 p-0">
         {[
-          { slug: 'reception-waiting-area', alt: 'LA Dental Town reception and waiting area', label: 'Reception & Waiting Area' },
+          { slug: 'reception-waiting-area', alt: 'LA Dental Town reception and waiting area with green banquette seating', label: 'Reception & Waiting Area' },
           { slug: 'pediatric-treatment-room', alt: "Colorful pediatric treatment bay for kids' visits", label: 'Kids & Pediatric Care' },
           { slug: 'kids-play-area', alt: "Kids' play area with toys and a TV", label: "Kids' Play Area" },
         ].map((photo) => (
-          <li class="group relative rounded-2xl overflow-hidden" style="aspect-ratio: 4/3;">
+          <li class="group relative rounded-2xl overflow-hidden aspect-[4/3] sm:aspect-square">
             <picture>
               <source srcset={`/images/office/${photo.slug}.webp`} type="image/webp" />
               <img
                 src={`/images/office/${photo.slug}.jpg`}
                 alt={photo.alt}
-                width="1000"
-                height="750"
+                width="1600"
+                height="1067"
                 loading="lazy"
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
