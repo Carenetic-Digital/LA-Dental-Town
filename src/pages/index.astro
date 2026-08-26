@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import FeaturedLogoBar from '../components/FeaturedLogoBar.astro';
 
 const seoTitle = 'LA Dental Town | Family Dentistry in East Los Angeles, CA';
 const seoDescription = 'Top-rated family, cosmetic & specialty dental practice in East Los Angeles. Invisalign, implants, pediatric care & more. Walk-ins welcome. Se Habla Español.';
@@ -89,6 +90,14 @@ const testimonials = [
     source: "Google",
     stars: 5,
   },
+];
+
+const featuredLogos = [
+  { src: '/images/logos/time.svg', alt: 'Time Magazine', size: 'h-7 sm:h-9' },
+  { src: '/images/logos/ada.svg', alt: 'American Dental Association', size: 'h-6 sm:h-8' },
+  { src: '/images/logos/cda.png', alt: 'California Dental Association', size: 'h-10 sm:h-12' },
+  { src: '/images/logos/invisalign.svg', alt: 'Invisalign Premier Provider', size: 'h-6 sm:h-8' },
+  { src: '/images/logos/lumineers.png', alt: 'Lumineers', size: 'h-7 sm:h-9' },
 ];
 
 const blogPosts = [
@@ -410,6 +419,12 @@ const blogPosts = [
       </div>
     </div>
   </section>
+
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       SECTION 5b: Featured-in logo bar
+  ─────────────────────────────────────────────────────────────────────── -->
+  <FeaturedLogoBar logos={featuredLogos} />
 
 
   <!-- ──────────────────────────────────────────────────────────────────────
