@@ -121,10 +121,10 @@ const blogPosts = [
     <div class="absolute top-0 right-0 w-1/2 h-full bg-white border-l border-neutral-200 hidden lg:block" aria-hidden="true"></div>
 
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 min-h-[88vh] lg:min-h-screen items-center">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 min-h-[88vh] lg:min-h-[44rem] items-center lg:items-stretch">
 
         <!-- Left: Editorial typography -->
-        <div class="py-24 lg:py-32 lg:pr-16">
+        <div class="py-24 lg:py-24 lg:pr-16 lg:flex lg:flex-col lg:justify-center">
           <p class="font-body text-xs sm:text-sm uppercase tracking-widest text-green-mid mb-6">East Los Angeles, California</p>
           <h1 class="font-display font-bold text-5xl sm:text-6xl lg:text-7xl text-green-dark leading-[1.06] mb-8">
             Healthy<br>
@@ -172,8 +172,8 @@ const blogPosts = [
         </div>
 
         <!-- Right: Welcome video -->
-        <div class="lg:pl-8 xl:pl-12 pb-16 pt-8 lg:py-16 flex items-center">
-          <div class="relative w-full rounded-3xl overflow-hidden shadow-xl border border-neutral-200" style="aspect-ratio: 16/10;">
+        <div class="lg:pl-8 xl:pl-12 pb-16 pt-8 lg:py-12 flex items-center">
+          <div class="relative w-full rounded-3xl overflow-hidden shadow-xl border border-neutral-200 aspect-[16/10] lg:aspect-auto lg:h-full lg:max-h-[34rem] xl:max-h-[40rem]">
             <video
               id="hero-video"
               class="absolute inset-0 w-full h-full object-cover"
