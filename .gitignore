@@ -27,3 +27,6 @@ playwright-report/
 # Wrangler
 .wrangler/
 .playwright-mcp/
+
+# BugHerd workflow artifacts (triage logs, review data, screenshots)
+.bugherd/
