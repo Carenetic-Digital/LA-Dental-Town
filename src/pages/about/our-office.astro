@@ -60,7 +60,7 @@ const technology = [
 
 // Ordered as a walkthrough: arrival, then treatment rooms, then the kids'
 // area and the details that give the office its character. 12 photos divides
-// evenly across both the 2-column and 4-column grids.
+// evenly across both the 2-column and 3-column grids.
 const galleryPhotos = [
   { slug: 'lobby-reception', alt: 'LA Dental Town lobby with pendant lighting, a window bench, and the reception desk' },
   { slug: 'front-desk', alt: 'Front desk and check-in counter at LA Dental Town' },
@@ -150,9 +150,9 @@ const arrivalSteps = [
           Our Office, Room by Room
         </h2>
       </div>
-      <ul class="grid grid-cols-2 lg:grid-cols-4 gap-4 list-none m-0 p-0">
+      <ul class="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 list-none m-0 p-0">
         {galleryPhotos.map((photo) => (
-          <li class="rounded-2xl overflow-hidden" style="aspect-ratio: 4/3;">
+          <li class="rounded-2xl overflow-hidden" style="aspect-ratio: 1/1;">
             <picture>
               <source srcset={`/images/office/${photo.slug}.webp`} type="image/webp" />
               <img
