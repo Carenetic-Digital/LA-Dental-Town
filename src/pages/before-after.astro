@@ -1,0 +1,128 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BeforeAfterCard from '../components/BeforeAfterCard.astro';
+
+const seoTitle = 'Before & After Photos | LA Dental Town — East Los Angeles, CA';
+const seoDescription = 'See real before-and-after results from LA Dental Town patients — 47 transformations from our general, cosmetic & restorative dentistry.';
+
+// Actual pixel dimensions of each source photo, verified with `sips -g pixelWidth -g pixelHeight`
+// against public/images/before-after/case-NN-before.jpg / case-NN-after.jpg.
+// Explicit width/height on every <img> prevents layout shift regardless of each
+// photo's native aspect ratio (they vary case to case since these are real,
+// unstaged clinical photos).
+const cases = [
+  { n: '01', bw: 529, bh: 189, aw: 515, ah: 193 },
+  { n: '02', bw: 524, bh: 191, aw: 517, ah: 193 },
+  { n: '03', bw: 558, bh: 185, aw: 559, ah: 190 },
+  { n: '04', bw: 544, bh: 188, aw: 546, ah: 188 },
+  { n: '05', bw: 537, bh: 251, aw: 537, ah: 251 },
+  { n: '06', bw: 512, bh: 263, aw: 524, ah: 265 },
+  { n: '07', bw: 556, bh: 273, aw: 592, ah: 274 },
+  { n: '08', bw: 520, bh: 186, aw: 494, ah: 168 },
+  { n: '09', bw: 670, bh: 259, aw: 611, ah: 262 },
+  { n: '10', bw: 593, bh: 261, aw: 638, ah: 261 },
+  { n: '11', bw: 505, bh: 355, aw: 516, ah: 357 },
+  { n: '12', bw: 784, bh: 251, aw: 384, ah: 251 },
+  { n: '13', bw: 497, bh: 248, aw: 497, ah: 249 },
+  { n: '14', bw: 420, bh: 204, aw: 421, ah: 198 },
+  { n: '15', bw: 419, bh: 202, aw: 418, ah: 198 },
+  { n: '16', bw: 477, bh: 297, aw: 461, ah: 291 },
+  { n: '17', bw: 445, bh: 299, aw: 540, ah: 300 },
+  { n: '18', bw: 443, bh: 266, aw: 497, ah: 258 },
+  { n: '19', bw: 316, bh: 159, aw: 271, ah: 235 },
+  { n: '20', bw: 587, bh: 171, aw: 538, ah: 165 },
+  { n: '21', bw: 467, bh: 235, aw: 473, ah: 235 },
+  { n: '22', bw: 364, bh: 232, aw: 364, ah: 232 },
+  { n: '23', bw: 364, bh: 232, aw: 364, ah: 232 },
+  { n: '24', bw: 516, bh: 164, aw: 767, ah: 164 },
+  { n: '25', bw: 364, bh: 246, aw: 725, ah: 246 },
+  { n: '26', bw: 364, bh: 246, aw: 725, ah: 246 },
+  { n: '27', bw: 725, bh: 232, aw: 364, ah: 232 },
+  { n: '28', bw: 957, bh: 244, aw: 318, ah: 243 },
+  { n: '29', bw: 364, bh: 232, aw: 364, ah: 232 },
+  { n: '30', bw: 457, bh: 240, aw: 462, ah: 236 },
+  { n: '31', bw: 723, bh: 232, aw: 379, ah: 231 },
+  { n: '32', bw: 364, bh: 232, aw: 364, ah: 232 },
+  { n: '33', bw: 364, bh: 246, aw: 725, ah: 246 },
+  { n: '34', bw: 364, bh: 246, aw: 725, ah: 246 },
+  { n: '35', bw: 725, bh: 246, aw: 364, ah: 246 },
+  { n: '36', bw: 364, bh: 246, aw: 725, ah: 246 },
+  { n: '37', bw: 364, bh: 232, aw: 364, ah: 232 },
+  { n: '38', bw: 364, bh: 232, aw: 364, ah: 232 },
+  { n: '39', bw: 364, bh: 232, aw: 364, ah: 232 },
+  { n: '40', bw: 364, bh: 232, aw: 364, ah: 232 },
+  { n: '41', bw: 364, bh: 232, aw: 364, ah: 232 },
+  { n: '42', bw: 364, bh: 246, aw: 725, ah: 246 },
+  { n: '43', bw: 364, bh: 232, aw: 364, ah: 232 },
+  { n: '44', bw: 364, bh: 232, aw: 364, ah: 232 },
+  { n: '45', bw: 364, bh: 232, aw: 364, ah: 232 },
+  { n: '46', bw: 364, bh: 246, aw: 725, ah: 246 },
+  { n: '47', bw: 361, bh: 241, aw: 361, ah: 241 },
+];
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       SECTION 1: Header / Intro
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-cream py-16 sm:py-20" aria-labelledby="before-after-heading">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="font-body text-xs uppercase tracking-widest text-green-mid mb-3">Real Patient Results</p>
+      <h1 id="before-after-heading" class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl text-green-dark mb-6 leading-tight">
+        Before &amp; After
+      </h1>
+      <p class="font-body text-base sm:text-lg text-ink/65 leading-relaxed max-w-2xl mx-auto">
+        Browse 47 real patient transformations from our East Los Angeles practice. These photos document actual treatment outcomes at LA Dental Town — individual results vary based on each patient's unique dental history, diagnosis, and treatment plan.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       SECTION 2: Gallery Grid
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-white py-16 sm:py-20" aria-label="Before and after photo gallery">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 list-none m-0 p-0">
+        {cases.map((c) => (
+          <li>
+            <BeforeAfterCard
+              caseNumber={c.n}
+              beforeWidth={c.bw}
+              beforeHeight={c.bh}
+              afterWidth={c.aw}
+              afterHeight={c.ah}
+            />
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       SECTION 3: Closing CTA
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-teal-dark text-white py-16 sm:py-20" aria-labelledby="cta-heading">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white/10 rounded-3xl p-8 sm:p-12 border border-white/20 text-center">
+        <h2 id="cta-heading" class="font-display font-semibold text-2xl sm:text-3xl lg:text-4xl text-white mb-4">
+          Ready for Your Own Transformation?
+        </h2>
+        <p class="font-body text-white/75 text-base sm:text-lg leading-relaxed mb-8 max-w-xl mx-auto">
+          Schedule a consultation with our team to talk through your options — walk-ins welcome, and Se Habla Español.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
+          <a href="/appointments/" class="flex-1 text-center bg-green-mid hover:bg-green-dark text-white font-body font-semibold py-3.5 px-7 rounded-full transition-colors duration-200">
+            Book Appointment
+          </a>
+          <a href="tel:+13238870088" class="flex-1 text-center border-2 border-white/40 hover:border-white text-white font-body font-medium py-3.5 px-7 rounded-full transition-colors duration-200">
+            Call (323) 887-0088
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

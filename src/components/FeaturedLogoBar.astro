@@ -1,6 +1,8 @@
 ---
-// Scrolling "as featured in" bar. The logo list is duplicated once so the
-// track can translate a full 50% and loop seamlessly; the copy is hidden from
+// Scrolling "as featured in" bar. Each mark sits in a fixed-width slot so a set
+// number are visible at once (5 on desktop, fewer on small screens where five
+// would be illegible). The list is duplicated once so the track can translate a
+// full 50% and loop seamlessly regardless of slot width; the copy is hidden from
 // assistive tech so each mark is announced only once.
 interface Logo {
   src: string;
@@ -22,28 +24,31 @@ const { heading = 'As Featured In', logos } = Astro.props;
 
     <h2
       id="featured-logos-heading"
-      class="font-body text-xs uppercase tracking-widest text-green-dark/70 text-center mb-8">
+      class="font-body text-base sm:text-lg uppercase tracking-widest text-green-dark/80 text-center mb-8 sm:mb-10">
       {heading}
     </h2>
 
     <div class="logo-marquee relative overflow-hidden">
-      <div class="logo-track flex items-center gap-12 sm:gap-16 w-max">
+      <div class="logo-track flex items-center">
         {logos.map((logo) => (
-          <img
-            src={logo.src}
-            alt={logo.alt}
-            loading="lazy"
-            class={`w-auto shrink-0 object-contain grayscale opacity-80 ${logo.size ?? 'h-8 sm:h-10'}`}
-          />
+          <div class="logo-slide flex items-center justify-center px-4 sm:px-6">
+            <img
+              src={logo.src}
+              alt={logo.alt}
+              loading="lazy"
+              class={`w-auto max-w-full object-contain grayscale opacity-80 ${logo.size ?? 'h-8 sm:h-10'}`}
+            />
+          </div>
         ))}
         {logos.map((logo) => (
-          <img
-            src={logo.src}
-            alt=""
-            aria-hidden="true"
-            loading="lazy"
-            class={`w-auto shrink-0 object-contain grayscale opacity-80 ${logo.size ?? 'h-8 sm:h-10'}`}
-          />
+          <div class="logo-slide flex items-center justify-center px-4 sm:px-6" aria-hidden="true">
+            <img
+              src={logo.src}
+              alt=""
+              loading="lazy"
+              class={`w-auto max-w-full object-contain grayscale opacity-80 ${logo.size ?? 'h-8 sm:h-10'}`}
+            />
+          </div>
         ))}
       </div>
     </div>
@@ -53,28 +58,46 @@ const { heading = 'As Featured In', logos } = Astro.props;
 
 <style>
   .logo-marquee {
-    /* Fade the marks out at both edges so they don't collide with the rule */
+    /* Soften the marks as they enter and leave the slot row */
     mask-image: linear-gradient(
       to right,
       transparent,
-      #000 6rem,
-      #000 calc(100% - 6rem),
+      #000 2rem,
+      #000 calc(100% - 2rem),
       transparent
     );
     -webkit-mask-image: linear-gradient(
       to right,
       transparent,
-      #000 6rem,
-      #000 calc(100% - 6rem),
+      #000 2rem,
+      #000 calc(100% - 2rem),
       transparent
     );
+  }
+
+  /* Two slots on narrow screens — five marks that small are unreadable */
+  .logo-slide {
+    flex: 0 0 50%;
+  }
+
+  @media (min-width: 640px) {
+    .logo-slide {
+      flex: 0 0 33.3333%;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .logo-slide {
+      flex: 0 0 20%;
+    }
   }
 
   .logo-track {
     animation: logo-scroll 40s linear infinite;
   }
 
-  /* Half the track is the duplicated copy, so -50% lands on a seam-free loop */
+  /* Half the slots are the duplicated copy, so -50% lands on a seam-free loop
+     no matter what width each slot resolves to */
   @keyframes logo-scroll {
     from {
       transform: translateX(0);
@@ -97,14 +120,18 @@ const { heading = 'As Featured In', logos } = Astro.props;
 
     .logo-track {
       animation: none;
-      width: 100%;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 2rem 3rem;
+      gap: 2rem 1rem;
+    }
+
+    /* Let the marks size to their content once they're no longer in slots */
+    .logo-slide {
+      flex: 0 0 auto;
     }
 
     /* The duplicate exists only to feed the loop — drop it when static */
-    .logo-track img[aria-hidden='true'] {
+    .logo-track .logo-slide[aria-hidden='true'] {
       display: none;
     }
   }

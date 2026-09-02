@@ -5,6 +5,23 @@
 /provider/tiffany-wu-dds/            /provider/tiffany-tran-dds/    301
 /provider/tiffany-wu-dds/index.html  /provider/tiffany-tran-dds/    301
 
-# Removed page — Comfort & Safety (content folded into About — amenities/sedation section)
+# Legacy /contents/ URL structure — the old ladentaltown.com nested these pages
+# under /contents/. Flattened on the new build; these preserve the inbound links
+# and ranking history from the live URLs.
+/contents/appointments/                                /appointments/                      301
+/contents/appointments/index.html                      /appointments/                      301
+/contents/before-after/                                /before-after/                      301
+/contents/before-after/index.html                      /before-after/                      301
+/contents/about/our-office/                            /about/our-office/                  301
+/contents/about/our-office/index.html                  /about/our-office/                  301
+/contents/patient-resources/first-visit/               /patient-resources/first-visit/     301
+/contents/patient-resources/first-visit/index.html     /patient-resources/first-visit/     301
+/contents/patient-resources/financial/                 /patient-resources/financial/       301
+/contents/patient-resources/financial/index.html       /patient-resources/financial/       301
+/contents/patient-resources/patient-forms/             /patient-resources/patient-forms/   301
+/contents/patient-resources/patient-forms/index.html   /patient-resources/patient-forms/   301
+
+# Removed page — Comfort & Safety (content folded into About — amenities/sedation
+# section). Source is the legacy /contents/ URL, which is what is live today.
 /contents/patient-resources/comfort-safety/            /about/    301
 /contents/patient-resources/comfort-safety/index.html  /about/    301

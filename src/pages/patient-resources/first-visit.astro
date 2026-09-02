@@ -1,0 +1,229 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const seoTitle = 'Your First Visit | LA Dental Town — East Los Angeles, CA';
+const seoDescription = 'What to expect at your first appointment at LA Dental Town, including what to bring and how we welcome new pediatric patients in East Los Angeles.';
+
+const steps = [
+  {
+    number: '01',
+    title: 'Welcome & Paperwork',
+    description: "You'll check in with our front desk team and complete or confirm your new patient forms — registration, medical history, and consent to treat.",
+    icon: `<path d="M14 2H6c-1.1 0-1.99.9-1.99 2v16c0 1.1.89 2 1.99 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>`,
+  },
+  {
+    number: '02',
+    title: 'Insurance Verification',
+    description: 'Our team reviews your insurance information and walks you through your coverage and any estimated out-of-pocket costs before treatment begins.',
+    icon: `<path d="M20 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/>`,
+  },
+  {
+    number: '03',
+    title: 'Comprehensive Exam & X-Rays',
+    description: 'One of our doctors performs a thorough oral exam, and digital X-rays are taken as needed to get a complete picture of your dental health.',
+    icon: `<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>`,
+  },
+  {
+    number: '04',
+    title: 'Personalized Treatment Plan',
+    description: "We'll discuss your findings and any recommended treatment in plain language, answer your questions, and help you plan next steps at your pace.",
+    icon: `<path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>`,
+  },
+];
+
+const bringItems = [
+  'A valid photo ID',
+  'Your dental insurance card, if applicable',
+  'A list of current medications and any known allergies',
+  'Previous dental X-rays or records, if available',
+  'Completed new patient forms (or arrive a few minutes early to fill them out in office)',
+];
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       Intro / Page Header
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-cream py-16 sm:py-20 lg:py-24" aria-label="Your First Visit">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="font-body text-xs uppercase tracking-widest text-green-mid mb-3">Patient Resources</p>
+      <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl text-green-dark mb-6 leading-tight">
+        Your First Visit
+      </h1>
+      <p class="font-body text-base sm:text-lg text-ink/65 leading-relaxed max-w-2xl mx-auto">
+        Starting care with a new dentist can feel like a big step — here's what to expect when you visit LA Dental Town for the first time, so you can walk in feeling prepared.
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <a
+          href="/appointments/"
+          class="inline-flex items-center gap-2 bg-green-dark hover:bg-green-mid text-white font-body font-semibold px-8 py-4 rounded-full text-base transition-all duration-200 shadow-lg shadow-green-dark/25">
+          Book Your First Appointment
+        </a>
+        <a
+          href="tel:+13238870088"
+          class="inline-flex items-center gap-2 border-2 border-green-dark/30 hover:border-green-dark text-ink hover:text-green-dark font-body font-medium px-8 py-4 rounded-full text-base transition-all duration-200">
+          Call (323) 887-0088
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       What to Expect
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-white py-20 sm:py-28" aria-labelledby="expect-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <p class="font-body text-xs uppercase tracking-widest text-green-mid mb-3">What to Expect</p>
+        <h2 id="expect-heading" class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-green-dark mb-5">
+          How Your Appointment Unfolds
+        </h2>
+        <p class="font-body text-base sm:text-lg text-ink/70 max-w-2xl mx-auto leading-relaxed">
+          Every new patient visit at LA Dental Town follows the same unhurried, four-part approach.
+        </p>
+      </div>
+
+      <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 list-none m-0 p-0">
+        {steps.map((step) => (
+          <li class="flex flex-col gap-4 p-6 rounded-2xl border border-neutral-200 hover:border-green-mid/40 hover:shadow-xl transition-all duration-200 h-full bg-white">
+            <div class="flex items-center justify-between">
+              <div class="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 bg-green-dark/10">
+                <svg class="w-6 h-6 text-green-dark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" set:html={step.icon}></svg>
+              </div>
+              <span class="font-display font-bold text-2xl text-neutral-500" aria-hidden="true">{step.number}</span>
+            </div>
+            <h3 class="font-display font-semibold text-lg text-green-dark leading-tight">{step.title}</h3>
+            <p class="font-body text-sm text-ink/70 leading-relaxed">{step.description}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       What to Bring
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-cream py-20 sm:py-28" aria-labelledby="bring-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div>
+          <p class="font-body text-xs uppercase tracking-widest text-green-mid mb-3">Before You Arrive</p>
+          <h2 id="bring-heading" class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-green-dark mb-6 leading-tight">
+            What to Bring
+          </h2>
+          <p class="font-body text-base text-ink/70 leading-relaxed mb-6">
+            Bringing a few key items helps us verify your coverage and understand your dental history so your first visit goes smoothly.
+          </p>
+          <p class="font-body text-sm text-ink/70">
+            Need your forms ahead of time? Visit our <a href="/patient-resources/patient-forms/" class="font-semibold text-green-mid hover:text-green-dark">Patient Forms</a> page.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-3xl p-8 sm:p-10 border border-neutral-200">
+          <ul class="space-y-4 list-none m-0 p-0">
+            {bringItems.map((item) => (
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-green-mid shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="font-body text-sm sm:text-base text-ink/80 leading-relaxed">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       Your Child's First Visit (Featured)
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-white py-20 sm:py-28" aria-labelledby="child-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 bg-green-dark/10 rounded-full px-4 py-2 mb-6">
+            <span class="text-gold text-base" aria-hidden="true">★</span>
+            <span class="font-body text-xs uppercase tracking-widest text-green-dark">For Our Youngest Patients</span>
+          </div>
+          <h2 id="child-heading" class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-green-dark mb-6 leading-tight">
+            Your Child's First Visit
+          </h2>
+          <div class="space-y-5 font-body text-base text-ink/70 leading-relaxed">
+            <p>
+              A child's first trip to the dentist sets the tone for a lifetime of healthy habits — we keep it gentle, friendly, and fun. Our pediatric dentistry team takes time to introduce your child to the sights and sounds of the office before any exam begins.
+            </p>
+            <p>
+              Kids can relax and enjoy our dedicated play area and PlayStation while they wait, and our doctors use simple, kid-friendly language to explain each step. Parents are always welcome in the room.
+            </p>
+          </div>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a href="/services/pediatric-dentistry/" class="inline-flex items-center gap-2 bg-green-mid hover:bg-green-dark text-white font-body font-semibold px-7 py-3.5 rounded-full transition-colors duration-200">
+              Explore Pediatric Dentistry
+            </a>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-cream rounded-2xl p-6 border border-neutral-200 flex flex-col gap-3">
+            <div class="w-11 h-11 rounded-xl bg-green-dark/10 flex items-center justify-center">
+              <svg class="w-6 h-6 text-green-dark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zM7 8c0-1.66 1.34-3 3-3h4c1.66 0 3 1.34 3 3v2c0 2.21-1.79 4-4 4h-2c-2.21 0-4-1.79-4-4V8zm2 8h6v2H9v-2z"/>
+              </svg>
+            </div>
+            <p class="font-body font-semibold text-sm text-ink leading-snug">Gentle, kid-friendly exams</p>
+          </div>
+          <div class="bg-cream rounded-2xl p-6 border border-neutral-200 flex flex-col gap-3">
+            <div class="w-11 h-11 rounded-xl bg-green-dark/10 flex items-center justify-center">
+              <svg class="w-6 h-6 text-green-dark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M21 6h-2l-1.27-3.55A2 2 0 0 0 15.83 1H8.17a2 2 0 0 0-1.9 1.45L5 6H3a1 1 0 0 0 0 2h1v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8h1a1 1 0 0 0 0-2z"/>
+              </svg>
+            </div>
+            <p class="font-body font-semibold text-sm text-ink leading-snug">On-site play area & PlayStation</p>
+          </div>
+          <div class="bg-cream rounded-2xl p-6 border border-neutral-200 flex flex-col gap-3">
+            <div class="w-11 h-11 rounded-xl bg-green-dark/10 flex items-center justify-center">
+              <svg class="w-6 h-6 text-green-dark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zM4 18v-4.34C4 11.55 5.55 10 7.66 10H9c.83 0 1.5-.67 1.5-1.5S9.83 7 9 7H7.66C4.83 7 2.5 9.33 2.5 12.16V18a2 2 0 0 0 2 2h2v-2H4z"/>
+                <path d="M17.5 10c-1.93 0-3.5 1.57-3.5 3.5V18a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-4.5c0-1.93-1.57-3.5-3.5-3.5h-1z"/>
+              </svg>
+            </div>
+            <p class="font-body font-semibold text-sm text-ink leading-snug">Parents welcome in the room</p>
+          </div>
+          <div class="bg-cream rounded-2xl p-6 border border-neutral-200 flex flex-col gap-3">
+            <div class="w-11 h-11 rounded-xl bg-green-dark/10 flex items-center justify-center">
+              <svg class="w-6 h-6 text-green-dark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+              </svg>
+            </div>
+            <p class="font-body font-semibold text-sm text-ink leading-snug">Building lifelong healthy habits</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       CTA
+  ─────────────────────────────────────────────────────────────────────── -->
+  <section class="bg-teal-dark text-white py-16 sm:py-20" aria-labelledby="cta-heading">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 id="cta-heading" class="font-display font-bold text-2xl sm:text-3xl lg:text-4xl text-white mb-5 leading-tight">
+        Ready to Schedule Your First Visit?
+      </h2>
+      <p class="font-body text-base text-white/75 leading-relaxed mb-8 max-w-2xl mx-auto">
+        Walk-ins welcome. Se Habla Español. Book online or give us a call — we'll find a time that works for your family.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/appointments/" class="inline-flex items-center gap-2 bg-green-mid hover:bg-green-dark text-white font-body font-semibold px-8 py-3.5 rounded-full transition-colors duration-200">
+          Book Appointment
+        </a>
+        <a href="tel:+13238870088" class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-body font-medium px-8 py-3.5 rounded-full transition-colors duration-200">
+          Call Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

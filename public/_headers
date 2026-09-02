@@ -11,7 +11,7 @@
 
 # Patient/appointment-related pages — never cache (HIPAA hygiene: correct by
 # default even though these pages don't render patient-specific data today)
-/contents/appointments/*
+/appointments/*
   Cache-Control: no-store
   Pragma: no-cache
 
@@ -19,7 +19,7 @@
   Cache-Control: no-store
   Pragma: no-cache
 
-/contents/patient-resources/*
+/patient-resources/*
   Cache-Control: no-store
   Pragma: no-cache
 
