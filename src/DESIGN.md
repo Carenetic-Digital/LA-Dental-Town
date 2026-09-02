@@ -141,7 +141,7 @@ Both live in `BaseLayout.astro`:
 
 1. **Sticky Book Now** (lower-right, `fixed bottom-5 right-5 z-40`)
    - Green button, follows scroll on all pages
-   - Currently links to `/contents/appointments/`
+   - Currently links to `/appointments/`
    - TODO: wire to booking widget once embed code arrives
 
 2. **Google Reviews badge** (lower-left, `fixed bottom-5 left-5 z-40`)

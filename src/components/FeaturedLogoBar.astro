@@ -1,0 +1,138 @@
+---
+// Scrolling "as featured in" bar. Each mark sits in a fixed-width slot so a set
+// number are visible at once (5 on desktop, fewer on small screens where five
+// would be illegible). The list is duplicated once so the track can translate a
+// full 50% and loop seamlessly regardless of slot width; the copy is hidden from
+// assistive tech so each mark is announced only once.
+interface Logo {
+  src: string;
+  alt: string;
+  /** Optical height class — some marks read smaller than their box implies. */
+  size?: string;
+}
+
+interface Props {
+  heading?: string;
+  logos: Logo[];
+}
+
+const { heading = 'As Featured In', logos } = Astro.props;
+---
+
+<section class="bg-cream" aria-labelledby="featured-logos-heading">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-14">
+
+    <h2
+      id="featured-logos-heading"
+      class="font-body text-base sm:text-lg uppercase tracking-widest text-green-dark/80 text-center mb-8 sm:mb-10">
+      {heading}
+    </h2>
+
+    <div class="logo-marquee relative overflow-hidden">
+      <div class="logo-track flex items-center">
+        {logos.map((logo) => (
+          <div class="logo-slide flex items-center justify-center px-4 sm:px-6">
+            <img
+              src={logo.src}
+              alt={logo.alt}
+              loading="lazy"
+              class={`w-auto max-w-full object-contain grayscale opacity-80 ${logo.size ?? 'h-8 sm:h-10'}`}
+            />
+          </div>
+        ))}
+        {logos.map((logo) => (
+          <div class="logo-slide flex items-center justify-center px-4 sm:px-6" aria-hidden="true">
+            <img
+              src={logo.src}
+              alt=""
+              loading="lazy"
+              class={`w-auto max-w-full object-contain grayscale opacity-80 ${logo.size ?? 'h-8 sm:h-10'}`}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .logo-marquee {
+    /* Soften the marks as they enter and leave the slot row */
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 2rem,
+      #000 calc(100% - 2rem),
+      transparent
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 2rem,
+      #000 calc(100% - 2rem),
+      transparent
+    );
+  }
+
+  /* Two slots on narrow screens — five marks that small are unreadable */
+  .logo-slide {
+    flex: 0 0 50%;
+  }
+
+  @media (min-width: 640px) {
+    .logo-slide {
+      flex: 0 0 33.3333%;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .logo-slide {
+      flex: 0 0 20%;
+    }
+  }
+
+  .logo-track {
+    animation: logo-scroll 40s linear infinite;
+  }
+
+  /* Half the slots are the duplicated copy, so -50% lands on a seam-free loop
+     no matter what width each slot resolves to */
+  @keyframes logo-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Pausing on hover lets someone actually read a mark they spotted */
+  .logo-marquee:hover .logo-track {
+    animation-play-state: paused;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .logo-marquee {
+      mask-image: none;
+      -webkit-mask-image: none;
+    }
+
+    .logo-track {
+      animation: none;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem 1rem;
+    }
+
+    /* Let the marks size to their content once they're no longer in slots */
+    .logo-slide {
+      flex: 0 0 auto;
+    }
+
+    /* The duplicate exists only to feed the loop — drop it when static */
+    .logo-track .logo-slide[aria-hidden='true'] {
+      display: none;
+    }
+  }
+</style>
